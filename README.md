@@ -35,7 +35,11 @@ Throughout this journey, I’ll be focusing on:
 
 | Day 1 |25/03/2026 |Created repo for documentation|Started creating my digital footprint as a software engineer.|
 
-| Day 2 |26/03/2026 | 
+| Day 2 |26/03/2026 | Planned out the project and divided into phase1 , phase2 and phase 3. Each phase consisting of 30days
+
+| Day 3 |27/03/2026 | Planned the blueprint for phase1 project
+
+| Day 4 | 28/03/2026 | Created phase 1 project blueprint file containing all the mapped out daily content for day 1 to day 30.
 
 > I will update this table daily with what I learned and built.
 
@@ -44,10 +48,6 @@ Throughout this journey, I’ll be focusing on:
 ## Repository Structure
 
 ```
-/day-01
-/day-02
-/day-03
-...
 /projects
 /notes
 ```
