@@ -25,4 +25,4 @@ build/
 .idea/
 
 # Optional CSS build files (if using SCSS compiler)
-*.map
+*.map.DS_Store
