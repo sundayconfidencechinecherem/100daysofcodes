@@ -1,0 +1,82 @@
+.navbar {
+  padding: $spacing-md 0;
+}
+
+.navbar-container {
+  @include flex-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $spacing-xl;
+  
+  @include responsive(mobile) {
+    padding: 0 $spacing-lg;
+  }
+}
+
+.logo a {
+  font-size: $font-size-2xl;
+  font-weight: 800;
+  @include gradient-text;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xl;
+  
+  @include responsive(mobile) {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: $white;
+    flex-direction: column;
+    padding: $spacing-xl;
+    transition: left $transition-base;
+    z-index: 999;
+    
+    &.active {
+      left: 0;
+    }
+  }
+}
+
+.navbar-links {
+  display: flex;
+  gap: $spacing-xl;
+  
+  @include responsive(mobile) {
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-lg;
+  }
+  
+  a {
+    color: $gray-600;
+    font-weight: 500;
+    transition: color $transition-fast;
+    
+    &:hover, &.active {
+      color: $primary;
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: $spacing-sm;
+  
+  @include responsive(mobile) {
+    display: flex;
+  }
+  
+  .hamburger-line {
+    width: 25px;
+    height: 3px;
+    background: $gray-800;
+    transition: all $transition-base;
+  }
+}

@@ -1,0 +1,18 @@
+.testimonials-section {
+  padding: $spacing-5xl 0;
+  background: $gray-50;
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-xl;
+    
+    @include responsive(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include responsive(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: $font-size-5xl;
+  margin-bottom: $spacing-lg;
+  @include gradient-text;
+  
+  @include responsive(mobile) {
+    font-size: $font-size-4xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-4xl;
+  margin-bottom: $spacing-md;
+  
+  @include responsive(mobile) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-2xl;
+  margin-bottom: $spacing-sm;
+}
+
+p {
+  color: $gray-600;
+  line-height: 1.6;
+}

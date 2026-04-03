@@ -1,0 +1,12 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba($white, 0.95);
+  backdrop-filter: blur(10px);
+  transition: box-shadow $transition-base;
+  
+  &.sticky-shadow {
+    box-shadow: $shadow-md;
+  }
+}
