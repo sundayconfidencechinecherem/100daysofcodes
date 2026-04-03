@@ -2,60 +2,404 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirceFlow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>AirceFlow | Modern Workflow Solutions</title>
+    <meta name="description" content="Streamline your processes, collaborate with your team, and get more done in less time with AirceFlow.">
+    <meta name="keywords" content="workflow management software, team collaboration tool, productivity tool, project management software, task management system, workflow automation tool, SaaS productivity platform, Airtable alternative">
+    <meta name="author" content="AirceFlow">
+    <meta name="robots" content="index, follow">
+
+
+        <!-- OPEN GRAPH (SOCIAL MEDIA PREVIEW) -->
+    <meta property="og:title" content="AirceFlow | Workflow Management Platform">
+    <meta property="og:description" content="Organize your workflows, manage tasks, and collaborate with your team in one powerful platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://airceflow.com">
+    <meta property="og:image" content="https://airceflow.com/assets/images/logo.png">
+    <meta property="og:image:alt" content="AirceFlow dashboard preview">
+    <meta name="og:site_name" content="AirceFlow">
+
+         <!-- Twitter SEO -->
+          
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AirceFlow | Workflow Management Platform">
+    <meta name="twitter:description" content="Organize your workflows, manage tasks, and collaborate with your team in one powerful platform.">
+    <meta name="twitter:image" content="https://airceflow.com/assets/images/logo.png">
+    
+    <meta name="theme-color" content="#3B4E8C">
+
+    <!-- Compiled CSS from SCSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
+    <link rel="canonical" href="https://airceflow.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AirceFlow",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Workflow management and team collaboration platform.",
+    "offers": {
+        "@type": "Offer",
+        "price": "19",
+        "priceCurrency": "USD"
+    }
+    }
+    </script>
+
 </head>
 <body>
 
     <!-- skip link for screen readers -->
-     <a href="#main" class="skip-link">Skip to main content</a>
+    <a href="#main" class="skip-link">Skip to main content</a>
 
-    <!-- header -->
-    <header id="header">
-        <!-- navbar -->
-        <nav id="navbar" aria-label="Main navigation">
-           <div class="navbar-container">
+    <!-- header / navbar -->
+    <header id="header" class="site-header">
+        <nav id="navbar" class="navbar" aria-label="Main navigation">
+            <div class="navbar-container">
                 <!-- logo -->
                 <div class="logo">
-                    <a href="#">AirceFlow</a>
+                    <a href="/" aria-label="AirceFlow homepage">AirceFlow</a>
                 </div>
 
-                <!-- navbar links -->
-                <ul class="navbar-links">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="navbar-cta">
-                    <button type="button" >Get Started</button>
+                <!-- hamburger button (mobile) -->
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <!-- navbar links + cta -->
+                <div class="nav-menu" id="navMenu">
+                    <ul class="navbar-links">
+                        <li><a href="#hero" class="nav-link">Home</a></li>
+                        <li><a href="#features" class="nav-link">Features</a></li>
+                        <li><a href="#showcase" class="nav-link">Showcase</a></li>
+                        <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                    <div class="navbar-cta">
+                        <a href="#pricing" class="btn-primary btn-sm">Get Started</a>
+                    </div>
                 </div>
-           </div>
+            </div>
         </nav>
     </header>
 
-    <!-- main -->
+    <!-- main content -->
     <main id="main">
         <!-- hero section -->
-        <section id="hero">  </section>
-        <!-- features section -->
-        <section id="features">  </section>
-        <!-- showcase section -->
-        <section id="showcase">  </section>
-        <!-- pricing section -->
-        <section id="pricing">  </section>
-        <!-- testimonials section -->
-        <section id="testimonials">  </section>
+        <section id="hero" class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-text fade-in">
+                    <h1>AirceFlow - Build Better Workflows</h1>
+                    <p>Streamline your processes, collaborate with your team, and get more done in less time.</p>
+                    <div class="hero-buttons">
+                        <a href="#pricing" class="btn-primary">Get Started</a>
+                        <button type="button" class="btn-secondary" aria-label="Learn more about AirceFlow">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-image fade-in">
+                    <div class="image-placeholder">
+                        <img src="assets/images/sass.png" 
+                             alt="AirceFlow product dashboard preview showing workflow management interface"
+                             loading="eager"
+                             width="600"
+                             height="400">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
 
+        <!-- features section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Powerful features to supercharge your team</h2>
+                    <p>Everything you need to automate workflows, increase visibility, and drive results.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <img src="assets/icons/icons8-lightning-bolt-64.png" 
+                                 alt="Lightning bolt icon representing speed"
+                                 loading="lazy"
+                                 width="48"
+                                 height="48">
+                        </div>
+                        <h3>Lightning Fast</h3>
+                        <p>Real-time sync and instant updates across all devices. No lag, just speed.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <img src="assets/icons/icons8-security-shield-50.png" 
+                                 alt="Security shield icon representing protection"
+                                 loading="lazy"
+                                 width="48"
+                                 height="48">
+                        </div>
+                        <h3>Bank-Grade Security</h3>
+                        <p>Your data is encrypted and protected with enterprise-level security standards.</p>
+                    </div>
+                  
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <img src="assets/icons/icons8-webhook-50.png" 
+                                 alt="Plugin icon representing integrations"
+                                 loading="lazy"
+                                 width="48"
+                                 height="48">
+                        </div>
+                        <h3>300+ Integrations</h3>
+                        <p>Connect with your favorite tools like Slack, GitHub, and Salesforce.</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- showcase section -->
+        <section id="showcase" class="showcase-section">
+            <div class="container showcase-grid">
+                <div class="showcase-content fade-in">
+                    <span class="showcase-tag">Product Showcase</span>
+                    <h2>Visualize work like never before</h2>
+                    <p>AirceFlow brings clarity to chaos. Drag, drop, and customize your workflows with an intuitive interface designed for modern teams.</p>
+                    <ul class="showcase-list">
+                        <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Customizable dashboards & views</li>
+                        <li><i class="fa-solid fa-circle-check" aria-hidden="true" ></i> Automated task assignments</li>
+                        <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Real-time notifications & comments</li>
+                        
+                    </ul>
+                    <button class="btn-outline">Explore Live Demo <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+<div class="showcase-image fade-in">
+    <div class="image-placeholder demo-box">
+        <video 
+            autoplay 
+            muted 
+            tabindex="0"
+            loop 
+            playsinline
+            preload="none"
+            aria-label="Product demo showing AirceFlow workflow interface"
+            poster="assets/images/demo.avif">
+            
+            <source src="assets/images/demo.mp4" type="video/mp4">
+            
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+            </div>
+        </section>
+
+        <!-- pricing section -->
+        <section id="pricing" class="pricing-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Simple, Transparent Pricing</h2>
+                    <p>Choose the plan that fits your team. No hidden fees.</p>
+                </div>
+                <div class="pricing-grid " role="list">
+                    <!-- Basic Plan -->
+                    <div class="pricing-card fade-in" role="listitem">
+                        <div class="plan-name">Basic</div>
+                        <div class="price">$19<span>/month</span></div>
+                        <p class="plan-desc">For small teams getting started</p>
+                        <ul class="features-list">
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> Up to 10 users</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> 5 projects</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> 10 GB storage</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> Basic analytics</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> Email support</li>
+                        </ul>
+                        <button class="btn-primary-outline">Get Started</button>
+                    </div>
+                    <!-- Pro Plan (highlighted) -->
+                    <div class="pricing-card featured fade-in">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="plan-name">Pro</div>
+                        <div class="price">$49<span>/month</span></div>
+                        <p class="plan-desc">For growing teams and advanced workflows</p>
+                        <ul class="features-list">
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> Up to 50 users</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> Unlimited projects</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> 100 GB storage</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> Advanced analytics + reports</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> Priority support + Slack channel</li>
+                        </ul>
+                        <button class="btn-primary">Get Started</button>
+                    </div>
+                    <!-- Enterprise Plan -->
+                    <div class="pricing-card fade-in">
+                        <div class="plan-name">Enterprise</div>
+                        <div class="price">Custom</div>
+                        <p class="plan-desc">For large organizations with custom needs</p>
+                        <ul class="features-list">
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> Unlimited users</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> Unlimited projects</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> 1 TB+ storage</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> Custom analytics & SLA</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true" ></i> 24/7 dedicated support</li>
+                        </ul>
+                        <button class="btn-primary-outline">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- testimonials section -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>What Our Customers Say</h2>
+                    <p>Trusted by thousands of teams worldwide</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card fade-in">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <p class="testimonial-text">AirceFlow completely transformed how our product team operates. We're shipping 2x faster!</p>
+                        <div class="stars" aria-label="5 out of 5 stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                        <div class="customer-info">
+                            <div class="avatar">
+                                <img src="assets/images/jessica.jpg" 
+                                     alt="Jessica Davis avatar"
+                                     loading="lazy"
+                                     width="50"
+                                     height="50">
+                            </div>
+                            <div>
+                                <h4>Jessica Davis</h4>
+                                <span>Product Lead, TechStart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <p class="testimonial-text">The most intuitive workflow tool I've ever used. Our remote team stays perfectly aligned.</p>
+                        <div class="stars" aria-label="5 out of 5 stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                        <div class="customer-info">
+                            <div class="avatar">
+                                <img src="assets/images/micheal.jpg" 
+                                     alt="Michael Chen avatar"
+                                     loading="lazy"
+                                     width="50"
+                                     height="50">
+                            </div>
+                            <div>
+                                <h4>Michael Chen</h4>
+                                <span>Operations Director, Crest</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <p class="testimonial-text">Incredible automation features. We saved over 20 hours per week on manual tasks.</p>
+                        <div class="stars" aria-label="5 out of 5 stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                        <div class="customer-info">
+                            <div class="avatar">
+                                <img src="assets/images/sophia.jpg" 
+                                     alt="Sophia Rodriguez avatar"
+                                     loading="lazy"
+                                     width="50"
+                                     height="50">
+                            </div>
+                            <div>
+                                <h4>Sophia Rodriguez</h4>
+                                <span>CEO, BrightEdge</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- footer -->
-    <footer id="contact">
-
-
+    <footer id="contact" class="footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-footer">AirceFlow</div>
+                    <p>Streamline workflows, empower teams, and scale effortlessly.</p>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/airceflow" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://linkedin.com/airceflow" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/airceflow" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://facebook.com/airceflow" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#">Roadmap</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> hello@airceflow.com</p>
+                    <p><i class="fa-solid fa-phone" aria-hidden="true" ></i> +1 (555) 123-4567</p>
+                    <p><i class="fa-solid fa-location-dot" aria-hidden="true" ></i> 123 Workflow Ave, SF, CA</p>
+                    <div class="newsletter">
+                        <h4>Subscribe</h4>
+                        <div class="newsletter-input">
+                            <input type="email" placeholder="Your email" aria-label="Email for newsletter">
+                            <button class="btn-primary btn-sm">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> AirceFlow. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
     </footer>
-    
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
     <script src="js/script.js"></script>
 </body>
 </html>

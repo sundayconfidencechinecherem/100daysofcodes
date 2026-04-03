@@ -1,0 +1,56 @@
+.hero-section {
+  padding: $spacing-5xl 0;
+  background: $primary-bg;
+  
+  .hero-grid {
+    display: flex;
+    align-items: center;
+    gap: $spacing-4xl;
+    
+    @include responsive(mobile) {
+      flex-direction: column;
+    }
+  }
+  
+  .hero-text {
+    flex: 1;
+    
+    p {
+      font-size: $font-size-xl;
+      margin-bottom: $spacing-xl;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: $spacing-md;
+      
+      @include responsive(mobile) {
+        flex-direction: column;
+      }
+    }
+  }
+  
+  .hero-image {
+    flex: 1;
+    
+    .image-placeholder {
+      background: $primary-gradient-soft;
+      border-radius: $radius-2xl;
+      padding: $spacing-4xl $spacing-xl;
+      text-align: center;
+      box-shadow: $shadow-lg;
+      
+      i {
+        font-size: $font-size-5xl;
+        color: $white;
+        margin-bottom: $spacing-md;
+      }
+      
+      span {
+        display: block;
+        color: $white;
+        font-weight: 500;
+      }
+    }
+  }
+}

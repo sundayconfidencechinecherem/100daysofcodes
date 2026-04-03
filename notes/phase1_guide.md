@@ -70,15 +70,36 @@ By the end of Stage 1, you will be able to:
 ## PROJECT STRUCTURE
 
 ```bash
-airtable-clone/
+airce flow/
 ├── index.html
-├── css/
-│   └── style.css
 ├── scss/
-│   └── main.scss
+│   ├── main.scss
+│   ├── abstracts/
+│   │   ├── _variables.scss
+│   │   └── _mixins.scss
+│   ├── base/
+│   │   ├── _reset.scss
+│   │   └── _typography.scss
+│   ├── components/
+│   │   ├── _buttons.scss
+│   │   ├── _cards.scss
+│   │   └── _navigation.scss
+│   ├── layout/
+│   │   ├── _header.scss
+│   │   ├── _hero.scss
+│   │   ├── _features.scss
+│   │   ├── _showcase.scss
+│   │   ├── _pricing.scss
+│   │   ├── _testimonials.scss
+│   │   └── _footer.scss
+│   └── pages/
+│       └── _home.scss
+├── css/
+│   └── style.css (compiled automatically)
 ├── js/
 │   └── script.js
 └── assets/
+    └── (images folder)
 ```
 
 ---
@@ -109,7 +130,7 @@ Create project files + full HTML skeleton (no styling)
 
 ### Tasks:
 
-* Create folder structure (`airtable-clone`)
+* Create folder structure (`airceflow`)
 * Create files:
 
   * `index.html`

@@ -1,0 +1,67 @@
+.feature-card {
+  background: $gray-50;
+  padding: $spacing-xl;
+  border-radius: $radius-xl;
+  text-align: center;
+  @include card-hover;
+  
+  .feature-icon i {
+    font-size: $font-size-4xl;
+    color: $primary;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.testimonial-card {
+  background: $white;
+  padding: $spacing-xl;
+  border-radius: $radius-xl;
+  @include card-hover;
+  
+  .quote-icon i {
+    font-size: $font-size-3xl;
+    color: $primary;
+    opacity: 0.5;
+    margin-bottom: $spacing-md;
+  }
+  
+  .testimonial-text {
+    font-style: italic;
+    margin-bottom: $spacing-md;
+  }
+  
+  .stars {
+    color: #FBBF24;
+    margin-bottom: $spacing-md;
+  }
+  
+  .customer-info {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    
+    .avatar {
+      width: 50px;
+      height: 50px;
+      background: $primary-gradient;
+      border-radius: 50%;
+      @include flex-center;
+      color: $white;
+      font-weight: 700;
+    }
+  }
+}
+
+.feature-card {
+  .feature-icon {
+    img {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto $spacing-md;
+    }
+  }
+  
+  @include respond(mobile) {
+    padding: $spacing-lg;
+  }
+}
