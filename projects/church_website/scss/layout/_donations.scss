@@ -1,0 +1,144 @@
+// Donations Section Styles
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.donations-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.donation-tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $space-md;
+  margin: $space-xl 0;
+}
+
+.donation-card {
+  background: $bg-main;
+  padding: $space-lg;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-md;
+  }
+  
+  &.featured {
+    border-color: $primary-color;
+    background: linear-gradient(135deg, $bg-main, $bg-section);
+    
+    .donation-amount {
+      color: $primary-color;
+    }
+  }
+  
+  .donation-amount {
+    font-size: 2rem;
+    font-weight: $font-bold;
+    color: $text-primary;
+    margin-bottom: $space-sm;
+    display: block;
+  }
+  
+  .donation-label {
+    color: $text-secondary;
+    font-size: $font-sm;
+    margin-bottom: $space-sm;
+  }
+  
+  .donation-benefit {
+    color: $text-light;
+    font-size: $font-sm;
+  }
+}
+
+.custom-amount {
+  margin: $space-lg 0;
+  
+  .amount-input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-sm;
+    max-width: 300px;
+    margin: 0 auto;
+    
+    .currency {
+      font-size: 1.5rem;
+      font-weight: $font-bold;
+      color: $text-primary;
+    }
+    
+    input {
+      width: 150px;
+      padding: $space-sm;
+      font-size: 1.5rem;
+      text-align: center;
+      border: 2px solid $border-color;
+      border-radius: $radius-md;
+      
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+      }
+    }
+  }
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: $space-md;
+  margin: $space-lg 0;
+  flex-wrap: wrap;
+  
+  .payment-icon {
+    font-size: 2rem;
+    color: $text-light;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: $primary-color;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.donation-impact {
+  background: $bg-section;
+  padding: $space-lg;
+  border-radius: $radius-lg;
+  margin-top: $space-xl;
+  
+  h3 {
+    margin-bottom: $space-md;
+  }
+  
+  .impact-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: $space-lg;
+    margin-top: $space-lg;
+    
+    .impact-stat {
+      .impact-number {
+        font-size: 1.5rem;
+        font-weight: $font-bold;
+        color: $primary-color;
+        display: block;
+      }
+      
+      .impact-label {
+        color: $text-secondary;
+        font-size: $font-sm;
+      }
+    }
+  }
+}

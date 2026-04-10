@@ -1,0 +1,81 @@
+// ============================================
+// SERMONS PAGE - FILTERS SECTIONS
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+// Media Filters
+.media-filters-section {
+    background: $white;
+    padding: $space-md 0;
+    border-bottom: 1px solid $gray-200;
+}
+
+.media-filters {
+    display: flex;
+    gap: $space-md;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    .media-filter-btn {
+        background: none;
+        border: none;
+        padding: $space-sm $space-xl;
+        font-size: $font-base;
+        font-weight: $font-semibold;
+        color: $text-secondary;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: $radius-full;
+        
+        &:hover {
+            color: $primary-color;
+        }
+        
+        &.active {
+            background: $primary-color;
+            color: $white;
+        }
+        
+        @include mobile {
+            padding: $space-xs $space-lg;
+            font-size: $font-sm;
+        }
+    }
+}
+
+// Category Filters
+.category-filters-section {
+    background: $gray-50;
+    padding: $space-md 0;
+    border-bottom: 1px solid $gray-200;
+}
+
+.category-filters {
+    display: flex;
+    gap: $space-sm;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    .category-filter-btn {
+        background: none;
+        border: none;
+        padding: $space-xs $space-lg;
+        font-size: $font-sm;
+        font-weight: $font-medium;
+        color: $text-secondary;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: $radius-full;
+        
+        &:hover {
+            color: $primary-color;
+        }
+        
+        &.active {
+            background: $white;
+            color: $primary-color;
+            box-shadow: $shadow-sm;
+        }
+    }
+}

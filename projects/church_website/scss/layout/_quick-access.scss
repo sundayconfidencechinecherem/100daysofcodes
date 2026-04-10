@@ -1,0 +1,277 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+// ============================================
+// QUICK ACCESS CARDS WITH DROPDOWN
+// ============================================
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.quick-access-section {
+    background: $white;
+    @include section-padding;
+}
+
+.quick-access-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-lg;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-lg;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-lg;
+    }
+}
+
+// Card Item Container
+.quick-card-item {
+    display: flex;
+    flex-direction: column;
+}
+
+// Card Styles
+.quick-card {
+    background: $white;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-xl;
+    }
+    
+    &.active {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+.quick-card-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    &:hover img {
+        transform: scale(1.05);
+    }
+    
+    .quick-card-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: $space-xl;
+        background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+        color: $white;
+        
+        @include mobile {
+            padding: $space-lg;
+        }
+        
+        h3 {
+            font-size: $font-xl;
+            color: $white;
+            margin-bottom: $space-xs;
+            
+            @include mobile {
+                font-size: $font-lg;
+            }
+        }
+        
+        p {
+            font-size: $font-sm;
+            margin-bottom: $space-md;
+            opacity: 0.9;
+            line-height: 1.5;
+            
+            @include mobile {
+                font-size: $font-xs;
+                margin-bottom: $space-sm;
+            }
+        }
+        
+        .card-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: $space-xs;
+            background: rgba($primary-color, 0.9);
+            color: $white;
+            padding: $space-xs $space-md;
+            border-radius: $radius-full;
+            font-size: $font-sm;
+            font-weight: $font-semibold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            
+            &:hover {
+                background: $primary-color;
+                gap: $space-sm;
+            }
+            
+            .toggle-icon {
+                transition: transform 0.3s ease;
+                font-size: $font-xs;
+            }
+        }
+        
+        // Active state for toggle button
+        .card-toggle.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+// Dropdown Panel
+.card-dropdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background: $gray-50;
+    border-radius: 0 0 $radius-lg $radius-lg;
+    box-shadow: $shadow-md;
+    
+    &.open {
+        max-height: 500px;  // Adjust based on content
+        transition: max-height 0.5s ease-in;
+    }
+}
+
+.dropdown-inner {
+    padding: $space-xl;
+    
+    @include mobile {
+        padding: $space-lg;
+    }
+    
+    h4 {
+        font-size: $font-lg;
+        color: $text-primary;
+        margin-bottom: $space-sm;
+    }
+    
+    p {
+        font-size: $font-sm;
+        color: $text-secondary;
+        margin-bottom: $space-md;
+    }
+    
+    ul {
+        list-style: none;
+        margin-bottom: $space-lg;
+        
+        li {
+            padding: $space-xs 0;
+            color: $text-secondary;
+            font-size: $font-sm;
+        }
+    }
+    
+    .dropdown-buttons {
+        display: flex;
+        gap: $space-md;
+        flex-wrap: wrap;
+        margin-top: $space-md;
+    }
+}
+
+// Dropdown Form
+.dropdown-form {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    
+    input, select, textarea {
+        padding: $space-sm $space-md;
+        border: 2px solid $gray-200;
+        border-radius: $radius-md;
+        font-size: $font-sm;
+        font-family: inherit;
+        
+        &:focus {
+            outline: none;
+            border-color: $primary-color;
+        }
+    }
+    
+    textarea {
+        resize: vertical;
+    }
+    
+    .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: $space-sm;
+        
+        input {
+            width: auto;
+        }
+        
+        label {
+            font-size: $font-sm;
+            color: $text-secondary;
+        }
+    }
+}
+
+// Resources Links
+.resources-links {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+    
+    .resource-link {
+        display: flex;
+        align-items: center;
+        gap: $space-md;
+        padding: $space-sm $space-md;
+        background: $white;
+        border-radius: $radius-md;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background: $primary-color;
+            transform: translateX(5px);
+            
+            .resource-icon,
+            span {
+                color: $white;
+            }
+        }
+        
+        .resource-icon {
+            font-size: $font-xl;
+        }
+        
+        span {
+            color: $text-primary;
+            font-weight: $font-medium;
+        }
+    }
+}
+
+// Close other dropdowns when one opens
+.quick-card-item {
+    &.expanded {
+        .quick-card {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+}

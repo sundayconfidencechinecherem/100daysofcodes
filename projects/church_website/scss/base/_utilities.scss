@@ -1,0 +1,62 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+// Container
+.container {
+    @include container;
+}
+
+// Section
+.section {
+    @include section-padding;
+}
+
+.section-light {
+    background-color: $bg-section;
+}
+
+.section-dark {
+    background-color: $bg-dark;
+    color: $white;
+    
+    h1, h2, h3, h4 {
+        color: $white;
+    }
+}
+
+// Spacing Utilities
+.mt-xs { margin-top: $space-xs; }
+.mt-sm { margin-top: $space-sm; }
+.mt-md { margin-top: $space-md; }
+.mt-lg { margin-top: $space-lg; }
+.mt-xl { margin-top: $space-xl; }
+.mt-2xl { margin-top: $space-2xl; }
+
+.mb-xs { margin-bottom: $space-xs; }
+.mb-sm { margin-bottom: $space-sm; }
+.mb-md { margin-bottom: $space-md; }
+.mb-lg { margin-bottom: $space-lg; }
+.mb-xl { margin-bottom: $space-xl; }
+
+.pt-xs { padding-top: $space-xs; }
+.pt-sm { padding-top: $space-sm; }
+.pt-md { padding-top: $space-md; }
+.pt-lg { padding-top: $space-lg; }
+.pt-xl { padding-top: $space-xl; }
+
+.pb-xs { padding-bottom: $space-xs; }
+.pb-sm { padding-bottom: $space-sm; }
+.pb-md { padding-bottom: $space-md; }
+.pb-lg { padding-bottom: $space-lg; }
+.pb-xl { padding-bottom: $space-xl; }
+
+// Display
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+
+// Text
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }

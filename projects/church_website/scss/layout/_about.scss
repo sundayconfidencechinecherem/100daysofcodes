@@ -1,0 +1,293 @@
+// ============================================
+// ABOUT SECTION - TEXT LEFT | IMAGE RIGHT
+// ============================================
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.about-section {
+    background: $white;
+    @include section-padding;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3xl;
+    align-items: center;
+    
+    @include tablet {
+        grid-template-columns: 1fr;
+        gap: $space-2xl;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-xl;
+    }
+}
+
+// Left Side - Text Content
+.about-content {
+    @include tablet {
+        order: 1;  // Text first on tablet
+    }
+    
+    @include mobile {
+        order: 1;
+    }
+    
+    .section-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.1);
+        color: $primary-color;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: $space-md;
+        
+        @include tablet {
+            font-size: $font-xs;
+        }
+    }
+    
+    h2 {
+        font-size: $font-3xl;
+        color: $text-primary;
+        margin-bottom: $space-md;
+        line-height: $line-height-tight;
+        
+        @include tablet {
+            font-size: $font-2xl;
+        }
+        
+        @include mobile {
+            font-size: $font-2xl;
+        }
+    }
+    
+    .about-divider {
+        width: 60px;
+        height: 3px;
+        background: $primary-color;
+        margin-bottom: $space-lg;
+        border-radius: $radius-full;
+    }
+    
+    .about-lead {
+        font-size: $font-lg;
+        font-weight: $font-medium;
+        color: $text-primary;
+        margin-bottom: $space-md;
+        line-height: 1.6;
+        
+        @include tablet {
+            font-size: $font-base;
+        }
+        
+        @include mobile {
+            font-size: $font-base;
+        }
+    }
+    
+    p {
+        color: $text-secondary;
+        line-height: 1.7;
+        margin-bottom: $space-lg;
+        
+        @include tablet {
+            font-size: $font-sm;
+        }
+    }
+    
+    .about-stats {
+        display: flex;
+        gap: $space-xl;
+        margin: $space-xl 0;
+        flex-wrap: wrap;
+        
+        @include tablet {
+            gap: $space-lg;
+            justify-content: flex-start;
+        }
+        
+        @include mobile {
+            gap: $space-lg;
+            justify-content: center;
+        }
+        
+        .stat {
+            text-align: center;
+            
+            @include tablet {
+                text-align: left;
+            }
+            
+            @include mobile {
+                text-align: center;
+            }
+            
+            .stat-number {
+                display: block;
+                font-size: $font-3xl;
+                font-weight: $font-bold;
+                color: $primary-color;
+                line-height: 1;
+                
+                @include tablet {
+                    font-size: $font-2xl;
+                }
+                
+                @include mobile {
+                    font-size: $font-2xl;
+                }
+            }
+            
+            .stat-label {
+                font-size: $font-sm;
+                color: $text-light;
+                margin-top: $space-xs;
+                display: block;
+            }
+        }
+    }
+    
+    .about-buttons {
+        display: flex;
+        gap: $space-md;
+        flex-wrap: wrap;
+        
+        @include tablet {
+            justify-content: flex-start;
+        }
+        
+        @include mobile {
+            justify-content: center;
+        }
+        
+        .btn {
+            @include tablet {
+                padding: $space-sm $space-lg;
+                font-size: $font-sm;
+            }
+        }
+    }
+}
+
+// Right Side - Image
+.about-image {
+    position: relative;
+    
+    @include tablet {
+        order: 2;  // Image second on tablet
+        max-width: 100%;  // Full width - same as text
+        margin: 0;
+    }
+    
+    @include mobile {
+        order: 2;
+        max-width: 100%;
+    }
+    
+    .image-wrapper {
+        position: relative;
+        border-radius: $radius-lg;
+        overflow: hidden;
+        box-shadow: $shadow-xl;
+        
+        .about-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+            
+            @include tablet {
+                width: 100%;
+                max-height: 400px;
+                object-fit: cover;
+            }
+        }
+        
+        &:hover .about-img {
+            transform: scale(1.05);
+        }
+        
+        .image-caption {
+            position: absolute;
+            bottom: $space-md;
+            right: $space-md;
+            
+            @include tablet {
+                bottom: $space-sm;
+                right: $space-sm;
+            }
+            
+            .caption-badge {
+                display: inline-block;
+                background: $primary-color;
+                color: $white;
+                font-size: $font-sm;
+                font-weight: $font-bold;
+                padding: $space-xs $space-md;
+                border-radius: $radius-full;
+                letter-spacing: 2px;
+                box-shadow: $shadow-md;
+                transition: all 0.3s ease;
+                
+                @include tablet {
+                    font-size: $font-xs;
+                    padding: 4px $space-sm;
+                    letter-spacing: 1px;
+                }
+                
+                &:hover {
+                    background: $primary-hover;
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+    
+    // Decorative elements - hide on tablet
+    &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 100px;
+        height: 100px;
+        background: rgba($primary-color, 0.1);
+        border-radius: $radius-lg;
+        z-index: -1;
+        
+        @include tablet {
+            display: none;
+        }
+        
+        @include mobile {
+            display: none;
+        }
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: -20px;
+        width: 80px;
+        height: 80px;
+        background: rgba($accent-color, 0.1);
+        border-radius: $radius-lg;
+        z-index: -1;
+        
+        @include tablet {
+            display: none;
+        }
+        
+        @include mobile {
+            display: none;
+        }
+    }
+}

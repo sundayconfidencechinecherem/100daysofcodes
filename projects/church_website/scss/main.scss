@@ -1,0 +1,50 @@
+// ============================================
+// GRACE ABOUND MINISTRY - MAIN STYLESHEET
+// ============================================
+
+@use 'abstract/variables' as *;
+@use 'abstract/mixins' as *;
+@use 'abstract/functions' as *;
+
+// 2. Base
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/utilities';
+@use 'base/accessibility';
+
+// 3. Components
+@use 'components/buttons';
+@use 'components/carousel';
+@use 'components/cards';
+@use 'components/forms';
+
+// 4. Layout (Homepage sections)
+@use 'layout/header';
+@use 'layout/hero-carousel';
+@use 'layout/service-times';
+@use 'layout/quick-access';
+@use 'layout/about';
+@use 'layout/about-teaser';
+@use 'layout/fellowship';
+@use 'layout/featured-sermon';
+@use 'layout/community-impact';
+@use 'layout/testimonies';
+@use 'layout/events';
+@use 'layout/donations-cta';
+@use 'layout/contact-info';
+@use 'layout/footer';
+
+// 5. About Page Sections
+// Each file is in the pages/aboutpage/ folder
+@use 'pages/aboutpage/abouthero';
+@use 'pages/aboutpage/aboutstory';
+@use 'pages/aboutpage/aboutmission';
+@use 'pages/aboutpage/aboutpastor';
+@use 'pages/aboutpage/aboutbeliefs';
+@use 'pages/aboutpage/aboutstats';
+@use 'pages/aboutpage/aboutcta';
+@use 'pages/sermonpage/hero';
+@use 'pages/sermonpage/filters';
+@use 'pages/sermonpage/featured';
+@use 'pages/sermonpage/audio';
+@use 'pages/sermonpage/video';

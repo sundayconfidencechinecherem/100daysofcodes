@@ -1,0 +1,219 @@
+// ============================================
+// HERO CAROUSEL - FULL WIDTH (CONTAINER-FLUID)
+// ============================================
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 600px;  /* Fixed height instead of viewport height */
+    overflow: hidden;
+    background: $gray-900;
+    
+    @include tablet {
+        height: 500px;
+    }
+    
+    @include mobile {
+        height: 400px;
+    }
+}
+
+.carousel-fluid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+    
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+    }
+}
+
+.slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    .slide-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .slide-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0.3) 100%
+        );
+    }
+}
+
+.slide-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: $white;
+    z-index: 2;
+    max-width: 800px;
+    
+    @include mobile {
+        text-align: center;
+        align-items: center;
+        padding: 0 $space-lg;
+    }
+    
+    .slide-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.9);
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        margin-bottom: $space-md;
+        backdrop-filter: blur(4px);
+        
+        @include mobile {
+            font-size: $font-xs;
+        }
+    }
+    
+    h1 {
+        font-size: $font-4xl;
+        color: $white;
+        margin-bottom: $space-md;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        
+        @include tablet {
+            font-size: $font-3xl;
+        }
+        
+        @include mobile {
+            font-size: $font-xl;
+        }
+    }
+    
+    .slide-subtitle {
+        font-size: $font-lg;
+        margin-bottom: $space-xl;
+        max-width: 600px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        
+        @include tablet {
+            font-size: $font-base;
+        }
+        
+        @include mobile {
+            font-size: $font-sm;
+        }
+    }
+    
+    .slide-buttons {
+        display: flex;
+        gap: $space-md;
+        flex-wrap: wrap;
+        
+        @include mobile {
+            justify-content: center;
+            gap: $space-sm;
+        }
+    }
+}
+
+// ============================================
+// CAROUSEL DOTS ONLY (No Arrow Buttons)
+// ============================================
+
+// Carousel Dots/Indicators - Only navigation
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: $space-sm;
+    z-index: 10;
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: $radius-full;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.2);
+        }
+        
+        &.active {
+            background: $primary-color;
+            width: 28px;
+            border-radius: 5px;
+        }
+    }
+    
+    @include mobile {
+        bottom: 15px;
+        gap: 8px;
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            
+            &.active {
+                width: 20px;
+            }
+        }
+    }
+}
+
+// Animation for slide content
+.carousel-slide.active .slide-content {
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

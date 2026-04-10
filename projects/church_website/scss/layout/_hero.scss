@@ -1,0 +1,61 @@
+// Hero Section
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  gap: $space-xl;
+  flex-wrap: wrap;
+  
+  .hero-text {
+    flex: 1;
+    min-width: 250px;
+    
+    h1 {
+      font-size: $font-xxxl;
+      margin-bottom: $space-md;
+      line-height: 1.2;
+    }
+    
+    p {
+      font-size: $font-lg;
+      color: $text-secondary;
+    }
+  }
+  
+  .hero-image {
+    flex: 1;
+    min-width: 250px;
+    
+    .hero-img {
+      width: 100%;
+      height: auto;
+      border-radius: $radius-lg;
+      box-shadow: $shadow-md;
+      object-fit: cover;
+    }
+  }
+}
+
+// Responsive Hero
+@include mobile {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    
+    .hero-text {
+      h1 {
+        font-size: $font-xxl;
+      }
+      
+      p {
+        font-size: $font-base;
+      }
+    }
+    
+    .hero-image {
+      width: 100%;
+    }
+  }
+}

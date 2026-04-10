@@ -1,0 +1,28 @@
+// Sections
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.section {
+  padding: $space-xxl 0;
+}
+
+// Light background section
+.section-light {
+  background: $bg-section;
+}
+
+// Dark section
+.section-dark {
+  background: $bg-dark;
+  color: $text-white;
+  
+  h1, h2, h3, h4 {
+    color: $text-white;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: $space-xl 0;
+  }
+}

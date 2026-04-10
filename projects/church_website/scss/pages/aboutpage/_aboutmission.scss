@@ -1,0 +1,366 @@
+// ============================================
+// ABOUT PAGE - MISSION CARDS (WITH ANIMATIONS)
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.cards-section {
+    background: linear-gradient(135deg, $white 0%, $gray-50 100%);
+    @include section-padding;
+    position: relative;
+    overflow: hidden;
+    
+    // Decorative background elements
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba($primary-color, 0.03) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba($primary-color, 0.03) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: $space-3xl;
+    position: relative;
+    z-index: 2;
+    
+    .section-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.1);
+        color: $primary-color;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: $space-md;
+        backdrop-filter: blur(4px);
+    }
+    
+    h2 {
+        font-size: $font-3xl;
+        color: $text-primary;
+        margin-bottom: $space-md;
+        position: relative;
+        display: inline-block;
+        
+        @include mobile {
+            font-size: $font-2xl;
+        }
+        
+        &::before {
+            content: '✦';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: $primary-color;
+            font-size: $font-xl;
+            opacity: 0.5;
+        }
+        
+        &::after {
+            content: '✦';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: $primary-color;
+            font-size: $font-xl;
+            opacity: 0.5;
+        }
+    }
+    
+    .section-divider {
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, $primary-color, $accent-color);
+        margin: 0 auto $space-md;
+        border-radius: $radius-full;
+    }
+    
+    .section-subtitle {
+        font-size: $font-md;
+        color: $text-secondary;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+// Cards Container
+.purpose-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-2xl;
+    margin-top: $space-2xl;
+    position: relative;
+    z-index: 2;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-xl;
+        max-width: 800px;
+        margin: $space-2xl auto 0;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-lg;
+        max-width: 400px;
+    }
+}
+
+// Individual Card Styles
+.purpose-card {
+    background: $white;
+    padding: $space-2xl $space-xl;
+    border-radius: $radius-xl;
+    text-align: center;
+    box-shadow: $shadow-md;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    opacity: 0; // Start hidden for animation
+    
+    // Animation classes (added by JS or CSS on load)
+    &.animate-left {
+        animation: slideInLeft 0.8s ease forwards;
+    }
+    
+    &.animate-center {
+        animation: scaleIn 0.8s ease forwards;
+    }
+    
+    &.animate-right {
+        animation: slideInRight 0.8s ease forwards;
+    }
+    
+    // Featured card (Vision) - Slightly larger and elevated
+    &.featured {
+        background: linear-gradient(135deg, $white, rgba($primary-color, 0.02));
+        border: 2px solid rgba($primary-color, 0.1);
+        transform: scale(1.02);
+        
+        @include tablet {
+            transform: scale(1);
+        }
+        
+        .card-number {
+            background: $primary-color;
+            color: $white;
+        }
+        
+        .card-icon {
+             background: linear-gradient(135deg, $gray-100, rgba($primary-color, 0.09));
+        }
+        
+        .card-hover-line {
+            background: linear-gradient(90deg, $primary-color, $accent-color);
+        }
+    }
+    
+    &:hover {
+        transform: translateY(-12px);
+        box-shadow: $shadow-xl;
+        
+        .card-hover-line {
+            width: 80px;
+        }
+        
+        .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+    }
+    
+    .card-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto $space-md;
+        background: rgba($primary-color, 0.1);
+        border-radius: $radius-full;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+        
+        .icon-img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+    }
+    
+    .card-number {
+        position: absolute;
+        top: $space-md;
+        right: $space-md;
+        font-size: $font-xs;
+        font-weight: $font-bold;
+        color: $text-light;
+        background: $gray-100;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: $radius-full;
+        font-family: monospace;
+        transition: all 0.3s ease;
+    }
+    
+    h3 {
+        font-size: $font-xl;
+        margin-bottom: $space-md;
+        color: $text-primary;
+        font-weight: $font-bold;
+        position: relative;
+        display: inline-block;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: $primary-color;
+            border-radius: $radius-full;
+        }
+    }
+    
+    p {
+        color: $text-secondary;
+        line-height: 1.7;
+        margin-bottom: $space-lg;
+        font-size: $font-sm;
+        min-height: 120px;
+        
+        @include mobile {
+            min-height: auto;
+        }
+    }
+    
+    .card-footer {
+        margin-top: auto;
+    }
+    
+    .scripture-ref {
+        font-size: $font-xs;
+        color: $primary-color;
+        font-style: italic;
+        font-weight: $font-medium;
+        display: inline-block;
+        padding: $space-xs $space-sm;
+        background: rgba($primary-color, 0.05);
+        border-radius: $radius-sm;
+    }
+    
+    .card-hover-line {
+        width: 0;
+        height: 2px;
+        background: $primary-color;
+        margin: $space-md auto 0;
+        transition: width 0.4s ease;
+        border-radius: $radius-full;
+    }
+}
+
+// Animation Keyframes
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+}
+
+// Responsive adjustments
+@include tablet {
+    .purpose-card {
+        padding: $space-xl;
+        
+        p {
+            min-height: auto;
+        }
+        
+        &.featured {
+            transform: scale(1);
+        }
+    }
+    
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+@include mobile {
+    .purpose-card {
+        padding: $space-lg;
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            
+            .icon-img {
+                width: 35px;
+                height: 35px;
+            }
+        }
+        
+        h3 {
+            font-size: $font-lg;
+        }
+    }
+}

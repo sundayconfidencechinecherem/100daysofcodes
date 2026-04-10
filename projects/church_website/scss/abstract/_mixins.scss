@@ -1,0 +1,220 @@
+// ============================================
+// RESPONSIVE MIXINS
+// ============================================
+
+@use './variables' as *;
+
+@mixin mobile {
+    @media (max-width: #{$breakpoint-md - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$breakpoint-md}) and (max-width: #{$breakpoint-lg - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$breakpoint-lg}) {
+        @content;
+    }
+}
+
+@mixin large-desktop {
+    @media (min-width: #{$breakpoint-xl}) {
+        @content;
+    }
+}
+
+// ============================================
+// FLEXBOX MIXINS
+// ============================================
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// ============================================
+// GRID MIXINS
+// ============================================
+
+@mixin grid-responsive($min-width: 250px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+    gap: $space-lg;
+}
+
+@mixin grid-columns($columns: 3, $gap: $space-lg) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+}
+
+// ============================================
+// TYPOGRAPHY MIXINS
+// ============================================
+
+@mixin heading-1 {
+    font-size: $font-4xl;
+    font-weight: $font-bold;
+    line-height: $line-height-tight;
+    
+    @include mobile {
+        font-size: $font-3xl;
+    }
+}
+
+@mixin heading-2 {
+    font-size: $font-3xl;
+    font-weight: $font-bold;
+    line-height: $line-height-tight;
+    
+    @include mobile {
+        font-size: $font-2xl;
+    }
+}
+
+@mixin heading-3 {
+    font-size: $font-xl;
+    font-weight: $font-semibold;
+}
+
+// ============================================
+// BUTTON MIXINS
+// ============================================
+
+@mixin button-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-sm;
+    padding: $space-sm $space-xl;
+    font-weight: $font-semibold;
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+    font-family: inherit;
+    
+    &:hover {
+        transform: translateY(-2px);
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// ============================================
+// CARD MIXINS
+// ============================================
+
+@mixin card-base {
+    background: $white;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-xl;
+    }
+}
+
+// ============================================
+// SECTION MIXINS
+// ============================================
+
+@mixin section-padding {
+    padding: $space-4xl 0;
+    
+    @include mobile {
+        padding: $space-2xl 0;
+    }
+}
+
+@mixin section-header {
+    text-align: center;
+    margin-bottom: $space-3xl;
+    
+    .section-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.1);
+        color: $primary-color;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: $space-md;
+    }
+    
+    h2 {
+        @include heading-2;
+        margin-bottom: $space-md;
+    }
+    
+    .section-divider {
+        width: 60px;
+        height: 3px;
+        background: $primary-color;
+        margin: 0 auto $space-md;
+        border-radius: $radius-full;
+    }
+    
+    .section-subtitle {
+        font-size: $font-md;
+        color: $text-secondary;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+// ============================================
+// UTILITY MIXINS
+// ============================================
+
+@mixin container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+    width: 100%;
+}
+
+@mixin overlay-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

@@ -1,0 +1,52 @@
+// ============================================
+// SERMONS PAGE - HERO SECTION
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.sermons-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('../../../assets/images/pastor4.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $white;
+    padding: $space-4xl 0;
+    
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .hero-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.9);
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        margin-bottom: $space-md;
+    }
+    
+    h1 {
+        font-size: $font-4xl;
+        margin-bottom: $space-md;
+        color: $white;
+        
+        @include mobile {
+            font-size: $font-2xl;
+        }
+    }
+    
+    .hero-text {
+        font-size: $font-lg;
+        max-width: 600px;
+        margin: 0 auto;
+        
+        @include mobile {
+            font-size: $font-base;
+        }
+    }
+}

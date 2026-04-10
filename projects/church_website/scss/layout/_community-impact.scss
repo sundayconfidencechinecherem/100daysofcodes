@@ -1,0 +1,50 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.community-impact-section {
+    background: $white;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-lg;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+}
+
+.impact-card {
+    background: $gray-50;
+    padding: $space-xl;
+    border-radius: $radius-lg;
+    text-align: center;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-5px);
+        background: $white;
+        box-shadow: $shadow-lg;
+    }
+    
+    .impact-icon {
+        font-size: 3rem;
+        margin-bottom: $space-md;
+    }
+    
+    h3 {
+        font-size: $font-lg;
+        margin-bottom: $space-md;
+    }
+    
+    p {
+        color: $text-secondary;
+        margin-bottom: 0;
+        font-size: $font-sm;
+    }
+}

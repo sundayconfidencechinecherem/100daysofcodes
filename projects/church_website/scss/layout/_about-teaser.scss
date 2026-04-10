@@ -1,0 +1,73 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.about-teaser-section {
+    background: $white;
+}
+
+.about-teaser-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3xl;
+    align-items: center;
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-xl;
+    }
+}
+
+.about-teaser-image {
+    position: relative;
+    
+    .about-img {
+        width: 100%;
+        border-radius: $radius-lg;
+        box-shadow: $shadow-xl;
+    }
+    
+    .image-caption {
+        position: absolute;
+        bottom: $space-md;
+        left: $space-md;
+        background: rgba(0,0,0,0.7);
+        color: $white;
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        font-size: $font-sm;
+    }
+}
+
+.about-teaser-content {
+    .lead {
+        font-size: $font-lg;
+        margin-bottom: $space-md;
+    }
+    
+    .mission-vision {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-lg;
+        margin: $space-xl 0;
+        
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: $space-md;
+        }
+        
+        .mission,
+        .vision {
+            background: $gray-50;
+            padding: $space-lg;
+            border-radius: $radius-lg;
+            
+            h3 {
+                margin-bottom: $space-sm;
+            }
+            
+            p {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

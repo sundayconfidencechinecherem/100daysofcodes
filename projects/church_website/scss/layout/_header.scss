@@ -1,0 +1,287 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.site-header {
+    position: sticky;
+    top: 0;
+    background: $white;
+    box-shadow: $shadow-md;
+    z-index: $z-header;
+}
+
+.navbar-container {
+    @include flex-between;
+    @include container;
+    padding-top: $space-md;
+    padding-bottom: $space-md;
+}
+
+.logo {
+    a {
+        display: flex;
+        align-items: center;
+        gap: $space-sm;
+        
+        .logo-img {
+            height: 50px;
+            width: auto;
+            
+            @include tablet {
+                height: 45px;
+            }
+            
+            @include mobile {
+                height: 40px;
+            }
+        }
+        
+        .logo-text {
+            font-size: $font-xl;
+            font-weight: $font-bold;
+            color: $primary-color;
+            
+            @include tablet {
+                font-size: $font-lg;
+            }
+            
+            @include mobile {
+                font-size: $font-lg;
+            }
+        }
+    }
+}
+
+// Hamburger Menu - Show on tablet AND mobile
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    padding: $space-sm;
+    cursor: pointer;
+    background: none;
+    border: none;
+    
+    .hamburger-line {
+        width: 25px;
+        height: 3px;
+        background: $text-primary;
+        transition: all 0.3s ease;
+        border-radius: $radius-sm;
+    }
+    
+    // Show hamburger on tablet
+    @include tablet {
+        display: flex;
+    }
+    
+    // Show hamburger on mobile
+    @include mobile {
+        display: flex;
+    }
+}
+
+// Navigation Menu
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: $space-xl;
+    
+    // Tablet styles - slide-out menu
+    @include tablet {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        max-width: 350px;
+        height: calc(100vh - 70px);
+        background: $white;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: $space-xl;
+        transition: left 0.3s ease;
+        z-index: $z-dropdown;
+        gap: $space-2xl;
+        box-shadow: $shadow-xl;
+        
+        &.active {
+            left: 0;
+        }
+    }
+    
+    // Mobile styles
+    @include mobile {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: $white;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: $space-xl;
+        transition: left 0.3s ease;
+        z-index: $z-dropdown;
+        gap: $space-2xl;
+        
+        &.active {
+            left: 0;
+        }
+    }
+}
+
+.navbar-links {
+    display: flex;
+    gap: $space-md;
+    
+    // Tablet link styles - vertical
+    @include tablet {
+        flex-direction: column;
+        text-align: left;
+        gap: $space-md;
+        width: 100%;
+    }
+    
+    // Mobile link styles
+    @include mobile {
+        flex-direction: column;
+        text-align: center;
+        gap: $space-lg;
+        width: 100%;
+    }
+    
+    .nav-link {
+        padding: $space-sm $space-md;
+        font-weight: $font-medium;
+        transition: all 0.3s ease;
+        border-radius: $radius-sm;
+        
+        @include tablet {
+            padding: $space-md;
+            font-size: $font-base;
+            display: block;
+            border-bottom: 1px solid $gray-100;
+        }
+        
+        &:hover {
+            color: $primary-color;
+            background: $gray-50;
+        }
+        
+        &.active {
+            color: $primary-color;
+            font-weight: $font-semibold;
+            position: relative;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30px;
+                height: 2px;
+                background: $primary-color;
+                border-radius: $radius-full;
+            }
+            
+            // Active indicator for tablet (left aligned)
+            @include tablet {
+                &::after {
+                    left: $space-md;
+                    transform: none;
+                    width: 40px;
+                    bottom: 8px;
+                }
+            }
+        }
+        
+        @include mobile {
+            display: block;
+            font-size: $font-lg;
+            padding: $space-md;
+        }
+    }
+}
+
+.navbar-cta {
+    @include tablet {
+        width: 100%;
+        text-align: left;
+        margin-top: $space-md;
+        
+        .btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    
+    @include mobile {
+        width: 100%;
+        text-align: center;
+        
+        .btn {
+            width: 100%;
+            max-width: 200px;
+        }
+    }
+}
+
+// Desktop styles (keep horizontal menu)
+@include desktop {
+    .nav-menu {
+        display: flex;
+        position: static;
+        width: auto;
+        height: auto;
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        flex-direction: row;
+        gap: $space-xl;
+    }
+    
+    .navbar-links {
+        flex-direction: row;
+        gap: $space-md;
+        
+        .nav-link {
+            white-space: nowrap;
+            border-bottom: none;
+            
+            &.active::after {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30px;
+                bottom: -5px;
+            }
+        }
+    }
+    
+    .hamburger {
+        display: none;
+    }
+}
+
+// Overlay for tablet when menu is open (add to HTML)
+.nav-overlay {
+    display: none;
+    
+    @include tablet {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: $z-dropdown - 1;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
