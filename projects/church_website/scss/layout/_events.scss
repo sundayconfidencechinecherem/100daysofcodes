@@ -1,0 +1,90 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+
+.events-teaser-section {
+    background: $white;
+}
+
+.events-grid {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.event-card {
+    display: flex;
+    background: $gray-50;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: translateX(10px);
+        box-shadow: $shadow-md;
+    }
+    
+    @include mobile {
+        flex-direction: column;
+        
+        &:hover {
+            transform: translateY(-5px);
+        }
+    }
+}
+
+.event-date {
+    background: $primary-color;
+    color: $white;
+    padding: $space-lg;
+    text-align: center;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    @include mobile {
+        flex-direction: row;
+        gap: $space-sm;
+        padding: $space-md;
+    }
+    
+    .event-day {
+        font-size: $font-2xl;
+        font-weight: $font-bold;
+        line-height: 1;
+    }
+    
+    .event-month {
+        font-size: $font-sm;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+}
+
+.event-details {
+    flex: 1;
+    padding: $space-lg;
+    
+    h3 {
+        margin-bottom: $space-sm;
+    }
+    
+    .event-time,
+    .event-location {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-xs;
+        color: $text-light;
+        font-size: $font-sm;
+        margin-right: $space-lg;
+        margin-bottom: $space-sm;
+    }
+    
+    .event-desc {
+        margin-top: $space-sm;
+        color: $text-secondary;
+    }
+}

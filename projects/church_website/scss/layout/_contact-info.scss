@@ -1,0 +1,150 @@
+// Contact Section Styles
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-xl;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+  }
+}
+
+.contact-form-container {
+  background: $bg-main;
+  padding: $space-lg;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  
+  h3 {
+    margin-bottom: $space-md;
+    color: $text-primary;
+  }
+  
+  .form-group {
+    margin-bottom: $space-md;
+    
+    label {
+      display: block;
+      margin-bottom: $space-xs;
+      font-weight: $font-semibold;
+      color: $text-primary;
+    }
+    
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid $border-color;
+      border-radius: $radius-md;
+      font-family: inherit;
+      font-size: $font-base;
+      transition: all 0.3s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      }
+      
+      &.error {
+        border-color: $primary-color;
+      }
+    }
+    
+    textarea {
+      resize: vertical;
+    }
+  }
+}
+
+.contact-info-container {
+  h3 {
+    margin-bottom: $space-md;
+    color: $text-primary;
+  }
+  
+  .contact-info-card {
+    background: $bg-main;
+    padding: $space-lg;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-sm;
+    margin-bottom: $space-md;
+    
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: $space-md;
+      margin-bottom: $space-md;
+      
+      .info-icon {
+        font-size: 1.5rem;
+        min-width: 40px;
+      }
+      
+      .info-content {
+        flex: 1;
+        
+        h4 {
+          margin-bottom: $space-xs;
+          color: $text-primary;
+        }
+        
+        p {
+          color: $text-secondary;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+  
+  .social-links {
+    display: flex;
+    gap: $space-md;
+    margin-top: $space-md;
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: $bg-section;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: $primary-color;
+        transform: translateY(-3px);
+        
+        .social-icon {
+          color: $text-white;
+        }
+      }
+      
+      .social-icon {
+        font-size: 1.2rem;
+        color: $primary-color;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
+
+.map-container {
+  margin-top: $space-xl;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  
+  iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    display: block;
+  }
+}

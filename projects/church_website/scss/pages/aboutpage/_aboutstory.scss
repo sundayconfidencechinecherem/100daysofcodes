@@ -1,0 +1,154 @@
+// ============================================
+// ABOUT PAGE - OUR STORY SECTION (FIXED TABLET)
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.story-section {
+    background: $white;
+    @include section-padding;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3xl;
+    align-items: center;
+    
+    @include tablet {
+        grid-template-columns: 1fr;
+        gap: $space-2xl;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-xl;
+    }
+}
+
+.story-content {
+    @include tablet {
+        text-align: center;
+        order: 1;
+    }
+    
+    .section-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.1);
+        color: $primary-color;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: $space-md;
+        
+        @include tablet {
+            font-size: $font-xs;
+        }
+    }
+    
+    h2 {
+        font-size: $font-3xl;
+        color: $text-primary;
+        margin-bottom: $space-md;
+        
+        @include tablet {
+            font-size: $font-2xl;
+        }
+        
+        @include mobile {
+            font-size: $font-2xl;
+        }
+    }
+    
+    .divider {
+        width: 60px;
+        height: 3px;
+        background: $primary-color;
+        margin-bottom: $space-lg;
+        border-radius: $radius-full;
+        
+        @include tablet {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    
+    .lead {
+        font-size: $font-lg;
+        color: $text-primary;
+        margin-bottom: $space-md;
+        font-weight: $font-medium;
+        
+        @include tablet {
+            font-size: $font-base;
+        }
+        
+        @include mobile {
+            font-size: $font-base;
+        }
+    }
+    
+    p {
+        color: $text-secondary;
+        line-height: 1.7;
+        margin-bottom: $space-md;
+        
+        @include tablet {
+            font-size: $font-sm;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @include mobile {
+            font-size: $font-sm;
+        }
+    }
+}
+
+.story-image {
+    position: relative;
+    
+    @include tablet {
+        order: 2;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    
+    @include mobile {
+        max-width: 100%;
+    }
+    
+    .about-img {
+        width: 100%;
+        border-radius: $radius-lg;
+        box-shadow: $shadow-xl;
+        
+        @include tablet {
+            max-height: 350px;
+            object-fit: cover;
+        }
+    }
+    
+    .image-caption {
+        position: absolute;
+        bottom: $space-md;
+        left: $space-md;
+        background: rgba(0,0,0,0.7);
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        font-size: $font-xs;
+        color: $white;
+        
+        @include tablet {
+            font-size: 10px;
+            bottom: $space-sm;
+            left: $space-sm;
+        }
+    }
+}

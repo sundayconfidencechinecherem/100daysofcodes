@@ -1,0 +1,68 @@
+// ============================================
+// ABOUT PAGE - CORE BELIEFS SECTION
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.beliefs-section {
+    background: $gray-50;
+    @include section-padding;
+}
+
+.beliefs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-lg;
+    margin-top: $space-2xl;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-md;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-md;
+    }
+}
+
+.belief-card {
+    background: $white;
+    padding: $space-lg;
+    border-radius: $radius-lg;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid $gray-200;
+    
+    &:hover {
+        transform: translateY(-5px);
+        border-color: $primary-color;
+        box-shadow: $shadow-md;
+    }
+    
+    .belief-icon {
+        font-size: 2.5rem;
+        margin-bottom: $space-md;
+    }
+    
+    h4 {
+        font-size: $font-base;
+        margin-bottom: $space-sm;
+        color: $text-primary;
+        font-weight: $font-bold;
+    }
+    
+    p {
+        font-size: $font-sm;
+        color: $text-secondary;
+        margin-bottom: $space-md;
+        line-height: 1.6;
+    }
+    
+    .belief-scripture {
+        font-size: $font-xs;
+        color: $primary-color;
+        font-weight: $font-medium;
+        display: block;
+    }
+}

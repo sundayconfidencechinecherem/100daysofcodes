@@ -1,0 +1,170 @@
+// ============================================
+// ABOUT PAGE - STATISTICS SECTION
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.stats-section {
+    background: $gray-900;
+    color: $white;
+    text-align: center;
+    padding: $space-4xl 0;
+}
+
+.section-headers h2{
+           font-size: $font-3xl;
+        color: $gray-300;
+        margin-bottom: $space-md;
+        }
+
+.section-tags{
+        display: inline-block;
+        background: rgba($primary-color, 0.9);
+        color: $white;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: $space-md;
+        backdrop-filter: blur(4px);
+}
+.stats-header {
+    margin-bottom: $space-3xl;
+    
+    .stats-tag {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: $space-md;
+        color: $white;
+    }
+   
+    
+    h2 {
+        font-size: $font-3xl;
+        color: $white;
+        margin-bottom: $space-md;
+        
+        @include mobile {
+            font-size: $font-2xl;
+        }
+    }
+    
+    .stats-divider {
+        width: 60px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.3);
+        margin: 0 auto $space-md;
+        border-radius: $radius-full;
+    }
+    
+    .stats-subtitle {
+        font-size: $font-md;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 600px;
+        margin: 0 auto;
+        
+        @include mobile {
+            font-size: $font-sm;
+            padding: 0 $space-md;
+        }
+    }
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-xl;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-2xl;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-xl;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+}
+
+.stat-item {
+    text-align: center;
+    
+    .stat-icon {
+        font-size: 2.5rem;
+        margin-bottom: $space-md;
+        opacity: 0.9;
+        
+        @include mobile {
+            font-size: 2rem;
+        }
+    }
+    
+    .stat-number {
+        font-size: $font-5xl;
+        font-weight: $font-bold;
+        margin-bottom: $space-sm;
+        line-height: 1;
+        color: $white;
+        
+        @include tablet {
+            font-size: $font-4xl;
+        }
+        
+        @include mobile {
+            font-size: $font-4xl;
+        }
+    }
+    
+    .stat-label {
+        font-size: $font-base;
+        font-weight: $font-semibold;
+        margin-bottom: $space-xs;
+        color: rgba(255, 255, 255, 0.9);
+        
+        @include mobile {
+            font-size: $font-sm;
+        }
+    }
+    
+    .stat-description {
+        font-size: $font-xs;
+        color: rgba(255, 255, 255, 0.6);
+        
+        @include mobile {
+            font-size: 10px;
+        }
+    }
+}
+
+.stats-footer {
+    text-align: center;
+    margin-top: $space-3xl;
+    
+    .stats-credit {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.1);
+        padding: $space-xs $space-lg;
+        border-radius: $radius-full;
+        font-size: $font-sm;
+        color: rgba(255, 255, 255, 0.7);
+        
+        @include mobile {
+            font-size: $font-xs;
+            padding: $space-xs $space-md;
+        }
+    }
+}
+
+

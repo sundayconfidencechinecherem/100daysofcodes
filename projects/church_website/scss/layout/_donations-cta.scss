@@ -1,0 +1,96 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.contact-info-section {
+    background: $gray-50;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3xl;
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-xl;
+    }
+}
+
+.contact-info {
+    h3 {
+        margin-top: $space-lg;
+        margin-bottom: $space-md;
+        
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    
+    address {
+        font-style: normal;
+        color: $text-secondary;
+        line-height: 1.6;
+        margin-bottom: $space-lg;
+    }
+    
+    .prayer-lines {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-sm;
+        margin: $space-md 0;
+        
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+        
+        .prayer-line {
+            background: $white;
+            padding: $space-sm $space-md;
+            border-radius: $radius-md;
+            font-weight: $font-semibold;
+            color: $primary-color;
+            text-align: center;
+        }
+    }
+    
+    .prayer-note {
+        font-size: $font-sm;
+        color: $text-light;
+        margin-top: $space-sm;
+    }
+}
+
+.contact-form {
+    background: $white;
+    padding: $space-xl;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    
+    h3 {
+        margin-bottom: $space-lg;
+    }
+    
+    .form-group {
+        margin-bottom: $space-md;
+        
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: $space-md;
+            border: 2px solid $gray-200;
+            border-radius: $radius-md;
+            font-size: $font-base;
+            transition: all 0.3s ease;
+            
+            &:focus {
+                outline: none;
+                border-color: $primary-color;
+            }
+        }
+        
+        textarea {
+            resize: vertical;
+        }
+    }
+}

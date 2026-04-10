@@ -1,0 +1,376 @@
+// ============================================
+// ABOUT PAGE STYLES
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+/* SECTION 1: PAGE HERO */
+.page-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $white;
+    padding: $space-5xl 0;
+    
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .hero-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.9);
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        margin-bottom: $space-md;
+    }
+    
+    h1 {
+        font-size: $font-4xl;
+        color: $white;
+        margin-bottom: $space-md;
+        
+        @include mobile {
+            font-size: $font-2xl;
+        }
+    }
+    
+    .hero-text {
+        font-size: $font-lg;
+        margin-bottom: $space-xl;
+        opacity: 0.95;
+        
+        @include mobile {
+            font-size: $font-base;
+        }
+    }
+    
+    .hero-buttons {
+        display: flex;
+        gap: $space-md;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+.about-hero {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('../assets/images/pastor.png');
+    background-attachment: fixed;
+}
+
+/* SECTION 2: OUR STORY */
+.story-section {
+    background: $white;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3xl;
+    align-items: center;
+    
+    @include tablet {
+        gap: $space-xl;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-xl;
+    }
+}
+
+.story-content {
+    .lead {
+        font-size: $font-lg;
+        color: $text-primary;
+        margin-bottom: $space-md;
+        font-weight: $font-medium;
+    }
+    
+    p {
+        color: $text-secondary;
+        line-height: 1.7;
+        margin-bottom: $space-md;
+    }
+}
+
+.story-image {
+    position: relative;
+    
+    .about-img {
+        width: 100%;
+        border-radius: $radius-lg;
+        box-shadow: $shadow-xl;
+    }
+    
+    .image-caption {
+        position: absolute;
+        bottom: $space-md;
+        left: $space-md;
+        background: rgba(0,0,0,0.7);
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        font-size: $font-xs;
+        color: $white;
+    }
+}
+
+/* SECTION 3: PURPOSE CARDS */
+.cards-section {
+    background: $gray-50;
+}
+
+.purpose-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-xl;
+    margin-top: $space-2xl;
+    
+    @include tablet {
+        gap: $space-lg;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-lg;
+    }
+}
+
+.purpose-card {
+    background: $white;
+    padding: $space-xl;
+    border-radius: $radius-lg;
+    text-align: center;
+    box-shadow: $shadow-md;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: $shadow-xl;
+    }
+    
+    .card-icon {
+        font-size: 3rem;
+        margin-bottom: $space-md;
+    }
+    
+    h3 {
+        font-size: $font-xl;
+        margin-bottom: $space-md;
+        color: $text-primary;
+    }
+    
+    p {
+        color: $text-secondary;
+        line-height: 1.6;
+        margin-bottom: $space-md;
+    }
+    
+    .scripture-ref {
+        font-size: $font-xs;
+        color: $primary-color;
+        font-style: italic;
+        margin-bottom: 0;
+    }
+}
+
+/* SECTION 4: PASTOR SECTION */
+.pastor-section {
+    background: $white;
+}
+
+.pastor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3xl;
+    align-items: center;
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-xl;
+    }
+}
+
+.pastor-image {
+    position: relative;
+    
+    .pastor-img {
+        width: 100%;
+        border-radius: $radius-lg;
+        box-shadow: $shadow-xl;
+    }
+    
+    .pastor-years {
+        position: absolute;
+        bottom: $space-lg;
+        left: $space-lg;
+        background: $primary-color;
+        color: $white;
+        padding: $space-sm $space-lg;
+        border-radius: $radius-full;
+        font-weight: $font-bold;
+    }
+}
+
+.pastor-content {
+    .lead {
+        font-size: $font-lg;
+        color: $text-primary;
+        font-style: italic;
+        margin-bottom: $space-md;
+    }
+    
+    .pastor-signature {
+        margin-top: $space-lg;
+        font-family: 'Brush Script MT', cursive;
+        font-size: $font-2xl;
+        color: $primary-color;
+    }
+}
+
+/* SECTION 5: CORE BELIEFS */
+.beliefs-section {
+    background: $gray-50;
+}
+
+.beliefs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-lg;
+    margin-top: $space-2xl;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+}
+
+.belief-card {
+    background: $white;
+    padding: $space-lg;
+    border-radius: $radius-lg;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid $gray-200;
+    
+    &:hover {
+        transform: translateY(-5px);
+        border-color: $primary-color;
+        box-shadow: $shadow-md;
+    }
+    
+    .belief-icon {
+        font-size: 2.5rem;
+        margin-bottom: $space-md;
+    }
+    
+    h4 {
+        font-size: $font-base;
+        margin-bottom: $space-sm;
+        color: $text-primary;
+    }
+    
+    p {
+        font-size: $font-sm;
+        color: $text-secondary;
+        margin-bottom: $space-md;
+    }
+    
+    .belief-scripture {
+        font-size: $font-xs;
+        color: $primary-color;
+        font-weight: $font-medium;
+    }
+}
+
+/* SECTION 6: STATISTICS (ANIMATED) */
+.stats-section {
+    background: linear-gradient(135deg, $primary-color, $primary-dark);
+    color: $white;
+    text-align: center;
+    padding: $space-4xl 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-xl;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-2xl;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-xl;
+    }
+}
+
+.stat-item {
+    .stat-number {
+        font-size: $font-5xl;
+        font-weight: $font-bold;
+        margin-bottom: $space-sm;
+        line-height: 1;
+    }
+    
+    .stat-label {
+        font-size: $font-base;
+        opacity: 0.9;
+    }
+}
+
+/* SECTION 7: FINAL CTA */
+.cta-section {
+    background: $gray-900;
+    text-align: center;
+    padding: $space-4xl 0;
+    
+    .cta-content {
+        max-width: 700px;
+        margin: 0 auto;
+        
+        h2 {
+            color: $white;
+            font-size: $font-3xl;
+            margin-bottom: $space-md;
+        }
+        
+        p {
+            color: $gray-400;
+            font-size: $font-lg;
+            margin-bottom: $space-xl;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: $space-md;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+// Utility Divider
+.divider {
+    width: 60px;
+    height: 3px;
+    background: $primary-color;
+    margin: $space-md 0 $space-lg;
+    border-radius: $radius-full;
+}
+

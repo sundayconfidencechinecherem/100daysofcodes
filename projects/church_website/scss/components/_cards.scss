@@ -1,0 +1,58 @@
+// Cards and Grids
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.sermon-grid,
+.news-grid {
+  @include grid-responsive(280px);
+}
+
+.sermon-card,
+.news-card,
+.event-item {
+  background: $bg-main;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  transition: all 0.3s ease;
+  padding: $space-md;
+  border: 1px solid $border-color;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+  }
+  
+  .sermon-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: $radius-md;
+    margin-bottom: $space-md;
+  }
+}
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  .event-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    @include mobile {
+      flex-direction: column;
+      text-align: center;
+      gap: $space-sm;
+    }
+  }
+}
+
+.text-light {
+  color: $text-light;
+}

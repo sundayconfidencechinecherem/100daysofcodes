@@ -1,0 +1,119 @@
+// Books & Resources Section Styles
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.books-header {
+  text-align: center;
+  margin-bottom: $space-xl;
+}
+
+.book-card {
+  display: flex;
+  gap: $space-md;
+  background: $bg-main;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  transition: all 0.3s ease;
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-md;
+  }
+  
+  @include mobile {
+    flex-direction: column;
+  }
+  
+  .book-image {
+    flex: 0 0 120px;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      
+      @include mobile {
+        height: 200px;
+      }
+    }
+  }
+  
+  .book-content {
+    flex: 1;
+    padding: $space-md;
+    
+    .book-category {
+      display: inline-block;
+      background: $accent-color;
+      color: $text-white;
+      font-size: $font-sm;
+      padding: $space-xs $space-sm;
+      border-radius: $radius-sm;
+      margin-bottom: $space-sm;
+    }
+    
+    h3 {
+      margin-bottom: $space-xs;
+      font-size: $font-lg;
+    }
+    
+    .book-author {
+      color: $text-light;
+      font-size: $font-sm;
+      margin-bottom: $space-sm;
+      font-style: italic;
+    }
+    
+    .book-description {
+      color: $text-secondary;
+      margin-bottom: $space-md;
+      line-height: 1.5;
+    }
+    
+    .book-price {
+      font-size: $font-lg;
+      font-weight: $font-bold;
+      color: $primary-color;
+      margin-bottom: $space-sm;
+    }
+  }
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $space-lg;
+  margin-top: $space-xl;
+}
+
+.resource-item {
+  text-align: center;
+  padding: $space-lg;
+  background: $bg-section;
+  border-radius: $radius-lg;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    background: $bg-main;
+    box-shadow: $shadow-md;
+  }
+  
+  .resource-icon {
+    font-size: 3rem;
+    margin-bottom: $space-md;
+  }
+  
+  h4 {
+    margin-bottom: $space-sm;
+    color: $text-primary;
+  }
+  
+  p {
+    color: $text-secondary;
+    font-size: $font-sm;
+    margin-bottom: $space-md;
+  }
+}

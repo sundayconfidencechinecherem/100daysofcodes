@@ -1,0 +1,598 @@
+// ============================================
+// FELLOWSHIP SECTION - MOBILE FIRST
+// ============================================
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.fellowship-section {
+    background: $gray-50;
+    @include section-padding;
+}
+
+.fellowship-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: $white;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+    
+    @include tablet {
+        gap: $space-xl;
+    }
+    
+    @include desktop {
+        grid-template-columns: 260px 1fr;
+        gap: $space-2xl;
+    }
+}
+
+/* ============================================ */
+/* TAB LIST - MOBILE FIRST (Horizontal Scroll) */
+/* ============================================ */
+.fellowship-tab-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+    background: $gray-50;
+    padding: $space-sm;
+    gap: $space-xs;
+    
+    // Hide scrollbar on desktop but keep functionality
+    &::-webkit-scrollbar {
+        height: 3px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: $gray-200;
+        border-radius: $radius-full;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: $primary-color;
+        border-radius: $radius-full;
+    }
+    
+    @include tablet {
+        justify-content: center;
+        overflow-x: visible;
+        flex-wrap: wrap;
+        padding: $space-md;
+        gap: $space-sm;
+    }
+    
+    @include desktop {
+        flex-direction: column;
+        overflow-x: visible;
+        padding: $space-lg 0;
+        gap: $space-xs;
+    }
+}
+
+.fellowship-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-sm;
+    background: none;
+    border: none;
+    text-align: center;
+    padding: $space-sm $space-md;
+    font-size: $font-sm;
+    font-weight: $font-semibold;
+    color: $text-secondary;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    border-radius: $radius-md;
+    
+    @include tablet {
+        white-space: normal;
+        padding: $space-sm $space-lg;
+        font-size: $font-base;
+    }
+    
+    @include desktop {
+        justify-content: flex-start;
+        white-space: normal;
+        padding: $space-md $space-xl;
+        border-radius: 0;
+        text-align: left;
+    }
+    
+    .tab-icon {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        
+        @include tablet {
+            width: 22px;
+            height: 22px;
+        }
+    }
+    
+    &:hover {
+        color: $primary-color;
+        background: rgba($primary-color, 0.05);
+    }
+    
+    &.active {
+        color: $white;
+        background: $primary-color;
+        
+        @include desktop {
+            background: $white;
+            color: $primary-color;
+            position: relative;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+                background: $primary-color;
+            }
+        }
+        
+        .tab-icon {
+            filter: brightness(0) invert(1);
+            
+            @include desktop {
+                filter: none;
+            }
+        }
+    }
+}
+
+/* ============================================ */
+/* CONTENT PANELS - MOBILE FIRST */
+/* ============================================ */
+.fellowship-content-panels {
+    background: $white;
+    padding: $space-lg;
+    
+    @include tablet {
+        padding: $space-xl;
+    }
+}
+
+.fellowship-panel {
+    animation: fadeIn 0.3s ease;
+    
+    h3 {
+        font-size: $font-lg;
+        color: $text-primary;
+        margin-bottom: $space-xs;
+        
+        @include tablet {
+            font-size: $font-xl;
+        }
+    }
+    
+    .panel-date {
+        font-size: $font-xs;
+        color: $primary-color;
+        font-weight: $font-medium;
+        margin-bottom: $space-md;
+        letter-spacing: 0.5px;
+        
+        @include tablet {
+            font-size: $font-sm;
+            margin-bottom: $space-lg;
+        }
+    }
+}
+
+/* Grid Layout - Mobile: Stack, Desktop: Side by Side */
+.panel-grid {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+    
+    &.reverse {
+        flex-direction: column;
+    }
+    
+    @include tablet {
+        gap: $space-xl;
+    }
+    
+    @include desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-xl;
+        
+        &.reverse {
+            direction: rtl;
+            
+            > * {
+                direction: ltr;
+            }
+        }
+    }
+}
+
+.panel-text {
+    flex: 1;
+    order: 1;
+    
+    @include desktop {
+        order: unset;
+    }
+}
+
+.panel-image {
+    flex: 1;
+    order: 2;
+    
+    @include desktop {
+        order: unset;
+    }
+    
+    .panel-img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+        border-radius: $radius-lg;
+        box-shadow: $shadow-md;
+        
+        @include tablet {
+            max-height: 300px;
+        }
+        
+        @include desktop {
+            max-height: none;
+        }
+    }
+    
+    .image-caption {
+        margin-top: $space-xs;
+        font-size: 10px;
+        color: $text-light;
+        text-align: center;
+        
+        @include tablet {
+            font-size: $font-xs;
+            margin-top: $space-sm;
+        }
+    }
+}
+
+/* Map Container - Mobile */
+.map-container {
+    border-radius: $radius-lg;
+    overflow: hidden;
+    margin-bottom: $space-md;
+    box-shadow: $shadow-md;
+    
+    iframe {
+        width: 100%;
+        height: 200px;
+        display: block;
+        
+        @include tablet {
+            height: 250px;
+        }
+        
+        @include desktop {
+            height: 280px;
+        }
+    }
+}
+
+/* Location List - Mobile Optimized */
+.location-list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    margin-top: $space-md;
+}
+
+.location-item {
+    padding: $space-md;
+    background: $gray-50;
+    border-radius: $radius-md;
+    transition: all 0.3s ease;
+    
+    .location-name {
+        font-weight: $font-bold;
+        color: $text-primary;
+        display: block;
+        margin-bottom: $space-xs;
+        font-size: $font-sm;
+        
+        @include tablet {
+            font-size: $font-base;
+        }
+    }
+    
+    p {
+        font-size: $font-xs;
+        color: $text-secondary;
+        margin-bottom: $space-xs;
+        
+        @include tablet {
+            font-size: $font-sm;
+        }
+    }
+    
+    .service-time {
+        color: $primary-color;
+        font-weight: $font-medium;
+        font-size: $font-xs;
+        
+        @include tablet {
+            font-size: $font-sm;
+        }
+    }
+    
+    .panel-link {
+        display: inline-block;
+        margin-top: $space-xs;
+        font-size: $font-xs;
+        color: $primary-color;
+        text-decoration: none;
+        font-weight: $font-medium;
+        
+        @include tablet {
+            font-size: $font-sm;
+        }
+    }
+}
+
+/* Satellite List - Mobile */
+.satellite-list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    margin: $space-md 0;
+}
+
+.satellite-item {
+    padding: $space-md;
+    background: $gray-50;
+    border-radius: $radius-md;
+    
+    .group-name {
+        font-weight: $font-bold;
+        color: $text-primary;
+        display: block;
+        margin-bottom: $space-xs;
+        font-size: $font-sm;
+        
+        @include tablet {
+            font-size: $font-base;
+        }
+    }
+    
+    p {
+        font-size: $font-xs;
+        color: $text-secondary;
+        margin-bottom: $space-xs;
+        
+        @include tablet {
+            font-size: $font-sm;
+        }
+    }
+    
+    .group-leader {
+        font-size: 10px;
+        color: $primary-color;
+        
+        @include tablet {
+            font-size: $font-xs;
+        }
+    }
+}
+
+/* Online Platforms - Mobile: 1 column */
+.online-platforms {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-sm;
+    margin: $space-md 0;
+    
+    @include tablet {
+        grid-template-columns: repeat(3, 1fr);
+        gap: $space-md;
+    }
+}
+
+.platform-card {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    padding: $space-sm $space-md;
+    background: $gray-50;
+    border-radius: $radius-md;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    @include tablet {
+        flex-direction: column;
+        text-align: center;
+        padding: $space-md;
+    }
+    
+    .platform-icon {
+        font-size: 1.5rem;
+        
+        @include tablet {
+            font-size: 2rem;
+        }
+    }
+    
+    span {
+        font-weight: $font-semibold;
+        color: $text-primary;
+        font-size: $font-sm;
+        flex: 1;
+        
+        @include tablet {
+            font-size: $font-base;
+        }
+    }
+    
+    small {
+        font-size: 10px;
+        color: $primary-color;
+        
+        @include tablet {
+            font-size: $font-xs;
+        }
+    }
+}
+
+/* Service Schedule - Mobile */
+.service-schedule {
+    background: $gray-50;
+    padding: $space-md;
+    border-radius: $radius-md;
+    margin-top: $space-md;
+    
+    @include tablet {
+        padding: $space-lg;
+    }
+    
+    strong {
+        display: block;
+        margin-bottom: $space-sm;
+        color: $text-primary;
+        font-size: $font-sm;
+        
+        @include tablet {
+            font-size: $font-base;
+        }
+    }
+    
+    ul {
+        list-style: none;
+        
+        li {
+            padding: $space-xs 0;
+            font-size: $font-xs;
+            color: $text-secondary;
+            display: flex;
+            align-items: center;
+            gap: $space-sm;
+            
+            @include tablet {
+                font-size: $font-sm;
+            }
+            
+            &::before {
+                content: "🕊️";
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+/* Requirements Box - Mobile */
+.requirements-box {
+    background: rgba($primary-color, 0.05);
+    padding: $space-md;
+    border-radius: $radius-md;
+    margin: $space-md 0;
+    
+    @include tablet {
+        padding: $space-lg;
+    }
+    
+    strong {
+        display: block;
+        margin-bottom: $space-sm;
+        color: $text-primary;
+        font-size: $font-sm;
+        
+        @include tablet {
+            font-size: $font-base;
+        }
+    }
+    
+    ul {
+        list-style: none;
+        
+        li {
+            padding: $space-xs 0;
+            font-size: $font-xs;
+            color: $text-secondary;
+            
+            @include tablet {
+                font-size: $font-sm;
+            }
+        }
+    }
+}
+
+/* Forms - Mobile */
+.fellowship-form {
+    margin-top: $space-md;
+    
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        gap: $space-sm;
+        
+        @include tablet {
+            flex-direction: row;
+        }
+        
+        input {
+            flex: 1;
+            padding: $space-sm $space-md;
+            border: 2px solid $gray-200;
+            border-radius: $radius-md;
+            font-size: $font-sm;
+        }
+    }
+    
+    input, textarea {
+        width: 100%;
+        padding: $space-sm $space-md;
+        border: 2px solid $gray-200;
+        border-radius: $radius-md;
+        font-size: $font-sm;
+        margin-bottom: $space-sm;
+        
+        &:focus {
+            outline: none;
+            border-color: $primary-color;
+        }
+    }
+    
+    textarea {
+        resize: vertical;
+    }
+    
+    .btn {
+        width: 100%;
+        
+        @include tablet {
+            width: auto;
+        }
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+

@@ -1,0 +1,109 @@
+// ============================================
+// ABOUT PAGE - PASTOR SECTION
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.pastor-section {
+    background: $white;
+    @include section-padding;
+}
+
+.pastor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3xl;
+    align-items: center;
+    
+    @include tablet {
+        gap: $space-xl;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-xl;
+    }
+}
+
+.pastor-image {
+    position: relative;
+    
+    .pastor-img {
+        width: 100%;
+        border-radius: $radius-lg;
+        box-shadow: $shadow-xl;
+    }
+    
+    .pastor-years {
+        position: absolute;
+        bottom: $space-lg;
+        left: $space-lg;
+        background: $primary-color;
+        color: $white;
+        padding: $space-sm $space-lg;
+        border-radius: $radius-full;
+        font-weight: $font-bold;
+        font-size: $font-sm;
+    }
+}
+
+.pastor-content {
+    .section-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.1);
+        color: $primary-color;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: $space-md;
+    }
+    
+    h2 {
+        font-size: $font-3xl;
+        color: $text-primary;
+        margin-bottom: $space-md;
+        
+        @include mobile {
+            font-size: $font-2xl;
+        }
+    }
+    
+    .divider {
+        width: 60px;
+        height: 3px;
+        background: $primary-color;
+        margin-bottom: $space-lg;
+        border-radius: $radius-full;
+    }
+    
+    .lead {
+        font-size: $font-lg;
+        color: $text-primary;
+        font-style: italic;
+        margin-bottom: $space-md;
+        
+        @include mobile {
+            font-size: $font-base;
+        }
+    }
+    
+    p {
+        color: $text-secondary;
+        line-height: 1.7;
+        margin-bottom: $space-md;
+        
+        @include mobile {
+            font-size: $font-sm;
+        }
+    }
+    
+    .pastor-signature {
+        margin-top: $space-lg;
+        font-family: 'Brush Script MT', cursive;
+        font-size: $font-2xl;
+        color: $primary-color;
+    }
+}

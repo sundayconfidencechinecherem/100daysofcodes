@@ -1,0 +1,45 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+// Skip Link
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: $primary-color;
+    color: $white;
+    padding: $space-sm $space-md;
+    z-index: $z-tooltip;
+    transition: top 0.2s ease;
+    text-decoration: none;
+    font-weight: $font-semibold;
+    
+    &:focus {
+        top: 10px;
+        outline: 3px solid $accent-color;
+        outline-offset: 2px;
+    }
+}
+
+// Focus States
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid $accent-color;
+    outline-offset: 3px;
+    border-radius: $radius-sm;
+}
+
+// Reduced Motion
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
