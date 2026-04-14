@@ -3,35 +3,375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grace Abound Ministry</title>
+    <title>Events | Grace Abound Ministry</title>
+    <meta name="description" content="Stay updated with upcoming events, services, and programs at Grace Abound Ministry. Join us for worship, conferences, and special services.">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
 </head>
 <body>
-    <main>
 
-  <section class="section">
-    <div class="container">
-      <h1 class="text-center">Events</h1>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-      <div class="event-list mt-lg">
+    <!-- ============================================ -->
+    <!-- HEADER / NAVIGATION                           -->
+    <!-- ============================================ -->
+    <!-- ============================================ -->
+    <!-- HEADER / NAVIGATION                           -->
+    <!-- ============================================ -->
+    <header class="site-header" id="siteHeader">
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="navbar-container">
+                <div class="logo">
+                    <a href="/">
+                        <img src="assets/images/logo.png" alt="Grace Abound Ministry Logo" class="logo-img">
+                    </a>
+                </div>
 
-        <div class="event-item">
-          <h3>Sunday Service</h3>
-          <p class="text-light">Every Sunday • 9:00 AM</p>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <div class="nav-menu" id="navMenu">
+                    <ul class="navbar-links">
+                        <li><a href="about.html" class=" nav-link">About</a></li>
+                        <li><a href="sermons.html" class="nav-link">Sermons</a></li>
+                        <li><a href="events.html" class="active nav-link">Events</a></li>
+                        <li><a href="news.html" class="nav-link">News</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                    <div class="navbar-cta">
+                        <a href="donations.html" class="btn btn-primary btn-sm">Give Online</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ============================================ -->
+        <!-- SECTION 1: ANNOUNCEMENT BANNER (Hero Replacement) -->
+        <!-- ============================================ -->
+        <section class="announcement-banner-section">
+            <div class="container">
+                <div class="announcement-banner-content">
+                    <span class="announcement-tag">Announcements</span>
+                    <h1>Stay Informed</h1>
+                    <p>Get the latest updates on events, services, and special programs at Grace Abound Ministry</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 2: ANNOUNCEMENTS CAROUSEL (5 Slides) -->
+        <!-- ============================================ -->
+        <section class="announcements-carousel-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Latest Updates</span>
+                    <br>
+                    <h2>Current Announcements</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="announcements-carousel-container">
+                    <div class="announcements-carousel-wrapper" id="announcementsCarousel">
+                        <!-- Slide 1 - Wedding Announcement -->
+                        <div class="announcement-slide">
+                            <div class="announcement-slide-image">
+                                <img src="assets/images/wedding1.png" alt="Wedding Announcement">
+                                <div class="announcement-overlay"></div>
+                            </div>
+                            <div class="announcement-slide-content">
+                                <span class="announcement-category wedding">Wedding</span>
+                                <h3>Michael & Sarah</h3>
+                                <p class="announcement-date">April 29, 2026 | 10:00 AM</p>
+                                <p class="announcement-desc">Join us as Michael and Sarah exchange vows in holy matrimony. All are welcome to celebrate this joyous occasion.</p>
+                                <button class="btn btn-primary btn-sm add-to-calendar-announcement" data-title="Wedding: Michael & Sarah" data-date="2026-04-29" data-time="10:00" data-location="Main Sanctuary">Add to Calendar</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2 - Midweek Service -->
+                        <div class="announcement-slide">
+                            <div class="announcement-slide-image">
+                                <img src="assets/images/prayer.jpg" alt="Midweek Service">
+                                <div class="announcement-overlay"></div>
+                            </div>
+                            <div class="announcement-slide-content">
+                                <span class="announcement-category service">Midweek Service</span>
+                                <h3>Wednesday Bible Study</h3>
+                                <p class="announcement-date">Every Wednesday | 6:00 PM</p>
+                                <p class="announcement-desc">Join us for powerful Word exposition, prayer, and fellowship. Experience spiritual growth and breakthrough.</p>
+                                <button class="btn btn-primary btn-sm add-to-calendar-announcement" data-title="Wednesday Bible Study" data-date="2026-04-16" data-time="18:00" data-location="Main Sanctuary" data-recurring="weekly">Add to Calendar</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3 - Healing Service -->
+                        <div class="announcement-slide">
+                            <div class="announcement-slide-image">
+                                <img src="assets/images/testimony.png" alt="Healing Service">
+                                <div class="announcement-overlay"></div>
+                            </div>
+                            <div class="announcement-slide-content">
+                                <span class="announcement-category special">Special Service</span>
+                                <h3>Healing & Miracle Service</h3>
+                                <p class="announcement-date">April 20, 2026 | 9:00 AM</p>
+                                <p class="announcement-desc">Special service focused on divine healing and supernatural miracles. God is still in the healing business!</p>
+                                <button class="btn btn-primary btn-sm add-to-calendar-announcement" data-title="Healing & Miracle Service" data-date="2026-04-20" data-time="09:00" data-location="Main Sanctuary">Add to Calendar</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4 - Women's Conference -->
+                        <div class="announcement-slide">
+                            <div class="announcement-slide-image">
+                                <img src="assets/images/leadership.png" alt="Women's Conference">
+                                <div class="announcement-overlay"></div>
+                            </div>
+                            <div class="announcement-slide-content">
+                                <span class="announcement-category conference">Conference</span>
+                                <h3>Women of Grace Conference</h3>
+                                <p class="announcement-date">May 10-12, 2026 | 10:00 AM Daily</p>
+                                <p class="announcement-desc">Empowering women through God's Word. Guest ministers from across the nation.</p>
+                                <button class="btn btn-primary btn-sm add-to-calendar-announcement" data-title="Women of Grace Conference" data-date="2026-05-10" data-time="10:00" data-location="Conference Hall">Add to Calendar</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 5 - Youth Fire Night -->
+                        <div class="announcement-slide">
+                            <div class="announcement-slide-image">
+                                <img src="assets/images/fellowship.png" alt="Youth Fire Night">
+                                <div class="announcement-overlay"></div>
+                            </div>
+                            <div class="announcement-slide-content">
+                                <span class="announcement-category youth">Youth</span>
+                                <h3>Youth Fire Night</h3>
+                                <p class="announcement-date">Every Friday | 5:00 PM</p>
+                                <p class="announcement-desc">Dynamic worship, powerful word, and intense prayer for the next generation.</p>
+                                <button class="btn btn-primary btn-sm add-to-calendar-announcement" data-title="Youth Fire Night" data-date="2026-04-18" data-time="17:00" data-location="Youth Chapel" data-recurring="weekly">Add to Calendar</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-nav prev-announcement" aria-label="Previous">‹</button>
+                    <button class="carousel-nav next-announcement" aria-label="Next">›</button>
+                    <div class="carousel-dots-announcement"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 3: CALENDAR SECTION                   -->
+        <!-- ============================================ -->
+        <section class="calendar-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Events Calendar</span>
+                    <br>
+                    <h2>Monthly Calendar</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Click on any date to see scheduled events</p>
+                </div>
+                
+                <div class="calendar-wrapper">
+                    <div class="calendar-header">
+                        <button class="calendar-nav-btn prev-month-btn">‹</button>
+                        <h3 id="currentMonthYear"></h3>
+                        <button class="calendar-nav-btn next-month-btn">›</button>
+                    </div>
+                    <div class="calendar-weekdays">
+                        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                    </div>
+                    <div class="calendar-days-grid" id="calendarDaysGrid"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 4: UPCOMING EVENTS (Scrollable List)  -->
+        <!-- ============================================ -->
+        <section class="upcoming-events-list-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Don't Miss Out</span>
+                    <br>
+                    <h2>Upcoming Events</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Scroll to see all upcoming programs and services</p>
+                </div>
+                
+                <div class="scrollable-events-container">
+                    <div class="scrollable-events-wrapper" id="scrollableEventsList">
+                        <!-- Events will be populated by JavaScript -->
+                    </div>
+                    <div class="scroll-controls">
+                        <button class="scroll-control scroll-left">←</button>
+                        <button class="scroll-control scroll-right">→</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 5: WEEKLY SERVICES                    -->
+        <!-- ============================================ -->
+        <section class="weekly-services-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Regular Programs</span>
+                    <br>
+                    <h2>Weekly Services</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Join us every week for these life-transforming services</p>
+                </div>
+                
+                <div class="weekly-services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="assets/icons/church.png" alt="Sunday Service">
+                        </div>
+                        <h3>Sunday Services</h3>
+                        <p class="service-time">9:00 AM & 11:00 AM</p>
+                        <p class="service-desc">Morning Glory & Healing Service</p>
+                        <button class="btn-add-recurring" data-title="Sunday Service" data-day="Sunday" data-time="09:00">Add to Calendar</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="assets/icons/bible.png" alt="Bible Study">
+                        </div>
+                        <h3>Wednesday Bible Study</h3>
+                        <p class="service-time">6:00 PM - 7:30 PM</p>
+                        <p class="service-desc">Word Explosion & Bible Teaching</p>
+                        <button class="btn-add-recurring" data-title="Wednesday Bible Study" data-day="Wednesday" data-time="18:00">Add to Calendar</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="assets/icons/prayer.png" alt="Daily Prayer">
+                        </div>
+                        <h3>Daily Prayer</h3>
+                        <p class="service-time">6:00 AM - 7:00 AM</p>
+                        <p class="service-desc">Covenant Hour of Prayer (Mon-Sat)</p>
+                        <button class="btn-add-recurring" data-title="Daily Prayer" data-day="Monday" data-time="06:00">Add to Calendar</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="assets/icons/fellowship.png" alt="Satellite Fellowship">
+                        </div>
+                        <h3>Satellite Fellowship</h3>
+                        <p class="service-time">5:00 PM - 6:00 PM</p>
+                        <p class="service-desc">Small group fellowship (Saturday)</p>
+                        <button class="btn-add-recurring" data-title="Satellite Fellowship" data-day="Saturday" data-time="17:00">Add to Calendar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 6: EVENT DETAILS MODAL                -->
+        <!-- ============================================ -->
+        <div class="event-details-modal" id="eventDetailsModal">
+            <div class="modal-container">
+                <button class="modal-close-btn" id="closeModalBtn">×</button>
+                <div class="modal-image">
+                    <img id="modalEventImage" src="assets/images/join.png" alt="Event">
+                </div>
+                <div class="modal-content">
+                    <span class="modal-category" id="modalEventCategory"></span>
+                    <h2 id="modalEventTitle"></h2>
+                    <div class="modal-datetime">
+                        <div class="modal-date-item">
+                            <img src="assets/icons/calender.png" alt="Date">
+                            <span id="modalEventDate"></span>
+                        </div>
+                        <div class="modal-time-item">
+                            <img src="assets/icons/clock.png" alt="Time">
+                            <span id="modalEventTime"></span>
+                        </div>
+                        <div class="modal-location-item">
+                            <img src="assets/icons/location.png" alt="Location">
+                            <span id="modalEventLocation"></span>
+                        </div>
+                    </div>
+                    <p class="modal-description" id="modalEventDescription"></p>
+                    <div class="modal-actions">
+                        <button class="modal-add-btn" id="modalAddToCalendar">
+                            <img src="assets/icons/calender.png" alt="Add">
+                            Add to My Calendar
+                        </button>
+                        <button class="modal-share-btn" id="modalShareEvent">
+                            <img src="assets/icons/share.png" alt="Share">
+                            Share Event
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="event-item">
-          <h3>Youth Program</h3>
-          <p class="text-light">Friday • 5:00 PM</p>
+    </main>
+
+ <!-- Footer (Same as Homepage) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="assets/images/logo1.png" alt="Grace Abound Ministry Logo" class="footer-logo">
+                    <p>Where the word of God heals and transforms lives. A place of worship, healing, and supernatural encounters.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="testimonies.html">Testimonies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Books</a></li>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="donations.html">Donations</a></li>
+                    </ul>
+                </div>
+
+                
+                <div class="footer-newsletter">
+                    <h3>Stay Connected</h3>
+                    <p>Get updates on events, sermons, and ministry news.</p>
+                                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <img src="assets/icons/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <img src="assets/icons/youtube.png" alt="YouTube">
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <img src="assets/icons/instagram.png" alt="Instagram">
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <img src="assets/icons/twitter.png" alt="Twitter">
+                        </a>
+                    </div>
+                  <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address">
+                        <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Grace Abound Ministry. All rights reserved.</p>
+            </div>
         </div>
+    </footer>
 
-      </div>
-    </div>
-  </section>
 
-</main>
-    
-
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

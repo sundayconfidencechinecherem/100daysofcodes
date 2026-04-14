@@ -1,0 +1,49 @@
+// ============================================
+// NEWS PAGE - FILTERS
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.news-filters-section {
+    background: $gray-50;
+    padding: $space-lg 0;
+    border-bottom: 1px solid $gray-200;
+    position: sticky;
+    top: 70px;
+    z-index: 9;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.news-filters {
+    display: flex;
+    justify-content: center;
+    gap: $space-sm;
+    flex-wrap: wrap;
+    
+    .filter-btn {
+        background: none;
+        border: none;
+        padding: $space-sm $space-xl;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        color: $text-secondary;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: $radius-full;
+        
+        &:hover {
+            color: $primary-color;
+        }
+        
+        &.active {
+            background: $primary-color;
+            color: $white;
+        }
+        
+        @include mobile {
+            padding: $space-xs $space-lg;
+            font-size: $font-xs;
+        }
+    }
+}

@@ -1,0 +1,202 @@
+// ============================================
+// EVENTS PAGE - EVENT DETAILS PANEL
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.event-details-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    
+    &.active {
+        display: flex;
+    }
+}
+
+.event-details-wrapper {
+    max-width: 900px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: $white;
+    border-radius: $radius-xl;
+    position: relative;
+    animation: slideUp 0.3s ease;
+    
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: $gray-200;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: $primary-color;
+        border-radius: $radius-full;
+    }
+}
+
+.event-details-content {
+    position: relative;
+    
+    .close-details {
+        position: absolute;
+        top: $space-md;
+        right: $space-md;
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: $radius-full;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+        
+        &:hover {
+            background: $primary-color;
+        }
+    }
+}
+
+.event-details-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.event-details-info {
+    padding: $space-xl;
+    
+    .event-category {
+        display: inline-block;
+        font-size: $font-xs;
+        font-weight: $font-semibold;
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        margin-bottom: $space-md;
+    }
+    
+    h2 {
+        font-size: $font-2xl;
+        color: $text-primary;
+        margin-bottom: $space-md;
+    }
+    
+    .event-datetime {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $space-lg;
+        margin-bottom: $space-lg;
+        padding-bottom: $space-lg;
+        border-bottom: 1px solid $gray-200;
+        
+        .datetime-item {
+            display: flex;
+            align-items: center;
+            gap: $space-sm;
+            
+            img {
+                width: 20px;
+                height: 20px;
+            }
+            
+            span {
+                font-size: $font-sm;
+                color: $text-secondary;
+            }
+        }
+    }
+    
+    .event-description {
+        font-size: $font-base;
+        color: $text-secondary;
+        line-height: 1.7;
+        margin-bottom: $space-xl;
+    }
+    
+    .event-details-actions {
+        display: flex;
+        gap: $space-md;
+        flex-wrap: wrap;
+        
+        .add-to-calendar-btn,
+        .share-event-btn {
+            display: flex;
+            align-items: center;
+            gap: $space-sm;
+            padding: $space-sm $space-xl;
+            border-radius: $radius-full;
+            font-size: $font-sm;
+            font-weight: $font-semibold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            
+            img {
+                width: 18px;
+                height: 18px;
+            }
+        }
+        
+        .add-to-calendar-btn {
+            background: $primary-color;
+            border: none;
+            color: $white;
+            
+            img {
+                filter: brightness(0) invert(1);
+            }
+            
+            &:hover {
+                background: $primary-hover;
+                transform: translateY(-2px);
+            }
+        }
+        
+        .share-event-btn {
+            background: transparent;
+            border: 2px solid $gray-300;
+            color: $text-primary;
+            
+            &:hover {
+                border-color: $primary-color;
+                background: rgba($primary-color, 0.05);
+            }
+        }
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,90 @@
+// ============================================
+// TESTIMONIES PAGE - HERO SECTION
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.testimonies-hero {
+    background: $gray-900;
+    padding: $space-4xl 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba($primary-color, 0.08) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -50%;
+        left: -20%;
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, rgba($primary-color, 0.05) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    
+    @include mobile {
+        padding: $space-3xl 0;
+    }
+    
+    .hero-content {
+        max-width: 700px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .hero-tag {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.08);
+        padding: $space-xs $space-lg;
+        border-radius: $radius-full;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        margin-bottom: $space-md;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.7);
+        
+        @include mobile {
+            font-size: $font-xs;
+        }
+    }
+    
+    h1 {
+        font-size: $font-4xl;
+        margin-bottom: $space-md;
+        color: $white;
+        font-weight: $font-bold;
+        
+        @include tablet {
+            font-size: $font-3xl;
+        }
+        
+        @include mobile {
+            font-size: $font-2xl;
+        }
+    }
+    
+    .hero-text {
+        font-size: $font-lg;
+        color: $gray-300;
+        max-width: 550px;
+        margin: 0 auto;
+        
+        @include mobile {
+            font-size: $font-base;
+        }
+    }
+}

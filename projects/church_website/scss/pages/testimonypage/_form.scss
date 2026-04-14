@@ -1,0 +1,140 @@
+// ============================================
+// TESTIMONIES PAGE - SUBMIT FORM
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.submit-testimony-section {
+    background: $gray-50;
+    padding: $space-4xl 0;
+}
+
+.submit-testimony-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: $white;
+    border-radius: $radius-xl;
+    padding: $space-3xl;
+    box-shadow: $shadow-lg;
+    
+    @include mobile {
+        padding: $space-xl;
+    }
+}
+
+.submit-testimony-content {
+    text-align: center;
+    margin-bottom: $space-2xl;
+    
+    .section-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.1);
+        color: $primary-color;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        margin-bottom: $space-md;
+    }
+    
+    h2 {
+        font-size: $font-3xl;
+        margin-bottom: $space-md;
+        color: $text-primary;
+        
+        @include mobile {
+            font-size: $font-2xl;
+        }
+    }
+    
+    .section-divider {
+        width: 60px;
+        height: 3px;
+        background: $primary-color;
+        margin: 0 auto $space-md;
+        border-radius: $radius-full;
+    }
+    
+    p {
+        font-size: $font-base;
+        color: $text-secondary;
+        margin-bottom: $space-lg;
+    }
+    
+    .testimony-note {
+        background: rgba($primary-color, 0.05);
+        padding: $space-md;
+        border-radius: $radius-md;
+        font-size: $font-sm;
+        color: $text-secondary;
+        text-align: left;
+        border-left: 3px solid $primary-color;
+        
+        strong {
+            color: $primary-color;
+        }
+    }
+}
+
+.testimony-form {
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-md;
+        margin-bottom: $space-md;
+        
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: $space-sm;
+        }
+    }
+    
+    .form-group {
+        margin-bottom: $space-md;
+        
+        input, select, textarea {
+            width: 100%;
+            padding: $space-md;
+            border: 2px solid $gray-200;
+            border-radius: $radius-md;
+            font-size: $font-sm;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            
+            &:focus {
+                outline: none;
+                border-color: $primary-color;
+                box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+            }
+        }
+        
+        textarea {
+            resize: vertical;
+        }
+    }
+    
+    .form-checkbox {
+        display: flex;
+        align-items: flex-start;
+        gap: $space-sm;
+        margin-bottom: $space-xl;
+        
+        input {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            cursor: pointer;
+        }
+        
+        label {
+            font-size: $font-sm;
+            color: $text-secondary;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+    }
+    
+    .btn-block {
+        width: 100%;
+    }
+}

@@ -1,0 +1,362 @@
+// ============================================
+// DONATIONS PAGE - IMPACT SECTION (REFINED)
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.impact-section {
+    padding: $space-4xl 0;
+    background: $gray-50;
+    position: relative;
+    overflow: hidden;
+    
+    @include tablet {
+        padding: $space-3xl 0;
+    }
+    
+    @include mobile {
+        padding: $space-2xl 0;
+    }
+    
+    // Decorative background elements
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background: radial-gradient(circle at 20% 0%, rgba($primary-color, 0.03) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 150px;
+        background: radial-gradient(circle at 80% 100%, rgba($primary-color, 0.02) 0%, transparent 70%);
+        pointer-events: none;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: $space-3xl;
+        position: relative;
+        
+        @include mobile {
+            margin-bottom: $space-xl;
+        }
+        
+        h2 {
+            font-size: $font-3xl;
+            margin-bottom: $space-md;
+            color: $text-primary;
+            font-weight: $font-bold;
+            position: relative;
+            display: inline-block;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -12px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 70px;
+                height: 3px;
+                background: linear-gradient(90deg, $primary-color, $primary-light, transparent);
+                border-radius: $radius-full;
+            }
+            
+            @include tablet {
+                font-size: $font-2xl;
+                
+                &::after {
+                    width: 60px;
+                    bottom: -10px;
+                }
+            }
+            
+            @include mobile {
+                font-size: $font-xl;
+                
+                &::after {
+                    width: 50px;
+                    height: 2px;
+                    bottom: -8px;
+                }
+            }
+        }
+
+        .section-divider {
+            display: none; // Hidden because we have underline on h2
+        }
+
+        p {
+            color: $text-secondary;
+            max-width: 600px;
+            margin: $space-xl auto 0;
+            font-size: $font-md;
+            line-height: $line-height-normal;
+            
+            @include tablet {
+                font-size: $font-sm;
+                margin-top: $space-lg;
+            }
+            
+            @include mobile {
+                font-size: $font-sm;
+                margin-top: $space-md;
+                padding: 0 $space-md;
+            }
+        }
+    }
+
+    .impact-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: $space-xl;
+        
+        @include desktop-md {
+            gap: $space-lg;
+        }
+        
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+            gap: $space-lg;
+        }
+        
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: $space-md;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+    }
+
+    .impact-item {
+        text-align: center;
+        padding: $space-xl;
+        background: $white;
+        border-radius: $radius-xl;
+        transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba($gray-200, 0.3);
+        box-shadow: $shadow-sm;
+        
+        @include tablet {
+            padding: $space-lg;
+        }
+        
+        @include mobile {
+            padding: $space-lg;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        // Animated gradient border on hover
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, $primary-color, $primary-light, $primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: $shadow-xl;
+            border-color: transparent;
+            
+            &::before {
+                transform: scaleX(1);
+            }
+            
+            .impact-icon {
+                background: $primary-color;
+                transform: translateY(-5px);
+                
+                img {
+                    transform: scale(1.15);
+                    filter: brightness(0) invert(1);
+                }
+            }
+            
+            h3 {
+                color: $primary-color;
+            }
+        }
+        
+        // Ripple effect on click
+        &:active::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba($primary-color, 0.1);
+            transform: translate(-50%, -50%);
+            animation: ripple 0.6s ease-out;
+        }
+
+        .impact-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba($primary-color, 0.08);
+            border-radius: $radius-full;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto $space-lg;
+            transition: all 0.3s ease;
+            
+            @include tablet {
+                width: 70px;
+                height: 70px;
+                margin-bottom: $space-md;
+            }
+            
+            @include mobile {
+                width: 65px;
+                height: 65px;
+                margin-bottom: $space-md;
+            }
+            
+            img {
+                width: 38px;
+                height: 38px;
+                transition: all 0.3s ease;
+                
+                @include tablet {
+                    width: 32px;
+                    height: 32px;
+                }
+                
+                @include mobile {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+        
+        h3 {
+            font-size: $font-lg;
+            margin-bottom: $space-sm;
+            color: $text-primary;
+            font-weight: $font-bold;
+            transition: color 0.3s ease;
+            
+            @include tablet {
+                font-size: $font-base;
+            }
+            
+            @include mobile {
+                font-size: $font-base;
+                margin-bottom: $space-xs;
+            }
+        }
+        
+        p {
+            font-size: $font-sm;
+            color: $text-secondary;
+            line-height: $line-height-normal;
+            margin: 0;
+            
+            @include mobile {
+                font-size: $font-sm;
+                max-width: 90%;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+// Animation for impact items on scroll
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.5;
+    }
+    100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+.impact-section .impact-item {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    
+    &:nth-child(1) { animation-delay: 0.1s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+    &:nth-child(4) { animation-delay: 0.4s; }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+    .impact-section {
+        background: $gray-900;
+        
+        .section-header {
+            h2 {
+                color: $white;
+            }
+            
+            p {
+                color: $gray-400;
+            }
+        }
+        
+        .impact-item {
+            background: $gray-800;
+            border-color: $gray-700;
+            
+            h3 {
+                color: $white;
+            }
+            
+            p {
+                color: $gray-400;
+            }
+            
+            &:hover {
+                background: $gray-800;
+                box-shadow: $shadow-xl;
+                
+                h3 {
+                    color: $primary-light;
+                }
+            }
+            
+            .impact-icon {
+                background: rgba($primary-color, 0.15);
+            }
+        }
+    }
+}

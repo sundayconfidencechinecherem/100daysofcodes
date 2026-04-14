@@ -1,0 +1,356 @@
+// ============================================
+// DONATIONS PAGE - BENEVOLENCE SECTION (Church Gives Back)
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.benevolence-section {
+    position: relative;
+    padding: $space-5xl 0;
+    background: linear-gradient(135deg, $gray-100 0%, $white 100%);
+    overflow: hidden;
+    
+    @include tablet {
+        padding: $space-4xl 0;
+    }
+    
+    @include mobile {
+        padding: $space-3xl 0;
+    }
+    
+    // Decorative accent overlay
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 10% 20%, rgba($primary-color, 0.03) 0%, transparent 60%);
+        pointer-events: none;
+    }
+    
+  // Add a subtle pattern
+  
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' opacity='0.03'%3E%3Cpath fill='%23b91c1c' d='M50,15 L65,35 L85,40 L70,58 L75,78 L55,68 L35,78 L40,58 L25,40 L45,35 Z'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        background-size: 40px;
+        pointer-events: none;
+    }
+    
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .benevolence-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-3xl;
+        align-items: center;
+        
+        @include tablet {
+            grid-template-columns: 1fr;
+            gap: $space-2xl;
+        }
+        
+        @include mobile {
+            grid-template-columns: 1fr;  // Force single column
+            gap: $space-xl;
+        }
+    }
+
+    // Left Column - Content
+    .benevolence-content {
+        animation: fadeInLeft 0.8s ease forwards;
+        
+        @include mobile {
+            text-align: center;
+            animation: fadeInUp 0.8s ease forwards;
+            width: 100%;
+        }
+    }
+
+    .benevolence-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.12);
+        color: $primary-color;
+        padding: $space-xs $space-lg;
+        border-radius: $radius-full;
+        font-size: $font-xs;
+        font-weight: $font-bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: $space-md;
+        
+        @include mobile {
+            font-size: $font-xs;
+            letter-spacing: 1px;
+        }
+    }
+
+    h2 {
+        font-size: $font-3xl;
+        margin-bottom: $space-md;
+        font-weight: $font-bold;
+        line-height: $line-height-tight;
+        color: $text-primary;
+        
+        @include tablet {
+            font-size: $font-2xl;
+        }
+        
+        @include mobile {
+            font-size: $font-xl;
+            margin-bottom: $space-sm;
+        }
+    }
+
+    .benevolence-description {
+        font-size: $font-md;
+        color: $text-secondary;
+        line-height: $line-height-normal;
+        margin-bottom: $space-xl;
+        max-width: 90%;
+        
+        @include tablet {
+            max-width: 100%;
+            font-size: $font-base;
+        }
+        
+        @include mobile {
+            font-size: $font-sm;
+            margin-bottom: $space-lg;
+            max-width: 100%;
+            padding: 0 $space-sm;
+        }
+    }
+
+    .apply-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-sm;
+        background: $primary-color;
+        color: $white;
+        padding: $space-md $space-2xl;
+        border-radius: $radius-full;
+        text-decoration: none;
+        font-weight: $font-semibold;
+        font-size: $font-base;
+        transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        box-shadow: 0 4px 15px rgba($primary-color, 0.2);
+        
+        @include tablet {
+            padding: $space-sm $space-xl;
+            font-size: $font-sm;
+        }
+        
+        @include mobile {
+            padding: $space-sm $space-xl;
+            font-size: $font-sm;
+            justify-content: center;
+            width: 100%;
+            max-width: 260px;
+            margin: 0 auto;
+        }
+        
+        &:hover {
+            background: $primary-hover;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba($primary-color, 0.3);
+        }
+        
+        &::after {
+            content: '→';
+            transition: transform 0.2s ease;
+        }
+        
+        &:hover::after {
+            transform: translateX(4px);
+        }
+    }
+
+    // Right Column - Steps Container
+    .steps-container {
+        display: flex;
+        flex-direction: column;
+        gap: $space-lg;
+        width: 100%;
+        
+        @include mobile {
+            gap: $space-md;
+            margin-top: $space-md;
+            width: 100%;
+        }
+    }
+
+    .step-card {
+        display: flex;
+        gap: $space-lg;
+        background: $white;
+        padding: $space-lg;
+        border-radius: $radius-xl;
+        transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        border: 1px solid $gray-200;
+        box-shadow: $shadow-sm;
+        width: 100%;
+        
+        @include mobile {
+            padding: $space-md;
+            gap: $space-md;
+            flex-direction: row;
+            width: 100%;
+        }
+        
+        &:nth-child(1) { animation: fadeInRight 0.6s ease 0.1s forwards; opacity: 0; }
+        &:nth-child(2) { animation: fadeInRight 0.6s ease 0.2s forwards; opacity: 0; }
+        &:nth-child(3) { animation: fadeInRight 0.6s ease 0.3s forwards; opacity: 0; }
+
+        &:hover {
+            transform: translateX(8px);
+            border-color: rgba($primary-color, 0.3);
+            box-shadow: $shadow-md;
+            
+            @include mobile {
+                transform: translateX(4px);
+            }
+            
+            .step-number {
+                background: $primary-color;
+                transform: scale(1.05);
+            }
+        }
+
+        .step-number {
+            width: 54px;
+            height: 54px;
+            background: rgba($primary-color, 0.12);
+            color: $primary-color;
+            border-radius: $radius-full;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: $font-xl;
+            font-weight: $font-bold;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            
+            @include mobile {
+                width: 44px;
+                height: 44px;
+                font-size: $font-lg;
+            }
+        }
+
+        .step-info {
+            flex: 1;
+            
+            h3 {
+                font-size: $font-lg;
+                margin-bottom: $space-xs;
+                font-weight: $font-semibold;
+                color: $text-primary;
+                
+                @include mobile {
+                    font-size: $font-base;
+                }
+            }
+
+            p {
+                font-size: $font-sm;
+                color: $text-secondary;
+                line-height: $line-height-normal;
+                margin-bottom: 0;
+                
+                @include mobile {
+                    font-size: $font-xs;
+                }
+            }
+        }
+    }
+}
+
+// ============================================
+// ANIMATIONS
+// ============================================
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// ============================================
+// RESPONSIVE ADJUSTMENTS
+// ============================================
+
+@include mobile {
+    .benevolence-section {
+        text-align: center;
+        
+        .benevolence-description {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .step-card {
+            text-align: left;
+        }
+        
+        .steps-container {
+            padding: 0;
+        }
+    }
+}
+
+// Tablet adjustments
+@include tablet {
+    .benevolence-section {
+        .benevolence-content {
+            text-align: center;
+        }
+        
+        .apply-btn {
+            margin: 0 auto;
+        }
+        
+        .step-card {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    }
+}

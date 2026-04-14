@@ -1,0 +1,354 @@
+// ============================================
+// DONATIONS PAGE - DONATION FORM (FIXED MOBILE)
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.donation-form-section {
+    padding: $space-4xl 0;
+    background: $white;
+    
+    @include tablet {
+        padding: $space-3xl 0;
+    }
+    
+    @include mobile {
+        padding: $space-2xl 0;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-2xl;
+        
+        // CRITICAL FIX: Stack on tablet and mobile
+        @include tablet {
+            grid-template-columns: 1fr;
+            gap: $space-xl;
+        }
+        
+        @include mobile {
+            grid-template-columns: 1fr;  // Force single column
+            gap: $space-lg;
+        }
+    }
+
+    // Both columns - full width on mobile
+    .billing-column, .payment-column {
+        background: $gray-50;
+        padding: $space-xl;
+        border-radius: $radius-xl;
+        transition: all 0.3s ease;
+        width: 100%;  // Ensure full width
+        
+        @include mobile {
+            padding: $space-lg;
+            border-radius: $radius-lg;
+            width: 100%;
+        }
+        
+        h3 {
+            font-size: $font-xl;
+            margin-bottom: $space-lg;
+            color: $text-primary;
+            font-weight: $font-bold;
+            position: relative;
+            padding-bottom: $space-xs;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 50px;
+                height: 3px;
+                background: $primary-color;
+                border-radius: $radius-full;
+            }
+            
+            @include mobile {
+                font-size: $font-lg;
+                margin-bottom: $space-md;
+            }
+        }
+    }
+
+    // Form rows - stack on mobile
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-md;
+        margin-bottom: $space-md;
+        
+        @include mobile {
+            grid-template-columns: 1fr;  // Stack inputs vertically
+            gap: $space-sm;
+        }
+    }
+
+    .form-group {
+        margin-bottom: $space-md;
+        width: 100%;
+        
+        @include mobile {
+            margin-bottom: $space-sm;
+        }
+    }
+
+    // Input fields - full width
+    input, select {
+        width: 100%;
+        padding: $space-md;
+        border: 2px solid $gray-200;
+        border-radius: $radius-lg;
+        font-family: $font-family;
+        font-size: $font-sm;
+        transition: all 0.2s ease;
+        background: $white;
+        box-sizing: border-box;
+        
+        @include mobile {
+            padding: $space-sm;
+            font-size: $font-sm;
+        }
+        
+        &:focus {
+            border-color: $primary-color;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+        }
+    }
+
+    select {
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right $space-md center;
+    }
+
+    // Gift Aid Box
+    .gift-aid-box {
+        margin-top: $space-lg;
+        padding: $space-md;
+        background: rgba($accent-color, 0.05);
+        border-radius: $radius-lg;
+        border-left: 3px solid $accent-color;
+        width: 100%;
+        
+        @include mobile {
+            padding: $space-sm;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: $space-sm;
+            cursor: pointer;
+            font-weight: $font-semibold;
+            flex-wrap: wrap;
+            
+            input {
+                width: 18px;
+                height: 18px;
+                cursor: pointer;
+            }
+        }
+
+        .gift-aid-note {
+            font-size: $font-xs;
+            color: $text-light;
+            margin-top: $space-xs;
+            line-height: $line-height-normal;
+            margin-left: $space-lg;
+            
+            @include mobile {
+                margin-left: $space-md;
+                font-size: $font-xs;
+            }
+        }
+    }
+
+    // Payment Methods - Responsive wrap
+    .payment-methods {
+        display: flex;
+        gap: $space-md;
+        margin-bottom: $space-xl;
+        flex-wrap: wrap;
+        
+        @include mobile {
+            gap: $space-sm;
+            flex-direction: row;  // Keep horizontal but wrap
+        }
+
+        .payment-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: $space-xs;
+            background: $white;
+            border: 2px solid $gray-200;
+            padding: $space-sm;
+            border-radius: $radius-lg;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: $font-sm;
+            white-space: nowrap;
+            
+            @include mobile {
+                padding: $space-xs $space-sm;
+                font-size: $font-xs;
+                white-space: normal;
+                text-align: center;
+            }
+            
+            img {
+                width: 18px;
+                height: 18px;
+                
+                @include mobile {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            &.active, &:hover {
+                background: $primary-color;
+                color: $white;
+                border-color: $primary-color;
+                
+                img {
+                    filter: brightness(0) invert(1);
+                }
+            }
+        }
+    }
+
+    // Payment Details Container
+    .payment-details {
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    // Bank Info Card (for bank transfer method)
+    .bank-info-card {
+        background: $white;
+        padding: $space-lg;
+        border-radius: $radius-lg;
+        border: 1px solid $gray-200;
+        width: 100%;
+        
+        @include mobile {
+            padding: $space-md;
+        }
+        
+        p {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: $space-sm;
+            padding: $space-xs 0;
+            font-size: $font-sm;
+            border-bottom: 1px dashed $gray-200;
+            
+            &:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+            
+            strong {
+                color: $text-primary;
+                font-weight: $font-semibold;
+            }
+            
+            span {
+                color: $text-secondary;
+                font-family: monospace;
+                word-break: break-all;
+                text-align: right;
+            }
+            
+            @include mobile {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: $space-xs;
+                
+                span {
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    // Donation Summary
+    .donation-summary {
+        background: $white;
+        padding: $space-lg;
+        border-radius: $radius-lg;
+        margin: $space-xl 0;
+        border: 1px solid $gray-200;
+        width: 100%;
+        
+        @include mobile {
+            padding: $space-md;
+            margin: $space-lg 0;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: $space-sm;
+            padding: $space-xs 0;
+            font-size: $font-sm;
+            
+            @include mobile {
+                font-size: $font-sm;
+            }
+            
+            &.total {
+                margin-top: $space-sm;
+                padding-top: $space-sm;
+                border-top: 2px solid $gray-200;
+                font-size: $font-lg;
+                font-weight: $font-bold;
+                
+                span, strong {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+
+    // Submit Button
+    .btn-block {
+        width: 100%;
+        padding: $space-md;
+        font-size: $font-base;
+        font-weight: $font-bold;
+        transition: all 0.3s ease;
+        
+        @include mobile {
+            padding: $space-sm;
+            font-size: $font-sm;
+        }
+        
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: $shadow-lg;
+        }
+    }
+
+    // Secure Note
+    .secure-note {
+        text-align: center;
+        margin-top: $space-md;
+        font-size: $font-xs;
+        color: $text-light;
+        
+        @include mobile {
+            font-size: $font-xs;
+        }
+    }
+}

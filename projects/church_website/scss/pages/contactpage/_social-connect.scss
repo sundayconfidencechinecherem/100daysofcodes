@@ -1,0 +1,102 @@
+// ============================================
+// CONTACT PAGE - SOCIAL MEDIA CONNECT
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.social-connect-section {
+    padding: $space-4xl 0;
+    background: $white;
+    
+    @include mobile {
+        padding: $space-2xl 0;
+    }
+}
+
+.social-connect-wrapper {
+    text-align: center;
+    
+    h2 {
+        font-size: $font-3xl;
+        color: $text-primary;
+        margin-bottom: $space-md;
+        font-weight: $font-bold;
+        
+        @include tablet {
+            font-size: $font-2xl;
+        }
+        
+        @include mobile {
+            font-size: $font-xl;
+        }
+    }
+    
+    p {
+        font-size: $font-md;
+        color: $text-secondary;
+        margin-bottom: $space-2xl;
+        
+        @include mobile {
+            font-size: $font-sm;
+            margin-bottom: $space-xl;
+        }
+    }
+}
+
+.social-icons-large {
+    display: flex;
+    justify-content: center;
+    gap: $space-xl;
+    flex-wrap: wrap;
+    
+    @include mobile {
+        gap: $space-md;
+    }
+    
+    .social-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $space-sm;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            transform: translateY(-5px);
+            
+            img {
+                background: $primary-color;
+                transform: scale(1.1);
+            }
+            
+            span {
+                color: $primary-color;
+            }
+        }
+        
+        img {
+            width: 60px;
+            height: 60px;
+            background: $gray-100;
+            border-radius: $radius-full;
+            padding: $space-sm;
+            transition: all 0.3s ease;
+            
+            @include mobile {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+        span {
+            font-size: $font-sm;
+            color: $text-secondary;
+            font-weight: $font-medium;
+            transition: color 0.3s ease;
+            
+            @include mobile {
+                font-size: $font-xs;
+            }
+        }
+    }
+}
