@@ -1,0 +1,105 @@
+// ============================================
+// CONTACT PAGE - INFO GRID SECTION
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.contact-info-section {
+    padding: $space-4xl 0;
+    background: $white;
+    
+    @include mobile {
+        padding: $space-2xl 0;
+    }
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-xl;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-lg;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-md;
+    }
+}
+
+.info-card {
+    background: $white;
+    padding: $space-xl;
+    border-radius: $radius-xl;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: $shadow-md;
+    border: 1px solid $gray-100;
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-xl;
+        border-color: rgba($primary-color, 0.2);
+        
+        .info-icon {
+            background: $primary-color;
+            transform: scale(1.05);
+            
+            img {
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+    
+    .info-icon {
+        width: 70px;
+        height: 70px;
+        background: rgba($primary-color, 0.1);
+        border-radius: $radius-full;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto $space-md;
+        transition: all 0.3s ease;
+        
+        img {
+            width: 32px;
+            height: 32px;
+            transition: all 0.3s ease;
+        }
+    }
+    
+    h3 {
+        font-size: $font-xl;
+        color: $text-primary;
+        margin-bottom: $space-md;
+        font-weight: $font-semibold;
+        
+        @include mobile {
+            font-size: $font-lg;
+        }
+    }
+    
+    p {
+        font-size: $font-sm;
+        color: $text-secondary;
+        line-height: $line-height-normal;
+        margin-bottom: $space-lg;
+    }
+    
+    .info-link {
+        display: inline-block;
+        color: $primary-color;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            transform: translateX(5px);
+            color: $primary-hover;
+        }
+    }
+}

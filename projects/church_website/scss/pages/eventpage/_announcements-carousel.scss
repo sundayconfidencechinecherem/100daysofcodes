@@ -1,0 +1,158 @@
+// ============================================
+// EVENTS PAGE - ANNOUNCEMENTS CAROUSEL
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.announcements-carousel-section {
+    background: $gray-50;
+    padding: $space-4xl 0;
+}
+
+.announcements-carousel-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: $radius-xl;
+}
+
+.announcements-carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.announcement-slide {
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: $white;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+    
+    .announcement-slide-image {
+        position: relative;
+        height: 100%;
+        min-height: 300px;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .announcement-overlay {
+            display: none;
+        }
+    }
+    
+    .announcement-slide-content {
+        padding: $space-2xl;
+        
+        @include mobile {
+            padding: $space-xl;
+        }
+        
+        .announcement-category {
+            display: inline-block;
+            font-size: $font-xs;
+            font-weight: $font-bold;
+            padding: $space-xs $space-md;
+            border-radius: $radius-full;
+            margin-bottom: $space-md;
+            text-transform: uppercase;
+            
+            &.wedding { background: rgba(233, 30, 99, 0.1); color: #e91e63; }
+            &.service { background: rgba($primary-color, 0.1); color: $primary-color; }
+            &.special { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+            &.conference { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+            &.youth { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        }
+        
+        h3 {
+            font-size: $font-2xl;
+            margin-bottom: $space-sm;
+            
+            @include mobile {
+                font-size: $font-xl;
+            }
+        }
+        
+        .announcement-date {
+            font-size: $font-sm;
+            color: $text-light;
+            margin-bottom: $space-md;
+        }
+        
+        .announcement-desc {
+            font-size: $font-base;
+            color: $text-secondary;
+            line-height: 1.6;
+            margin-bottom: $space-xl;
+        }
+    }
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: $white;
+    border: none;
+    border-radius: $radius-full;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: $primary-color;
+    box-shadow: $shadow-md;
+    transition: all 0.3s ease;
+    z-index: 10;
+    
+    &:hover {
+        background: $primary-color;
+        color: $white;
+    }
+    
+    &.prev-announcement {
+        left: -20px;
+        
+        @include mobile {
+            left: 10px;
+        }
+    }
+    
+    &.next-announcement {
+        right: -20px;
+        
+        @include mobile {
+            right: 10px;
+        }
+    }
+}
+
+.carousel-dots-announcement {
+    display: flex;
+    justify-content: center;
+    gap: $space-sm;
+    margin-top: $space-lg;
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: $radius-full;
+        background: $gray-300;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &.active {
+            background: $primary-color;
+            width: 24px;
+        }
+    }
+}

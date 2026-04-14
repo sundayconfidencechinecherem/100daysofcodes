@@ -1,0 +1,217 @@
+// ============================================
+// EVENTS PAGE - WEEKLY SERVICES
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.weekly-services-section {
+    background: $white;
+    padding: $space-4xl 0;
+    
+    @include mobile {
+        padding: $space-2xl 0;
+    }
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: $space-3xl;
+    
+    .section-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.1);
+        color: $primary-color;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: $space-md;
+    }
+    
+    h2 {
+        font-size: $font-3xl;
+        color: $text-primary;
+        margin-bottom: $space-md;
+        
+        @include mobile {
+            font-size: $font-2xl;
+        }
+    }
+    
+    .section-divider {
+        width: 60px;
+        height: 3px;
+        background: $primary-color;
+        margin: 0 auto $space-md;
+        border-radius: $radius-full;
+    }
+    
+    .section-subtitle {
+        font-size: $font-md;
+        color: $text-secondary;
+        max-width: 600px;
+        margin: 0 auto;
+        
+        @include mobile {
+            font-size: $font-sm;
+            padding: 0 $space-md;
+        }
+    }
+}
+
+.weekly-services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-xl;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-lg;
+        max-width: 700px;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-md;
+        max-width: 350px;
+    }
+}
+
+.service-card {
+    text-align: center;
+    padding: $space-xl $space-lg;
+    background: $white;
+    border-radius: $radius-lg;
+    transition: all 0.3s ease;
+    border: 1px solid $gray-200;
+    box-shadow: $shadow-sm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    
+    @include mobile {
+        padding: $space-lg;
+    }
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-lg;
+        border-color: $primary-color;
+    }
+    
+    .service-icon {
+        margin-bottom: $space-md;
+        
+        img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        &:hover img {
+            transform: scale(1.05);
+        }
+        
+        @include mobile {
+            margin-bottom: $space-sm;
+            
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+    
+    h3 {
+        font-size: $font-lg;
+        margin-bottom: $space-sm;
+        color: $text-primary;
+        font-weight: $font-bold;
+        
+        @include mobile {
+            font-size: $font-base;
+        }
+    }
+    
+    .service-time {
+        font-size: $font-base;
+        font-weight: $font-bold;
+        color: $primary-color;
+        margin-bottom: $space-xs;
+        
+        @include mobile {
+            font-size: $font-sm;
+        }
+    }
+    
+    .service-desc {
+        font-size: $font-sm;
+        color: $text-secondary;
+        margin-bottom: $space-lg;
+        line-height: 1.5;
+        flex-grow: 1;
+        
+        @include mobile {
+            font-size: $font-xs;
+            margin-bottom: $space-md;
+        }
+    }
+    
+    .btn-add-recurring {
+        background: transparent;
+        border: 2px solid $primary-color;
+        padding: $space-sm $space-xl;
+        border-radius: $radius-full;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        color: $primary-color;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: auto;
+        width: auto;
+        min-width: 160px;
+        
+        @include mobile {
+            padding: $space-xs $space-lg;
+            font-size: $font-xs;
+            min-width: 140px;
+        }
+        
+        &:hover {
+            background: $primary-color;
+            color: $white;
+            transform: translateY(-2px);
+        }
+        
+        &:active {
+            transform: translateY(0);
+        }
+    }
+}
+
+// Optional: Add a subtle animation when cards come into view
+.service-card {
+    animation: fadeInUp 0.6s ease backwards;
+    
+    &:nth-child(1) { animation-delay: 0.1s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+    &:nth-child(4) { animation-delay: 0.4s; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

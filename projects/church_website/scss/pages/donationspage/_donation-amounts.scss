@@ -1,0 +1,453 @@
+// ============================================
+// DONATIONS PAGE - DONATION AMOUNTS & FREQUENCY (REFINED)
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.donation-amounts-section {
+    padding: $space-4xl 0;
+    background: $gray-50;
+    position: relative;
+    overflow: hidden;
+    
+    @include tablet {
+        padding: $space-3xl 0;
+    }
+    
+    @include mobile {
+        padding: $space-2xl 0;
+    }
+    
+    // Decorative background elements
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 60%;
+        height: 150%;
+        background: radial-gradient(circle, rgba($primary-color, 0.03) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -30%;
+        left: -10%;
+        width: 50%;
+        height: 100%;
+        background: radial-gradient(circle, rgba($primary-color, 0.02) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    .amounts-wrapper {
+        max-width: 850px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    .amounts-card {
+        background: $white;
+        padding: $space-2xl;
+        border-radius: $radius-2xl;
+        box-shadow: $shadow-lg;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid rgba($gray-200, 0.5);
+        
+        @include tablet {
+            padding: $space-xl;
+        }
+        
+        @include mobile {
+            padding: $space-lg;
+            border-radius: $radius-xl;
+        }
+        
+        &:hover {
+            box-shadow: $shadow-xl;
+            transform: translateY(-2px);
+        }
+
+        h3 {
+            font-size: $font-2xl;
+            margin-bottom: $space-xl;
+            color: $text-primary;
+            font-weight: $font-bold;
+            position: relative;
+            display: inline-block;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -12px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50px;
+                height: 3px;
+                background: linear-gradient(90deg, $primary-color, $primary-light);
+                border-radius: $radius-full;
+            }
+            
+            @include tablet {
+                font-size: $font-xl;
+                margin-bottom: $space-lg;
+                
+                &::after {
+                    bottom: -10px;
+                    width: 40px;
+                }
+            }
+            
+            @include mobile {
+                font-size: $font-lg;
+                margin-bottom: $space-md;
+                
+                &::after {
+                    bottom: -8px;
+                    width: 35px;
+                    height: 2px;
+                }
+            }
+        }
+
+        .amount-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: $space-md;
+            margin-bottom: $space-xl;
+            
+            @include tablet {
+                gap: $space-sm;
+                margin-bottom: $space-lg;
+            }
+            
+            @include mobile {
+                gap: $space-xs;
+                margin-bottom: $space-md;
+            }
+
+            .amount-btn {
+                background: $gray-100;
+                border: none;
+                padding: $space-sm $space-xl;
+                border-radius: $radius-full;
+                font-weight: $font-bold;
+                font-size: $font-lg;
+                cursor: pointer;
+                transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+                color: $text-primary;
+                min-width: 85px;
+                position: relative;
+                overflow: hidden;
+                
+                @include tablet {
+                    padding: $space-xs $space-lg;
+                    font-size: $font-base;
+                    min-width: 75px;
+                }
+                
+                @include mobile {
+                    padding: $space-xs $space-md;
+                    font-size: $font-sm;
+                    min-width: 65px;
+                }
+                
+                // Ripple effect on click
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 0;
+                    height: 0;
+                    border-radius: 50%;
+                    background: rgba($white, 0.3);
+                    transform: translate(-50%, -50%);
+                    transition: width 0.6s, height 0.6s;
+                }
+                
+                &:active::after {
+                    width: 200px;
+                    height: 200px;
+                }
+
+                &.featured {
+                    background: $primary-color;
+                    color: $white;
+                    box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+                    position: relative;
+                    
+                    &::before {
+                        content: '★';
+                        position: absolute;
+                        top: -8px;
+                        right: -8px;
+                        background: $accent-color;
+                        color: $white;
+                        font-size: 12px;
+                        width: 22px;
+                        height: 22px;
+                        border-radius: $radius-full;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow: $shadow-sm;
+                        
+                        @include mobile {
+                            width: 18px;
+                            height: 18px;
+                            font-size: 10px;
+                            top: -6px;
+                            right: -6px;
+                        }
+                    }
+                }
+
+                &:hover, &.active {
+                    background: $primary-color;
+                    color: $white;
+                    transform: translateY(-3px);
+                    box-shadow: $shadow-md;
+                }
+            }
+
+            .custom-amount {
+                position: relative;
+                
+                input {
+                    padding: $space-sm $space-md;
+                    border: 2px solid $gray-200;
+                    border-radius: $radius-full;
+                    width: 170px;
+                    text-align: center;
+                    font-size: $font-base;
+                    font-weight: $font-medium;
+                    transition: all 0.3s ease;
+                    background: $white;
+                    
+                    @include tablet {
+                        width: 150px;
+                        padding: $space-xs $space-md;
+                        font-size: $font-sm;
+                    }
+                    
+                    @include mobile {
+                        width: 130px;
+                        padding: $space-xs $space-sm;
+                        font-size: $font-sm;
+                    }
+                    
+                    &:focus {
+                        border-color: $primary-color;
+                        outline: none;
+                        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+                        transform: scale(1.02);
+                    }
+                    
+                    &::placeholder {
+                        color: $gray-400;
+                        font-size: $font-sm;
+                        
+                        @include mobile {
+                            font-size: $font-xs;
+                        }
+                    }
+                }
+                
+                // Currency symbol inside input
+                &::before {
+                    content: '£';
+                    position: absolute;
+                    left: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: $gray-500;
+                    font-weight: $font-bold;
+                    pointer-events: none;
+                    
+                    @include mobile {
+                        left: 10px;
+                    }
+                }
+                
+                input {
+                    padding-left: 28px;
+                    
+                    @include mobile {
+                        padding-left: 24px;
+                    }
+                }
+            }
+        }
+
+        .frequency-buttons {
+            display: flex;
+            justify-content: center;
+            gap: $space-md;
+            padding-top: $space-sm;
+            border-top: 1px solid $gray-200;
+            
+            @include tablet {
+                gap: $space-sm;
+                padding-top: $space-sm;
+            }
+            
+            @include mobile {
+                gap: $space-xs;
+                flex-wrap: wrap;
+            }
+
+            .freq-btn {
+                background: transparent;
+                border: 2px solid $gray-200;
+                padding: $space-sm $space-xl;
+                border-radius: $radius-full;
+                font-weight: $font-semibold;
+                font-size: $font-sm;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                color: $text-secondary;
+                position: relative;
+                overflow: hidden;
+                
+                @include tablet {
+                    padding: $space-xs $space-lg;
+                    font-size: $font-sm;
+                }
+                
+                @include mobile {
+                    padding: $space-xs $space-md;
+                    font-size: $font-xs;
+                    flex: 1;
+                    min-width: 100px;
+                }
+                
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 0;
+                    height: 2px;
+                    background: $primary-color;
+                    transition: width 0.3s ease;
+                }
+                
+                &:hover::before {
+                    width: 60%;
+                }
+
+                &.active, &:hover {
+                    background: $primary-color;
+                    color: $white;
+                    border-color: $primary-color;
+                    transform: translateY(-2px);
+                    
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Animation for amount buttons on page load
+@keyframes buttonPop {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.donation-amounts-section .amount-btn {
+    animation: buttonPop 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+    opacity: 0;
+    
+    &:nth-child(1) { animation-delay: 0.05s; }
+    &:nth-child(2) { animation-delay: 0.1s; }
+    &:nth-child(3) { animation-delay: 0.15s; }
+    &:nth-child(4) { animation-delay: 0.2s; }
+    &:nth-child(5) { animation-delay: 0.25s; }
+}
+
+.donation-amounts-section .custom-amount {
+    animation: buttonPop 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.3s forwards;
+    opacity: 0;
+}
+
+.donation-amounts-section .freq-btn {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+    
+    &:nth-child(1) { animation-delay: 0.4s; }
+    &:nth-child(2) { animation-delay: 0.45s; }
+    &:nth-child(3) { animation-delay: 0.5s; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+    .donation-amounts-section {
+        background: $gray-800;
+        
+        .amounts-card {
+            background: $gray-900;
+            border-color: $gray-700;
+            
+            h3 {
+                color: $white;
+            }
+            
+            .amount-btn {
+                background: $gray-700;
+                color: $white;
+                
+                &:hover, &.active {
+                    background: $primary-color;
+                }
+            }
+            
+            .custom-amount input {
+                background: $gray-800;
+                border-color: $gray-700;
+                color: $white;
+                
+                &:focus {
+                    border-color: $primary-color;
+                }
+            }
+            
+            .freq-btn {
+                border-color: $gray-700;
+                color: $gray-400;
+                
+                &.active, &:hover {
+                    background: $primary-color;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

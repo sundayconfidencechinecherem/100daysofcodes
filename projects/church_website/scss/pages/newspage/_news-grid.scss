@@ -1,0 +1,165 @@
+// ============================================
+// NEWS PAGE - NEWS GRID
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.news-grid-section {
+    background: $white;
+    padding: $space-4xl 0;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-xl;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-lg;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-md;
+        max-width: 380px;
+    }
+}
+
+.news-card {
+    background: $white;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: $shadow-xl;
+        
+        .news-image img {
+            transform: scale(1.05);
+        }
+    }
+    
+    .news-image {
+        height: 220px;
+        overflow: hidden;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+    }
+    
+    .news-content {
+        padding: $space-lg;
+        
+        .news-category {
+            display: inline-block;
+            background: rgba($primary-color, 0.1);
+            color: $primary-color;
+            font-size: $font-xs;
+            font-weight: $font-bold;
+            padding: $space-xs $space-md;
+            border-radius: $radius-full;
+            margin-bottom: $space-md;
+            text-transform: uppercase;
+        }
+        
+        h3 {
+            font-size: $font-lg;
+            margin-bottom: $space-sm;
+            color: $text-primary;
+            line-height: 1.4;
+        }
+        
+        .news-meta {
+            display: flex;
+            gap: $space-md;
+            margin-bottom: $space-sm;
+            font-size: $font-xs;
+            color: $text-light;
+        }
+        
+        .news-excerpt {
+            font-size: $font-sm;
+            color: $text-secondary;
+            line-height: 1.6;
+            margin-bottom: $space-md;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $space-md;
+    margin-top: $space-3xl;
+    flex-wrap: wrap;
+    
+    .page-btn {
+        background: $white;
+        border: 2px solid $gray-200;
+        padding: $space-sm $space-xl;
+        border-radius: $radius-full;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        color: $text-primary;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover:not(:disabled) {
+            background: $primary-color;
+            border-color: $primary-color;
+            color: $white;
+        }
+        
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+    
+    .page-numbers {
+        display: flex;
+        gap: $space-sm;
+        
+        .page-num {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $white;
+            border: 2px solid $gray-200;
+            border-radius: $radius-md;
+            font-size: $font-sm;
+            font-weight: $font-semibold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                background: $primary-color;
+                border-color: $primary-color;
+                color: $white;
+            }
+            
+            &.active {
+                background: $primary-color;
+                border-color: $primary-color;
+                color: $white;
+            }
+        }
+    }
+}

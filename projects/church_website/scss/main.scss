@@ -43,8 +43,61 @@
 @use 'pages/aboutpage/aboutbeliefs';
 @use 'pages/aboutpage/aboutstats';
 @use 'pages/aboutpage/aboutcta';
+
+//sermon page styling
 @use 'pages/sermonpage/hero';
 @use 'pages/sermonpage/filters';
 @use 'pages/sermonpage/featured';
 @use 'pages/sermonpage/audio';
 @use 'pages/sermonpage/video';
+
+//event page styling
+@use 'pages/eventpage/filter';
+@use 'pages/eventpage/event-details';
+@use 'pages/eventpage/upcoming-grid';
+@use 'pages/eventpage/wedding-announcement';
+@use 'pages/eventpage/scrollable';
+@use 'pages/eventpage/modal';
+@use 'pages/eventpage/recurring';
+@use 'pages/eventpage/announcement-banner';
+@use 'pages/eventpage/announcements-carousel';
+@use 'pages/eventpage/calendar';
+@use 'pages/eventpage/upcoming-scrollable';
+@use 'pages/eventpage/weekly-services';
+
+//testimonypage
+@use 'pages/testimonypage/heros';
+@use 'pages/testimonypage/videoss';
+@use 'pages/testimonypage/written';
+@use 'pages/testimonypage/form';
+
+
+//newspage
+
+@use 'pages/newspage/news-grid';
+@use 'pages/newspage/newsfeatured';
+@use 'pages/newspage/newsfilters';
+@use 'pages/newspage/newshero';
+@use 'pages/newspage/newsletter';
+@use 'pages/newspage/newsmodal';
+@use 'pages/newspage/breaking';
+@use 'pages/newspage/categories';
+@use 'pages/newspage/main-layout';
+
+//contactpage
+@use 'pages/contactpage/contact-all';
+@use 'pages/contactpage/contact-hero';
+@use 'pages/contactpage/contact-info-grid';
+@use 'pages/contactpage/map-form';
+@use 'pages/contactpage/social-connect';
+
+//donationspage
+@use 'pages/donationspage/donationhero';
+@use 'pages/donationspage/giving-methods';
+@use 'pages/donationspage/donation-amounts';
+@use 'pages/donationspage/donation-form';
+@use 'pages/donationspage/impact';
+@use 'pages/donationspage/benevolence';
+@use 'pages/donationspage/bank-transfer';
+@use 'pages/donationspage/rescue-lines';
+

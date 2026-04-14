@@ -1,0 +1,464 @@
+// ============================================
+// DONATIONS PAGE - HERO SECTION (REFINED)
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.donations-hero {
+    position: relative;
+    background: linear-gradient(135deg, $gray-900 0%, $secondary-color 100%);
+    overflow: hidden;
+    padding: $space-3xl 0;
+    
+    @include tablet {
+        padding: $space-2xl 0;
+    }
+    
+    @include mobile {
+        padding: $space-xl 0 $space-2xl;
+    }
+    
+    // Background Image with Overlay
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('../assets/images/donation2.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.25;
+        z-index: 0;
+        
+        @include mobile {
+            opacity: 0.15;
+            background-position: 70% center;
+        }
+    }
+    
+    // Additional gradient overlay for better text contrast
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 30% 50%, rgba($gray-900, 0.4) 0%, rgba($gray-900, 0.8) 100%);
+        z-index: 0;
+        pointer-events: none;
+        
+        @include mobile {
+            background: radial-gradient(circle at 50% 50%, rgba($gray-900, 0.5) 0%, rgba($gray-900, 0.85) 100%);
+        }
+    }
+    
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+// Hero Container - Flex Layout
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-2xl;
+    flex-wrap: wrap;
+    
+    @include tablet {
+        gap: $space-xl;
+    }
+    
+    @include mobile {
+        flex-direction: column;
+        text-align: center;
+        gap: $space-lg;
+    }
+    
+    // Left Column - Text Content
+    .hero-text {
+        flex: 1.2;
+        min-width: 300px;
+        
+        @include mobile {
+            min-width: 100%;
+            order: 1;
+        }
+        
+        // Animated Tag
+        .hero-tag {
+            display: inline-block;
+            background: rgba($primary-color, 0.2);
+            color: $primary-light;
+            font-size: $font-xs;
+            font-weight: $font-bold;
+            padding: $space-xs $space-lg;
+            border-radius: $radius-full;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: $space-md;
+            backdrop-filter: blur(4px);
+            animation: slideDown 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+            
+            @include mobile {
+                font-size: $font-xs;
+                padding: $space-xs $space-md;
+                letter-spacing: 2px;
+                margin-bottom: $space-sm;
+            }
+        }
+        
+        // Main Heading
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 4.5rem);
+            margin-bottom: $space-sm;
+            line-height: 1.2;
+            color: $white;
+            font-weight: $font-bold;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.7s ease 0.1s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+            
+            span {
+                color: $primary-light;
+                position: relative;
+                display: inline-block;
+                
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: -6px;
+                    left: 0;
+                    width: 100%;
+                    height: 4px;
+                    background: linear-gradient(90deg, $primary-color, $primary-light, transparent);
+                    border-radius: $radius-full;
+                    
+                    @include mobile {
+                        bottom: -4px;
+                        height: 3px;
+                    }
+                }
+            }
+            
+            @include tablet {
+                font-size: clamp(1.8rem, 4.5vw, 3.5rem);
+            }
+            
+            @include mobile {
+                font-size: clamp(1.6rem, 6vw, 2.2rem);
+                margin-bottom: $space-xs;
+            }
+        }
+        
+        // Description
+        p {
+            font-size: $font-md;
+            color: rgba($white, 0.92);
+            margin-bottom: $space-xl;
+            line-height: 1.6;
+            max-width: 90%;
+            font-weight: $font-medium;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.7s ease 0.2s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+            
+            @include tablet {
+                font-size: $font-sm;
+                margin-bottom: $space-lg;
+                max-width: 100%;
+            }
+            
+            @include mobile {
+                font-size: $font-base;
+                margin-bottom: $space-md;
+                max-width: 100%;
+                padding: 0 $space-sm;
+                font-weight: $font-regular;
+                line-height: 1.5;
+            }
+        }
+        
+        // Buttons Container
+        .hero-buttons {
+            display: flex;
+            gap: $space-md;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.7s ease 0.3s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+            
+            @include mobile {
+                justify-content: center;
+                gap: $space-sm;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            // Primary Button
+            .btn-primary {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: $space-xs;
+                background: $primary-color;
+                color: $white;
+                text-decoration: none;
+                font-weight: $font-bold;
+                border-radius: $radius-full;
+                transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+                box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+                
+                // Desktop
+                padding: $space-sm $space-2xl;
+                font-size: $font-sm;
+                
+                @include tablet {
+                    padding: $space-xs $space-xl;
+                    font-size: $font-sm;
+                }
+                
+                @include mobile {
+                    padding: $space-xs $space-lg;
+                    font-size: $font-sm;
+                    min-width: 160px;
+                }
+                
+                &:hover {
+                    background: $primary-hover;
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 25px rgba($primary-color, 0.4);
+                }
+                
+                &:active {
+                    transform: translateY(0);
+                }
+                
+                img {
+                    width: 18px;
+                    height: 18px;
+                    filter: brightness(0) invert(1);
+                    transition: transform 0.2s ease;
+                }
+                
+                &:hover img {
+                    transform: scale(1.1);
+                }
+            }
+            
+            // Secondary Button
+            .btn-outline {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: $space-xs;
+                background: transparent;
+                border: 2px solid rgba($white, 0.9);
+                color: $white;
+                text-decoration: none;
+                font-weight: $font-bold;
+                border-radius: $radius-full;
+                transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+                
+                // Desktop
+                padding: $space-sm $space-2xl;
+                font-size: $font-sm;
+                
+                @include tablet {
+                    padding: $space-xs $space-xl;
+                    font-size: $font-sm;
+                }
+                
+                @include mobile {
+                    padding: $space-xs $space-lg;
+                    font-size: $font-sm;
+                    min-width: 160px;
+                }
+                
+                &:hover {
+                    background: $white;
+                    color: $primary-color;
+                    border-color: $white;
+                    transform: translateY(-3px);
+                    
+                    img {
+                        filter: brightness(0) saturate(100%) invert(27%) sepia(89%) saturate(1892%) hue-rotate(346deg) brightness(92%) contrast(94%);
+                    }
+                }
+                
+                &:active {
+                    transform: translateY(0);
+                }
+                
+                img {
+                    width: 18px;
+                    height: 18px;
+                    filter: brightness(0) invert(1);
+                    transition: all 0.2s ease;
+                }
+            }
+        }
+    }
+    
+    // Right Column - Image
+    .hero-image {
+        flex: 0.8;
+        min-width: 280px;
+        
+        @include mobile {
+            flex: auto;
+            min-width: 100%;
+            margin-top: 0;
+            order: 2;
+        }
+        
+        .hero-img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: $radius-xl;
+            box-shadow: $shadow-xl;
+            object-fit: contain;
+            display: block;
+            animation: fadeInRight 0.8s ease 0.2s forwards;
+            opacity: 0;
+            transform: translateX(40px);
+            
+            @include tablet {
+                max-width: 350px;
+            }
+            
+            @include mobile {
+                max-width: 220px;
+                margin: 0 auto;
+                border-radius: $radius-lg;
+                animation: fadeInUp 0.6s ease 0.1s forwards;
+                transform: translateY(30px);
+            }
+        }
+    }
+}
+
+// Floating Decorative Elements
+.floating-element {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.08;
+    
+    &-1 {
+        top: 12%;
+        left: 3%;
+        width: 70px;
+        height: 70px;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2L15 8.5L22 9.5L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9.5L9 8.5L12 2Z"/></svg>') center/contain no-repeat;
+        animation: float 6s ease-in-out infinite;
+        
+        @include tablet {
+            display: none;
+        }
+    }
+    
+    &-2 {
+        bottom: 15%;
+        right: 4%;
+        width: 55px;
+        height: 55px;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2L15 8.5L22 9.5L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9.5L9 8.5L12 2Z"/></svg>') center/contain no-repeat;
+        animation: float 7s ease-in-out infinite reverse;
+        
+        @include tablet {
+            display: none;
+        }
+    }
+    
+    &-3 {
+        top: 45%;
+        right: 10%;
+        width: 35px;
+        height: 35px;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2L15 8.5L22 9.5L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9.5L9 8.5L12 2Z"/></svg>') center/contain no-repeat;
+        animation: float 5s ease-in-out infinite 0.5s;
+        
+        @include mobile {
+            display: none;
+        }
+    }
+}
+
+// ============================================
+// ANIMATIONS
+// ============================================
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+// ============================================
+// MOBILE SPECIFIC ADJUSTMENTS
+// ============================================
+
+@include mobile {
+    .donations-hero {
+        .hero-text {
+            h1 {
+                br {
+                    display: none; // Remove line breaks on mobile if any
+                }
+            }
+            
+            p {
+                br {
+                    display: none;
+                }
+            }
+        }
+    }
+}

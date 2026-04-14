@@ -1,0 +1,182 @@
+// ============================================
+// EVENTS PAGE - UPCOMING EVENTS GRID
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.upcoming-events-section {
+    background: $white;
+    padding: $space-4xl 0;
+}
+
+.upcoming-events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-2xl;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-xl;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-lg;
+        max-width: 350px;
+    }
+}
+
+.event-card {
+    background: $white;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: $shadow-2xl;
+        
+        .event-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .learn-more {
+            color: $primary-color;
+            gap: $space-md;
+            
+            &::after {
+                transform: translateX(5px);
+            }
+        }
+    }
+    
+    .event-card-image {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+        background: $gray-800;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .event-date-badge {
+            position: absolute;
+            top: $space-md;
+            left: $space-md;
+            background: $primary-color;
+            color: $white;
+            padding: $space-xs $space-md;
+            border-radius: $radius-md;
+            text-align: center;
+            min-width: 60px;
+            z-index: 2;
+            box-shadow: $shadow-sm;
+            
+            .badge-day {
+                font-size: $font-xl;
+                font-weight: $font-bold;
+                line-height: 1;
+            }
+            
+            .badge-month {
+                font-size: $font-xs;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+        }
+        
+        .event-category-badge {
+            position: absolute;
+            top: $space-md;
+            right: $space-md;
+            font-size: $font-xs;
+            font-weight: $font-bold;
+            padding: $space-xs $space-md;
+            border-radius: $radius-full;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            color: $white;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+    }
+    
+    .event-card-content {
+        padding: $space-lg;
+        
+        h3 {
+            font-size: $font-base;
+            margin-bottom: $space-sm;
+            color: $text-primary;
+            font-weight: $font-bold;
+            line-height: 1.4;
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: $space-md;
+            margin-bottom: $space-sm;
+        }
+        
+        .event-card-time,
+        .event-card-location {
+            display: flex;
+            align-items: center;
+            gap: $space-xs;
+            
+            img {
+                width: 14px;
+                height: 14px;
+                opacity: 0.6;
+            }
+            
+            span {
+                font-size: $font-xs;
+                color: $text-light;
+            }
+        }
+        
+        .event-description {
+            font-size: $font-sm;
+            color: $text-secondary;
+            line-height: 1.5;
+            margin: $space-md 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .event-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            .learn-more {
+                display: inline-flex;
+                align-items: center;
+                gap: $space-xs;
+                font-size: $font-sm;
+                color: $text-secondary;
+                font-weight: $font-semibold;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                
+                &::after {
+                    content: '→';
+                    transition: transform 0.3s ease;
+                }
+            }
+        }
+    }
+}

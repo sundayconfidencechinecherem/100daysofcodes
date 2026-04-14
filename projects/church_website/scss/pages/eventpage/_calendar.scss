@@ -1,0 +1,131 @@
+// ============================================
+// EVENTS PAGE - CALENDAR
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.calendar-section {
+    background: $white;
+    padding: $space-4xl 0;
+}
+
+.calendar-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: $white;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-lg;
+    padding: $space-xl;
+    
+    @include mobile {
+        padding: $space-md;
+    }
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $space-lg;
+    
+    h3 {
+        font-size: $font-xl;
+        color: $text-primary;
+        margin: 0;
+    }
+    
+    .calendar-nav-btn {
+        background: $gray-100;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: $radius-full;
+        cursor: pointer;
+        font-size: $font-lg;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background: $primary-color;
+            color: $white;
+        }
+    }
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-bottom: $space-md;
+    padding-bottom: $space-sm;
+    border-bottom: 1px solid $gray-200;
+    
+    span {
+        font-weight: $font-bold;
+        color: $text-primary;
+        font-size: $font-sm;
+        padding: $space-xs;
+    }
+}
+
+.calendar-days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: $space-xs;
+    
+    .calendar-day {
+        text-align: center;
+        padding: $space-md $space-xs;
+        border-radius: $radius-md;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: $font-sm;
+        color: $text-secondary;
+        position: relative;
+        
+        @include mobile {
+            padding: $space-sm $space-xs;
+        }
+        
+        &:hover {
+            background: rgba($primary-color, 0.1);
+        }
+        
+        &.other-month {
+            color: $text-light;
+            opacity: 0.5;
+        }
+        
+        &.has-event {
+            font-weight: $font-bold;
+            background: rgba($primary-color, 0.1);
+            color: $primary-color;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 4px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 5px;
+                height: 5px;
+                background: $primary-color;
+                border-radius: $radius-full;
+            }
+        }
+        
+        &.today {
+            background: $primary-color;
+            color: $white;
+            
+            &::after {
+                background: $white;
+            }
+        }
+        
+        &.selected {
+            background: $primary-color;
+            color: $white;
+            box-shadow: 0 0 0 2px rgba($primary-color, 0.3);
+        }
+    }
+}

@@ -3,39 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grace Abound Ministry</title>
+    <title>News | Grace Abound Ministry</title>
+    <meta name="description" content="Stay updated with the latest news, events, and announcements from Grace Abound Ministry. Read inspiring stories and church updates.">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
 </head>
 <body>
-    <main>
 
-  <section class="section">
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="navbar-container">
+                <div class="logo">
+                    <a href="/">
+                        <img src="assets/images/logo.png" alt="Grace Abound Ministry Logo" class="logo-img">
+                    </a>
+                </div>
+
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <div class="nav-menu" id="navMenu">
+                    <ul class="navbar-links">
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="sermons.html" class="nav-link">Sermons</a></li>
+                        <li><a href="events.html" class="nav-link">Events</a></li>
+                        <li><a href="news.html" class="active nav-link">News</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                    <div class="navbar-cta">
+                        <a href="donations.html" class="btn btn-primary btn-sm">Give Online</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ============================================ -->
+        <!-- BREAKING NEWS TICKER                          -->
+        <!-- ============================================ -->
+        <section class="breaking-news-section">
+            <div class="container">
+                <div class="breaking-news-wrapper">
+                    <div class="breaking-label">
+                        <span>BREAKING</span>
+                    </div>
+                    <div class="breaking-ticker" id="breakingTicker">
+                        <div class="ticker-content">
+                            <span>Annual Church Conference 2026 Announced - June 10-14</span>
+                            <span>Healing Service Testimonies - Over 50 Miracles Reported</span>
+                            <span>New Youth Wing Inauguration - This Sunday</span>
+                            <span>Food Bank Outreach Feeds 500 Families</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- NEWS HERO (Magazine Style)                    -->
+        <!-- ============================================ -->
+<section class="news-hero">
     <div class="container">
-      <h1 class="text-center">Church News</h1>
-
-      <div class="news-grid mt-lg">
-
-        <div class="news-card">
-          <h3>New Outreach Program</h3>
-          <p class="mt-sm">
-            We are launching a new community outreach this month.
-          </p>
+        <div class="hero-grid">
+            <div class="hero-main" id="heroMain">
+                <!-- Main featured news will be populated by JavaScript -->
+            </div>
+            <div class="hero-side" id="heroSide">
+                <!-- Side featured news will be populated by JavaScript -->
+            </div>
         </div>
-
-        <div class="news-card">
-          <h3>Conference 2026</h3>
-          <p class="mt-sm">
-            Join us for our annual faith conference.
-          </p>
-        </div>
-
-      </div>
     </div>
-  </section>
+</section>
 
-</main>
- 
+        <!-- ============================================ -->
+        <!-- CATEGORY TABS (News Navigation)               -->
+        <!-- ============================================ -->
+        <section class="news-categories-section">
+            <div class="container">
+                <div class="category-tabs">
+                    <button class="category-tab active" data-category="all">All News</button>
+                    <button class="category-tab" data-category="church">Church News</button>
+                    <button class="category-tab" data-category="events">Events</button>
+                    <button class="category-tab" data-category="outreach">Outreach</button>
+                    <button class="category-tab" data-category="testimonies">Testimonies</button>
+                    <button class="category-tab" data-category="announcements">Announcements</button>
+                </div>
+            </div>
+        </section>
 
-<script src="js/script.js"></script>
+        <!-- ============================================ -->
+        <!-- MAIN NEWS GRID (Magazine Layout)              -->
+        <!-- ============================================ -->
+        <section class="main-news-section">
+            <div class="container">
+                <div class="news-layout">
+                    <!-- Left Column: Main News Grid -->
+                    <div class="news-main-column">
+                        <div class="section-header">
+                            <h2>Latest News</h2>
+                            <div class="header-line"></div>
+                        </div>
+                        <div class="news-grid" id="newsGrid">
+                            <!-- News cards will be populated by JavaScript -->
+                        </div>
+                        <div class="load-more-container" id="loadMoreContainer">
+                            <button class="btn btn-outline-primary" id="loadMoreBtn">Load More News</button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Sidebar -->
+                    <div class="news-sidebar">
+                        <!-- Search Bar -->
+                        <div class="sidebar-widget search-widget">
+                            <h3>Search News</h3>
+                            <div class="search-box">
+                                <input type="text" id="searchInput" placeholder="Search articles...">
+                                <button id="searchBtn">🔍</button>
+                            </div>
+                        </div>
+
+                        <!-- Recent Posts -->
+                        <div class="sidebar-widget recent-posts-widget">
+                            <h3>Recent Posts</h3>
+                            <div class="recent-posts-list" id="recentPostsList">
+                                <!-- Recent posts will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Events -->
+                        <div class="sidebar-widget events-widget">
+                            <h3>Upcoming Events</h3>
+                            <div class="events-list" id="eventsList">
+                                <div class="event-item">
+                                    <div class="event-date">APR 20</div>
+                                    <div class="event-info">
+                                        <h4>Healing & Miracle Service</h4>
+                                        <p>Sunday | 9:00 AM</p>
+                                    </div>
+                                </div>
+                                <div class="event-item">
+                                    <div class="event-date">APR 29</div>
+                                    <div class="event-info">
+                                        <h4>Wedding: Michael & Sarah</h4>
+                                        <p>Wednesday | 10:00 AM</p>
+                                    </div>
+                                </div>
+                                <div class="event-item">
+                                    <div class="event-date">MAY 10</div>
+                                    <div class="event-info">
+                                        <h4>Women of Grace Conference</h4>
+                                        <p>Sunday | 10:00 AM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Newsletter Signup -->
+                        <div class="sidebar-widget newsletter-widget">
+                            <h3>Newsletter</h3>
+                            <p>Get the latest news delivered to your inbox</p>
+                            <form id="sidebarNewsletterForm">
+                                <input type="email" placeholder="Your email address" required>
+                                <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+                            </form>
+                        </div>
+
+
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- NEWS DETAILS MODAL                            -->
+        <!-- ============================================ -->
+        <div class="news-modal" id="newsModal">
+            <div class="news-modal-content">
+                <button class="modal-close" id="modalCloseBtn">&times;</button>
+                <div class="modal-image">
+                    <img id="modalImage" src="assets/images/leadership.png" alt="News Image">
+                </div>
+                <div class="modal-body">
+                    <span class="modal-category" id="modalCategory"></span>
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-meta">
+                        <span id="modalDate"></span>
+                        <span id="modalAuthor"></span>
+                    </div>
+                    <p id="modalContent"></p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                        -->
+    <!-- ============================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="assets/images/logo1.png" alt="Grace Abound Ministry Logo" class="footer-logo">
+                    <p>Where the word of God heals and transforms lives. A place of worship, healing, and supernatural encounters.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="testimonies.html">Testimonies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Books</a></li>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="donations.html">Donations</a></li>
+                    </ul>
+                </div>
+
+                
+                <div class="footer-newsletter">
+                    <h3>Stay Connected</h3>
+                    <p>Get updates on events, sermons, and ministry news.</p>
+                                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <img src="assets/icons/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <img src="assets/icons/youtube.png" alt="YouTube">
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <img src="assets/icons/instagram.png" alt="Instagram">
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <img src="assets/icons/twitter.png" alt="Twitter">
+                        </a>
+                    </div>
+                  <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address">
+                        <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Grace Abound Ministry. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

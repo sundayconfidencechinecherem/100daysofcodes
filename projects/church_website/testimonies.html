@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonies | Grace Abound Ministry</title>
+    <meta name="description" content="Read and watch life-changing testimonies of God's healing power, miracles, and breakthroughs at Grace Abound Ministry. Share your own testimony.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+</head>
+<body>
+
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ============================================ -->
+    <!-- HEADER / NAVIGATION                           -->
+    <!-- ============================================ -->
+    <header class="site-header" id="siteHeader">
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="navbar-container">
+                <div class="logo">
+                    <a href="/">
+                        <img src="assets/images/logo.png" alt="Grace Abound Ministry Logo" class="logo-img">
+                    </a>
+                </div>
+
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <div class="nav-menu" id="navMenu">
+                    <ul class="navbar-links">
+                        <li><a href="about.html" class=" nav-link">About</a></li>
+                        <li><a href="sermons.html" class="nav-link">Sermons</a></li>
+                        <li><a href="events.html" class="nav-link">Events</a></li>
+                        <li><a href="news.html" class="nav-link">News</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                    <div class="navbar-cta">
+                        <a href="donations.html" class="btn btn-primary btn-sm">Give Online</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ============================================ -->
+        <!-- SECTION 1: HERO BANNER                        -->
+        <!-- ============================================ -->
+        <section class="testimonies-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-tag">Glorifying God</span>
+                    <h1>What God Is Doing</h1>
+                    <p class="hero-text">Real stories of healing, deliverance, and supernatural breakthroughs from our church family.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 2: FEATURED VIDEO TESTIMONIAL         -->
+        <!-- ============================================ -->
+        <section class="featured-video-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Watch & Believe</span>
+                    <br>
+                    <h2>Featured Video Testimony</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Hear firsthand accounts of God's miraculous power</p>
+                </div>
+                
+                <div class="featured-video-wrapper">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/uuq4nA8Eb2E?si=g7mbwnvXpGiTGfzP&amp;start=2700" 
+                            title="Featured Testimony" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-caption">
+                        <h3>From Sickness to Supernatural Health</h3>
+                        <p>Sister Mary shares how God healed her from a terminal illness after the Healing Service.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 3: VIDEO TESTIMONIES GRID             -->
+        <!-- ============================================ -->
+        <section class="video-testimonies-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Watch More</span>
+                    <br>
+                    <h2>Video Testimonies</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Click to watch these powerful testimonies</p>
+                </div>
+                
+                <div class="video-testimonies-grid" id="videoTestimoniesGrid">
+                    <!-- Video cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 4: WRITTEN TESTIMONIES (MASONRY GRID) -->
+        <!-- ============================================ -->
+        <section class="written-testimonies-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Read & Be Encouraged</span>
+                    <br>
+                    <h2>Written Testimonies</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Powerful stories of faith, healing, and breakthrough</p>
+                </div>
+                
+                <div class="testimonies-filters">
+                    <button class="filter-btn active" data-filter="all">All Testimonies</button>
+                    <button class="filter-btn" data-filter="healing">Healing</button>
+                    <button class="filter-btn" data-filter="financial">Financial Breakthrough</button>
+                    <button class="filter-btn" data-filter="family">Family & Marriage</button>
+                    <button class="filter-btn" data-filter="deliverance">Deliverance</button>
+                </div>
+                
+                <div class="testimonies-masonry-grid" id="testimoniesGrid">
+                    <!-- Testimony cards will be populated by JavaScript -->
+                </div>
+                
+                <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+                    <button class="btn btn-outline-primary" id="loadMoreBtn">Load More Testimonies</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 5: SUBMIT TESTIMONY FORM              -->
+        <!-- ============================================ -->
+        <section class="submit-testimony-section">
+            <div class="container">
+                <div class="submit-testimony-wrapper">
+                    <div class="submit-testimony-content">
+                        <span class="section-tag">Share Your Story</span>
+                        <h2>Submit Your Testimony</h2>
+                        <div class="section-divider"></div>
+                        <p>Has God done something wonderful in your life? Share your testimony to encourage others and glorify His name.</p>
+                        <div class="testimony-note">
+                            <strong>Note:</strong> Please share only genuine and true testimonies of what God has done for you. Your story could inspire someone else's miracle.
+                        </div>
+                    </div>
+                    
+                    <form class="testimony-form" id="testimonyForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="testimonyName" placeholder="Your Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="testimonyEmail" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <select id="testimonyCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="healing">Healing</option>
+                                    <option value="financial">Financial Breakthrough</option>
+                                    <option value="family">Family & Marriage</option>
+                                    <option value="deliverance">Deliverance</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="testimonyTitle" placeholder="Testimony Title (e.g., 'God Healed My Son')" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="testimonyMessage" rows="6" placeholder="Share your testimony in detail... What was your situation? How did God intervene? What would you like to say to others?" required></textarea>
+                        </div>
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="testimonyConsent" required>
+                            <label for="testimonyConsent">I confirm that this testimony is true and accurate to the best of my knowledge. I understand it may be shared on our website and social media to glorify God.</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Submit Your Testimony</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 6: VIDEO MODAL                        -->
+        <!-- ============================================ -->
+        <div class="video-modal" id="videoModal">
+            <div class="video-modal-content">
+                <button class="modal-close" id="modalCloseBtn">&times;</button>
+                <div class="modal-video-container">
+                    <iframe id="modalVideo" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="modal-info">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDescription"></p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer (Same as Homepage) -->
+
+   <!-- Footer (Same as Homepage) -->
+
+   <!-- Footer (Same as Homepage) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="assets/images/logo1.png" alt="Grace Abound Ministry Logo" class="footer-logo">
+                    <p>Where the word of God heals and transforms lives. A place of worship, healing, and supernatural encounters.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="testimonies.html">Testimonies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Books</a></li>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="donations.html">Donations</a></li>
+                    </ul>
+                </div>
+
+                
+                <div class="footer-newsletter">
+                    <h3>Stay Connected</h3>
+                    <p>Get updates on events, sermons, and ministry news.</p>
+                                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <img src="assets/icons/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <img src="assets/icons/youtube.png" alt="YouTube">
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <img src="assets/icons/instagram.png" alt="Instagram">
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <img src="assets/icons/twitter.png" alt="Twitter">
+                        </a>
+                    </div>
+                  <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address">
+                        <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Grace Abound Ministry. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>

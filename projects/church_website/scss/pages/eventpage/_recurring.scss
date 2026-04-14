@@ -1,0 +1,90 @@
+// ============================================
+// EVENTS PAGE - RECURRING SERVICES
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.recurring-section {
+    background: $white;
+    padding: $space-4xl 0;
+}
+
+.recurring-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-xl;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-lg;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-md;
+        max-width: 320px;
+    }
+}
+
+.recurring-card {
+    text-align: center;
+    padding: $space-xl;
+    background: $gray-50;
+    border-radius: $radius-lg;
+    transition: all 0.3s ease;
+    border: 1px solid $gray-200;
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-md;
+        border-color: $primary-color;
+    }
+    
+    .recurring-icon {
+        margin-bottom: $space-md;
+        
+        img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+    }
+    
+    h3 {
+        font-size: $font-lg;
+        margin-bottom: $space-sm;
+        color: $text-primary;
+    }
+    
+    .recurring-time {
+        font-size: $font-base;
+        font-weight: $font-bold;
+        color: $primary-color;
+        margin-bottom: $space-xs;
+    }
+    
+    .recurring-desc {
+        font-size: $font-sm;
+        color: $text-secondary;
+        margin-bottom: $space-lg;
+    }
+    
+    .add-to-calendar-recurring {
+        background: transparent;
+        border: 2px solid $primary-color;
+        padding: $space-sm $space-lg;
+        border-radius: $radius-full;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        color: $primary-color;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background: $primary-color;
+            color: $white;
+        }
+    }
+}

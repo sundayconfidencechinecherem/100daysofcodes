@@ -1,0 +1,113 @@
+// ============================================
+// EVENTS PAGE - WEDDING ANNOUNCEMENT
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.wedding-announcement-section {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    
+    @include mobile {
+        min-height: 450px;
+    }
+}
+
+.wedding-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .wedding-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 100%);
+    }
+}
+
+.wedding-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    color: $white;
+    padding: $space-4xl 0;
+    
+    .wedding-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.9);
+        padding: $space-xs $space-md;
+        border-radius: $radius-full;
+        font-size: $font-sm;
+        font-weight: $font-semibold;
+        margin-bottom: $space-md;
+        letter-spacing: 2px;
+    }
+    
+    h2 {
+        font-size: $font-5xl;
+        color: $white;
+        margin-bottom: $space-md;
+        font-weight: $font-bold;
+        
+        @include mobile {
+            font-size: $font-3xl;
+        }
+    }
+    
+    .wedding-date {
+        font-size: $font-lg;
+        margin-bottom: $space-xs;
+        color: rgba(255,255,255,0.9);
+    }
+    
+    .wedding-location {
+        font-size: $font-base;
+        margin-bottom: $space-lg;
+        color: rgba(255,255,255,0.8);
+    }
+    
+    .wedding-message {
+        font-size: $font-base;
+        margin-bottom: $space-xl;
+        line-height: 1.7;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        color: rgba(255,255,255,0.85);
+    }
+    
+    .wedding-buttons {
+        display: flex;
+        gap: $space-md;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid $white;
+            color: $white;
+            
+            &:hover {
+                background: $white;
+                color: $primary-color;
+            }
+        }
+    }
+}

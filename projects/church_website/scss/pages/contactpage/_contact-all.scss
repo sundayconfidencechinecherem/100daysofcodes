@@ -1,0 +1,251 @@
+// ============================================
+// CONTACT PAGE STYLES
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.contact-hero {
+    background: $gray-900;
+    padding: $space-4xl 0;
+    text-align: center;
+    
+    .hero-tag {
+        display: inline-block;
+        background: rgba($primary-color, 0.15);
+        padding: $space-xs $space-lg;
+        border-radius: $radius-full;
+        font-size: $font-sm;
+        color: $primary-color;
+        margin-bottom: $space-md;
+    }
+    
+    h1 {
+        font-size: $font-4xl;
+        color: $white;
+        margin-bottom: $space-md;
+        
+        @include mobile {
+            font-size: $font-2xl;
+        }
+    }
+    
+    .hero-text {
+        font-size: $font-lg;
+        color: $gray-300;
+        max-width: 600px;
+        margin: 0 auto;
+        
+        @include mobile {
+            font-size: $font-base;
+        }
+    }
+}
+
+.contact-info-section {
+    padding: $space-4xl 0;
+    background: $white;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-xl;
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info-card {
+    text-align: center;
+    padding: $space-xl;
+    background: $gray-50;
+    border-radius: $radius-lg;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-md;
+    }
+    
+    .info-icon {
+        width: 70px;
+        height: 70px;
+        background: rgba($primary-color, 0.1);
+        border-radius: $radius-full;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto $space-md;
+        
+        img {
+            width: 35px;
+            height: 35px;
+        }
+    }
+    
+    h3 {
+        font-size: $font-lg;
+        margin-bottom: $space-md;
+    }
+    
+    p {
+        font-size: $font-sm;
+        color: $text-secondary;
+        margin-bottom: $space-md;
+        line-height: 1.6;
+    }
+    
+    .info-link {
+        color: $primary-color;
+        font-weight: $font-semibold;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.map-form-section {
+    background: $gray-50;
+    padding: $space-4xl 0;
+}
+
+.map-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-xl;
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+}
+
+.map-wrapper {
+    height: 100%;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+    
+    iframe {
+        width: 100%;
+        min-height: 450px;
+        
+        @include mobile {
+            min-height: 300px;
+        }
+    }
+}
+
+.form-wrapper {
+    background: $white;
+    padding: $space-xl;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    
+    h2 {
+        font-size: $font-xl;
+        margin-bottom: $space-lg;
+    }
+}
+
+.prayer-lines-section {
+    background: $gray-900;
+    padding: $space-4xl 0;
+    text-align: center;
+}
+
+.prayer-lines-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    
+    .prayer-icon {
+        font-size: 3rem;
+        margin-bottom: $space-md;
+        display: inline-block;
+    }
+    
+    h2 {
+        font-size: $font-2xl;
+        color: $white;
+        margin-bottom: $space-md;
+    }
+    
+    p {
+        color: $gray-300;
+        margin-bottom: $space-xl;
+    }
+}
+
+.prayer-numbers {
+    display: flex;
+    justify-content: center;
+    gap: $space-md;
+    flex-wrap: wrap;
+    margin-bottom: $space-lg;
+    
+    .prayer-number {
+        background: rgba($primary-color, 0.15);
+        padding: $space-sm $space-xl;
+        border-radius: $radius-full;
+        color: $white;
+        font-weight: $font-bold;
+        font-size: $font-lg;
+        
+        @include mobile {
+            font-size: $font-base;
+            padding: $space-sm $space-lg;
+        }
+    }
+}
+
+.prayer-note {
+    font-size: $font-sm;
+    color: $gray-400;
+}
+
+.social-connect-section {
+    padding: $space-4xl 0;
+    background: $white;
+    text-align: center;
+}
+
+.social-icons-large {
+    display: flex;
+    justify-content: center;
+    gap: $space-xl;
+    flex-wrap: wrap;
+    margin-top: $space-xl;
+    
+    .social-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $space-sm;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        
+        img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        span {
+            color: $text-secondary;
+            font-size: $font-sm;
+        }
+        
+        &:hover {
+            transform: translateY(-5px);
+            
+            span {
+                color: $primary-color;
+            }
+        }
+    }
+}

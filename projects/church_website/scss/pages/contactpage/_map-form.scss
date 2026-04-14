@@ -1,0 +1,236 @@
+// ============================================
+// CONTACT PAGE - MAP & FORM SECTION
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.map-form-section {
+    padding: $space-4xl 0;
+    background: $gray-50;
+    
+    @include mobile {
+        padding: $space-xl 0;
+    }
+}
+
+.map-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3xl;
+    
+    @include tablet {
+        grid-template-columns: 1fr;
+        gap: $space-2xl;
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: $space-lg;
+    }
+}
+
+// ========== MAP COLUMN ==========
+.map-column {
+    .map-wrapper {
+        border-radius: $radius-xl;
+        overflow: hidden;
+        box-shadow: $shadow-lg;
+        height: 100%;
+        min-height: 450px;
+        background: $gray-200;
+        
+        @include tablet {
+            min-height: 400px;
+        }
+        
+        @include mobile {
+            min-height: 280px;
+            border-radius: $radius-lg;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 450px;
+            display: block;
+            
+            @include tablet {
+                min-height: 400px;
+            }
+            
+            @include mobile {
+                min-height: 280px;
+            }
+        }
+    }
+}
+
+// ========== FORM COLUMN ==========
+.form-column {
+    .form-wrapper {
+        background: $white;
+        padding: $space-2xl;
+        border-radius: $radius-xl;
+        box-shadow: $shadow-lg;
+        
+        @include tablet {
+            padding: $space-xl;
+        }
+        
+        @include mobile {
+            padding: $space-lg;
+            border-radius: $radius-lg;
+        }
+        
+        h2 {
+            font-size: $font-2xl;
+            color: $text-primary;
+            margin-bottom: $space-xl;
+            font-weight: $font-bold;
+            position: relative;
+            padding-bottom: $space-sm;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 60px;
+                height: 3px;
+                background: $primary-color;
+                border-radius: $radius-full;
+            }
+            
+            @include tablet {
+                font-size: $font-xl;
+                margin-bottom: $space-lg;
+            }
+            
+            @include mobile {
+                font-size: $font-lg;
+                margin-bottom: $space-md;
+            }
+        }
+    }
+}
+
+// ========== FORM STYLES ==========
+#contactForm {
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-md;
+        margin-bottom: $space-md;
+        
+        @include tablet {
+            gap: $space-md;
+        }
+        
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: $space-sm;
+            margin-bottom: $space-sm;
+        }
+    }
+    
+    .form-group {
+        margin-bottom: $space-md;
+        width: 100%;
+        
+        @include mobile {
+            margin-bottom: $space-sm;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: $space-md $space-lg;
+            border: 2px solid $gray-200;
+            border-radius: $radius-lg;
+            font-size: $font-sm;
+            font-family: $font-family;
+            transition: all 0.3s ease;
+            background: $white;
+            box-sizing: border-box;
+            
+            @include tablet {
+                padding: $space-md $space-lg;
+            }
+            
+            @include mobile {
+                padding: $space-sm $space-md;
+                font-size: $font-sm;
+                border-radius: $radius-md;
+            }
+            
+            &:focus {
+                outline: none;
+                border-color: $primary-color;
+                box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+            }
+            
+            &::placeholder {
+                color: $gray-400;
+            }
+        }
+        
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right $space-md center;
+            background-size: 16px;
+            
+            @include mobile {
+                background-position: right $space-sm center;
+            }
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+            
+            @include mobile {
+                min-height: 100px;
+            }
+        }
+    }
+    
+    .btn-block {
+        width: 100%;
+        justify-content: center;
+        padding: $space-md;
+        font-size: $font-base;
+        margin-top: $space-sm;
+        
+        @include tablet {
+            padding: $space-md;
+        }
+        
+        @include mobile {
+            padding: $space-sm $space-lg;
+            font-size: $font-sm;
+        }
+    }
+}
+
+// ========== SUCCESS/ERROR MESSAGE STYLES (Optional) ==========
+.form-success {
+    background: rgba($accent-color, 0.1);
+    color: $accent-color;
+    padding: $space-md;
+    border-radius: $radius-lg;
+    text-align: center;
+    margin-top: $space-md;
+    font-size: $font-sm;
+}
+
+.form-error {
+    background: rgba($primary-color, 0.1);
+    color: $primary-color;
+    padding: $space-md;
+    border-radius: $radius-lg;
+    text-align: center;
+    margin-top: $space-md;
+    font-size: $font-sm;
+}

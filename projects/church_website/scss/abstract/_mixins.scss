@@ -28,6 +28,50 @@
     }
 }
 
+@mixin desktop-lg {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+
+
+// MOBILE
+@mixin mobile {
+  @media (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+// TABLET
+@mixin tablet {
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// DESKTOP (small laptops)
+@mixin desktop-md {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// DESKTOP LARGE (big screens)
+@mixin desktop-lg {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+// EXTRA LARGE SCREENS
+@mixin desktop-xl {
+  @media (min-width: $breakpoint-2xl) {
+    @content;
+  }
+}
+
+
 // ============================================
 // FLEXBOX MIXINS
 // ============================================

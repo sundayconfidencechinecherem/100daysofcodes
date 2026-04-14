@@ -1,0 +1,424 @@
+// ============================================
+// DONATIONS PAGE - RESCUE LINES SECTION (PREMIUM LIGHT)
+// ============================================
+@use '../../abstract/variables' as *;
+@use '../../abstract/mixins' as *;
+
+.rescue-lines-section {
+    position: relative;
+    padding: $space-5xl 0;
+    background: linear-gradient(135deg, $gray-50 0%, $white 100%);
+    overflow: hidden;
+    
+    @include tablet {
+        padding: $space-4xl 0;
+    }
+    
+    @include mobile {
+        padding: $space-3xl 0;
+    }
+    
+    // Background Image with proper positioning
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('../assets/images/prayer-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.08;
+        pointer-events: none;
+        
+        @include mobile {
+            opacity: 0.05;
+            background-position: 70% center;
+        }
+    }
+    
+    // Decorative accent overlay
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 30%, rgba($primary-color, 0.04) 0%, transparent 70%);
+        pointer-events: none;
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .rescue-wrapper {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+        
+        @include mobile {
+            padding: 0 $space-md;
+        }
+    }
+
+    // Icon Container
+    .rescue-icon {
+        margin-bottom: $space-lg;
+        position: relative;
+        display: inline-block;
+        
+        img {
+            width: 72px;
+            height: 72px;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            filter: brightness(0) saturate(100%) invert(27%) sepia(89%) saturate(1892%) hue-rotate(346deg) brightness(92%) contrast(94%);
+            
+            @include mobile {
+                width: 56px;
+                height: 56px;
+            }
+        }
+        
+        // Subtle background glow
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: rgba($primary-color, 0.08);
+            border-radius: 50%;
+            z-index: -1;
+            transition: all 0.4s ease;
+            
+            @include mobile {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        
+        &:hover {
+            img {
+                transform: scale(1.08);
+            }
+            
+            &::before {
+                background: rgba($primary-color, 0.12);
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+    }
+
+    h2 {
+        font-size: $font-3xl;
+        margin-bottom: $space-md;
+        font-weight: $font-bold;
+        color: $text-primary;
+        position: relative;
+        display: inline-block;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, $primary-color, $primary-light);
+            border-radius: $radius-full;
+        }
+        
+        @include tablet {
+            font-size: $font-2xl;
+            
+            &::after {
+                width: 60px;
+                bottom: -10px;
+            }
+        }
+        
+        @include mobile {
+            font-size: $font-xl;
+            
+            &::after {
+                width: 50px;
+                height: 2px;
+                bottom: -8px;
+            }
+        }
+    }
+
+    .rescue-description {
+        font-size: $font-md;
+        color: $text-secondary;
+        margin: $space-xl auto $space-2xl;
+        max-width: 550px;
+        line-height: $line-height-normal;
+        
+        @include tablet {
+            font-size: $font-base;
+            margin: $space-lg auto $space-xl;
+        }
+        
+        @include mobile {
+            font-size: $font-sm;
+            margin: $space-md auto $space-lg;
+            padding: 0 $space-sm;
+        }
+    }
+
+    // Rescue Numbers Grid
+    .rescue-numbers {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: $space-lg;
+        margin: $space-2xl 0;
+        
+        @include tablet {
+            gap: $space-md;
+            margin: $space-xl 0;
+        }
+        
+        @include mobile {
+            gap: $space-sm;
+            margin: $space-lg 0;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rescue-number {
+            display: flex;
+            align-items: center;
+            gap: $space-sm;
+            background: $white;
+            padding: $space-md $space-2xl;
+            border-radius: $radius-full;
+            font-weight: $font-bold;
+            font-size: $font-lg;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            cursor: pointer;
+            border: 1px solid $gray-200;
+            box-shadow: $shadow-sm;
+            color: $text-primary;
+            
+            @include tablet {
+                padding: $space-sm $space-xl;
+                font-size: $font-base;
+            }
+            
+            @include mobile {
+                padding: $space-sm $space-xl;
+                font-size: $font-base;
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            
+            // Phone icon
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background-image: url('../assets/icons/phone-call.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                transition: all 0.3s ease;
+                
+                @include mobile {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+            
+            &:hover {
+                background: $primary-color;
+                border-color: $primary-color;
+                transform: translateY(-3px);
+                box-shadow: $shadow-lg;
+                color: $white;
+                
+                &::before {
+                    filter: brightness(0) invert(1);
+                }
+            }
+            
+            &:active {
+                transform: translateY(0);
+            }
+            
+            // Copy feedback
+            &.copied {
+                background: $accent-color;
+                border-color: $accent-color;
+                transform: scale(0.98);
+                
+                &::after {
+                    content: 'Copied!';
+                    position: absolute;
+                    top: -35px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: $accent-color;
+                    color: $white;
+                    padding: $space-xs $space-sm;
+                    border-radius: $radius-md;
+                    font-size: $font-xs;
+                    white-space: nowrap;
+                    animation: fadeOut 1.5s ease forwards;
+                }
+            }
+        }
+    }
+    
+    // Additional Info Card
+    .rescue-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $space-md;
+        background: rgba($primary-color, 0.04);
+        padding: $space-md $space-xl;
+        border-radius: $radius-full;
+        margin-top: $space-xl;
+        flex-wrap: wrap;
+        border: 1px solid rgba($primary-color, 0.1);
+        
+        @include mobile {
+            padding: $space-sm $space-md;
+            gap: $space-sm;
+            border-radius: $radius-lg;
+        }
+        
+        .info-text {
+            display: flex;
+            align-items: center;
+            gap: $space-xs;
+            font-size: $font-sm;
+            color: $text-secondary;
+            
+            @include mobile {
+                font-size: $font-xs;
+            }
+            
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                background-image: url('../assets/icons/clock.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                
+                @include mobile {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+        }
+        
+        .info-divider {
+            width: 1px;
+            height: 20px;
+            background: $gray-300;
+            
+            @include mobile {
+                display: none;
+            }
+        }
+        
+        .info-note {
+            display: flex;
+            align-items: center;
+            gap: $space-xs;
+            font-size: $font-sm;
+            color: $primary-color;
+            font-weight: $font-medium;
+            
+            @include mobile {
+                font-size: $font-xs;
+            }
+            
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                background-image: url('../assets/icons/shield.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                
+                @include mobile {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+        }
+    }
+}
+
+// ============================================
+// ANIMATIONS
+// ============================================
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+// Staggered entrance animation
+.rescue-lines-section .rescue-number {
+    animation: fadeInScale 0.5s ease forwards;
+    opacity: 0;
+    
+    &:nth-child(1) { animation-delay: 0.1s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+    &:nth-child(4) { animation-delay: 0.4s; }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// ============================================
+// RESPONSIVE ADJUSTMENTS
+// ============================================
+
+@include mobile {
+    .rescue-lines-section {
+        .rescue-info {
+            flex-direction: column;
+            
+            .info-divider {
+                display: none;
+            }
+        }
+    }
+}
