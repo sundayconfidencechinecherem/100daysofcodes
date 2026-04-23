@@ -1,85 +1,74 @@
+// ============================================
+// RESET & BASE
+// ============================================
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: $font-family;
-  line-height: 1.5;
-  color: $gray-800;
-  background-color: $white;
+  line-height: $line-height-normal;
+  color: $text-dark;
+  background-color: $bg-white;
   overflow-x: hidden;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-ul, ol {
-  list-style: none;
-}
-
+// Container
 .container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 $spacing-xl;
-  
-  @include responsive(mobile) {
-    padding: 0 $spacing-lg;
-  }
+  @include container;
 }
 
-.section-header {
-  text-align: center;
-  margin-bottom: $spacing-3xl;
-  
-  h2 {
-    font-size: $font-size-4xl;
-    margin-bottom: $spacing-md;
-    
-    @include responsive(mobile) {
-      font-size: $font-size-3xl;
-    }
-  }
-  
-  p {
-    font-size: $font-size-lg;
-    color: $gray-500;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-}
-
+// Skip Link
 .skip-link {
   position: absolute;
   top: -40px;
   left: 0;
-  background: $primary;
-  color: $white;
-  padding: $spacing-sm $spacing-lg;
+  background: $secondary;
+  color: $bg-white;
+  padding: $space-sm $space-base;
   text-decoration: none;
-  z-index: 100;
+  z-index: $z-header;
   
   &:focus {
     top: 0;
   }
 }
 
+// Back to Top Button
+.back-to-top {
+  position: fixed;
+  bottom: $space-xl;
+  right: $space-xl;
+  background: $secondary;
+  color: $bg-white;
+  width: 50px;
+  height: 50px;
+  border-radius: $radius-full;
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: $transition-normal;
+  z-index: $z-back-to-top;
+  
+  &:hover {
+    background: $primary;
+    transform: translateY(-5px);
+  }
+}
+
+// Scroll Reveal Animations
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all $transition-slow;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

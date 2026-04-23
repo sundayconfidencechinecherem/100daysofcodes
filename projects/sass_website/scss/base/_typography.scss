@@ -1,33 +1,80 @@
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.2;
-}
+// ============================================
+// TYPOGRAPHY
+// ============================================
 
 h1 {
   font-size: $font-size-5xl;
-  margin-bottom: $spacing-lg;
+  font-weight: $font-weight-extrabold;
+  line-height: $line-height-tight;
+  margin-bottom: $space-lg;
   @include gradient-text;
-  
-  @include responsive(mobile) {
-    font-size: $font-size-4xl;
-  }
 }
 
 h2 {
   font-size: $font-size-4xl;
-  margin-bottom: $spacing-md;
+  font-weight: $font-weight-bold;
+  margin-bottom: $space-base;
   
-  @include responsive(mobile) {
+  @media (max-width: $breakpoint-md) {
     font-size: $font-size-3xl;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    font-size: $font-size-2xl;
   }
 }
 
 h3 {
-  font-size: $font-size-2xl;
-  margin-bottom: $spacing-sm;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $space-md;
+  
+  @media (max-width: $breakpoint-sm) {
+    font-size: $font-size-lg;
+  }
 }
 
-p {
-  color: $gray-600;
-  line-height: 1.6;
+h4 {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $space-base;
+  color: $bg-white;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $space-3xl;
+  
+  p {
+    font-size: $font-size-md;
+    color: $text-gray;
+    max-width: 600px;
+    margin: 0 auto;
+    
+    @media (max-width: $breakpoint-sm) {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+.plan-name {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $space-sm;
+}
+
+.price {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-extrabold;
+  margin-bottom: $space-base;
+  
+  span {
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+  }
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: $space-base;
 }

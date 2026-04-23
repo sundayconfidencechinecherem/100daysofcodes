@@ -1,22 +1,25 @@
-// ===== MODERN SASS WITH @USE =====
-// Abstracts (variables and mixins must be loaded first)
-@use 'abstracts/variables' as *;
-@use 'abstracts/mixins' as *;
+// ============================================
+// MAIN.SCSS - Using @import (simpler)
+// ============================================
+
+// Abstracts
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
 
 // Base styles
-@use 'base/reset';
-@use 'base/typography';
+@import 'base/reset';
+@import 'base/typography';
 
 // Components
-@use 'components/buttons';
-@use 'components/cards';
-@use 'components/navigation';
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/navigation';
 
 // Layout sections
-@use 'layout/header';
-@use 'layout/hero';
-@use 'layout/features';
-@use 'layout/showcase';
-@use 'layout/pricing';
-@use 'layout/testimonials';
-@use 'layout/footer';
+@import 'layout/header';
+@import 'layout/hero';
+@import 'layout/features';
+@import 'layout/showcase';
+@import 'layout/pricing';
+@import 'layout/testimonials';
+@import 'layout/footer';
