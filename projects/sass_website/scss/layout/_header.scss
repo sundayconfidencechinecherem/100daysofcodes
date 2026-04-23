@@ -1,12 +1,110 @@
+// ============================================
+// HEADER / NAVBAR
+// ============================================
+
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 1000;
-  background: rgba($white, 0.95);
+  z-index: $z-header;
+  background: rgba($bg-white, 0.95);
   backdrop-filter: blur(10px);
-  transition: box-shadow $transition-base;
+  transition: box-shadow $transition-normal;
   
   &.sticky-shadow {
     box-shadow: $shadow-md;
+  }
+}
+
+.navbar {
+  padding: $space-base 0;
+}
+
+.navbar-container {
+  @include flex-between;
+  @include container;
+}
+
+.logo a {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-extrabold;
+  text-decoration: none;
+  @include gradient-text;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: $space-xl;
+}
+
+// Mobile Menu Styles
+@media (max-width: $breakpoint-md) {
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: $bg-white;
+    flex-direction: column;
+    padding: $space-xl;
+    transition: left $transition-normal;
+    z-index: $z-modal;
+    
+    &.active {
+      left: 0;
+    }
+  }
+  
+  .navbar-links {
+    flex-direction: column;
+    align-items: center;
+    gap: $space-lg;
+  }
+  
+  .navbar-cta {
+    margin-top: $space-base;
+  }
+}
+
+// Tablet View Fix (768px - 1024px)
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar-container {
+    padding: 0 $container-padding-sm;
+  }
+  
+  .navbar-links {
+    gap: $space-lg;
+    
+    a {
+      font-size: $font-size-sm;
+    }
+  }
+  
+  .btn-sm {
+    padding: $space-sm $space-base;
+    font-size: $font-size-sm;
+  }
+  
+  .hamburger {
+    display: none;
+  }
+  
+  .nav-menu {
+    display: flex;
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    flex-direction: row;
+  }
+  
+  .navbar-links {
+    flex-direction: row;
   }
 }

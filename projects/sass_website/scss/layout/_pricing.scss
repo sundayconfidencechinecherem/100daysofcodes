@@ -1,98 +1,46 @@
+// ============================================
+// PRICING SECTION
+// ============================================
+
 .pricing-section {
-  padding: $spacing-5xl 0;
-  background: $white;
+  @include section-padding;
+  background: $bg-white;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-xl;
+  align-items: stretch;
   
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: $spacing-xl;
-    align-items: stretch;
-    
-    @include responsive(tablet) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    @include responsive(mobile) {
-      grid-template-columns: 1fr;
-    }
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  .pricing-card {
-    background: $gray-50;
-    border-radius: $radius-xl;
-    padding: $spacing-xl;
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.features-list {
+  list-style: none;
+  margin: $space-lg 0;
+  flex-grow: 1;
+  
+  li {
+    margin-bottom: $space-md;
     display: flex;
-    flex-direction: column;
-    position: relative;
-    transition: all $transition-base;
-    
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: $shadow-xl;
-    }
-    
-    &.featured {
-      background: $primary-gradient;
-      color: $white;
-      transform: scale(1.05);
-      
-      @include responsive(mobile) {
-        transform: scale(1);
-      }
-      
-      .price, .plan-name, p {
-        color: $white;
-      }
-      
-      .features-list i {
-        color: #A5F3FC;
-      }
-    }
-    
-    .popular-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #F59E0B;
-      color: $white;
-      padding: $spacing-xs $spacing-lg;
-      border-radius: $radius-2xl;
-      font-size: $font-size-xs;
-      font-weight: 700;
-    }
-    
-    .plan-name {
-      font-size: $font-size-2xl;
-      font-weight: 700;
-      margin-bottom: $spacing-sm;
-    }
-    
-    .price {
-      font-size: $font-size-4xl;
-      font-weight: 800;
-      margin-bottom: $spacing-md;
-      
-      span {
-        font-size: $font-size-base;
-        font-weight: 400;
-      }
-    }
-    
-    .features-list {
-      margin: $spacing-lg 0;
-      flex-grow: 1;
-      
-      li {
-        margin-bottom: $spacing-sm;
-        display: flex;
-        align-items: center;
-        gap: $spacing-sm;
-        
-        i {
-          color: #10B981;
-        }
-      }
-    }
+    align-items: center;
+    gap: $space-sm;
+  }
+  
+  i {
+    color: $success;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .pricing-card.featured {
+    transform: scale(1);
   }
 }

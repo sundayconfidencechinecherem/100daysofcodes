@@ -1,77 +1,80 @@
-// Import variables at the top of each component file
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+// ============================================
+// BUTTONS
+// ============================================
 
 .btn-primary {
-  background: $primary-gradient;
-  color: $white;
-  padding: $spacing-md $spacing-xl;
-  font-size: $font-size-base;
-  font-weight: 600;
-  border-radius: $radius-md;
+  @include gradient-bg;
+  color: $bg-white;
   border: none;
+  padding: $space-md $space-xl;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-sm;
   cursor: pointer;
-  transition: all $transition-base;
+  transition: $transition-normal;
+  text-decoration: none;
+  display: inline-block;
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: $shadow-primary;
+    box-shadow: 0 10px 20px rgba($primary, 0.3);
   }
 }
 
 .btn-secondary {
   background: transparent;
-  color: $gray-600;
-  border: 2px solid $gray-200;
-  padding: $spacing-md $spacing-xl;
+  color: $text-gray;
+  border: 2px solid $border-light;
+  padding: $space-md $space-xl;
   font-size: $font-size-base;
-  font-weight: 600;
-  border-radius: $radius-md;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-sm;
   cursor: pointer;
-  transition: all $transition-base;
+  transition: $transition-normal;
   
   &:hover {
-    border-color: $primary;
-    color: $primary;
+    border-color: $secondary;
+    color: $secondary;
     transform: translateY(-2px);
   }
 }
 
 .btn-primary-outline {
   background: transparent;
-  color: $primary;
-  border: 2px solid $primary;
-  padding: $spacing-sm $spacing-xl;
+  color: $secondary;
+  border: 2px solid $secondary;
+  padding: $space-md $space-lg;
   font-size: $font-size-sm;
-  font-weight: 600;
-  border-radius: $radius-md;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-sm;
   cursor: pointer;
-  transition: all $transition-base;
+  transition: $transition-normal;
   
   &:hover {
-    background: $primary;
-    color: $white;
+    background: $secondary;
+    color: $bg-white;
   }
 }
 
 .btn-outline {
   background: transparent;
-  color: $primary;
-  border: 2px solid $primary;
-  padding: $spacing-sm $spacing-lg;
+  color: $secondary;
+  border: 2px solid $secondary;
+  padding: $space-md $space-lg;
   font-size: $font-size-base;
-  font-weight: 600;
-  border-radius: $radius-md;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-sm;
   cursor: pointer;
-  transition: all $transition-base;
+  transition: $transition-normal;
   
   &:hover {
-    background: $primary;
-    color: $white;
+    background: $secondary;
+    color: $bg-white;
     transform: translateX(5px);
   }
 }
 
 .btn-sm {
-  padding: $spacing-sm $spacing-lg;
+  padding: $space-sm $space-lg;
+  font-size: $font-size-sm;
 }

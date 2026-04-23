@@ -1,56 +1,81 @@
+// ============================================
+// HERO SECTION
+// ============================================
+
 .hero-section {
-  padding: $spacing-5xl 0;
-  background: $primary-bg;
+  @include section-padding;
+  background: linear-gradient(135deg, $bg-gray 0%, $bg-white 100%);
+}
+
+.hero-grid {
+  display: flex;
+  align-items: center;
+  gap: $space-3xl;
   
-  .hero-grid {
-    display: flex;
-    align-items: center;
-    gap: $spacing-4xl;
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+}
+
+.hero-text {
+  flex: 1;
+  
+  p {
+    font-size: $font-size-lg;
+    color: $text-gray;
+    margin-bottom: $space-xl;
     
-    @include responsive(mobile) {
-      flex-direction: column;
+    @media (max-width: $breakpoint-sm) {
+      font-size: $font-size-base;
     }
   }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: $space-base;
   
-  .hero-text {
-    flex: 1;
-    
-    p {
-      font-size: $font-size-xl;
-      margin-bottom: $spacing-xl;
-    }
-    
-    .hero-buttons {
-      display: flex;
-      gap: $spacing-md;
-      
-      @include responsive(mobile) {
-        flex-direction: column;
-      }
-    }
+  @media (max-width: $breakpoint-md) {
+    justify-content: center;
   }
   
-  .hero-image {
-    flex: 1;
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    width: 100%;
     
-    .image-placeholder {
-      background: $primary-gradient-soft;
-      border-radius: $radius-2xl;
-      padding: $spacing-4xl $spacing-xl;
-      text-align: center;
-      box-shadow: $shadow-lg;
-      
-      i {
-        font-size: $font-size-5xl;
-        color: $white;
-        margin-bottom: $spacing-md;
-      }
-      
-      span {
-        display: block;
-        color: $white;
-        font-weight: 500;
-      }
+    button {
+      width: 100%;
     }
+  }
+}
+
+.hero-image {
+  flex: 1;
+}
+
+.image-placeholder {
+  background: linear-gradient(135deg, #e8edf5, #d0d9e8);
+  border-radius: $radius-xl;
+  padding: $space-3xl $space-xl;
+  text-align: center;
+  box-shadow: $shadow-xl;
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: $radius-md;
+  }
+  
+  i {
+    font-size: $font-size-4xl;
+    color: $secondary;
+    margin-bottom: $space-base;
+  }
+  
+  span {
+    display: block;
+    font-weight: $font-weight-medium;
+    color: $primary;
   }
 }

@@ -1,67 +1,103 @@
+// ============================================
+// CARDS
+// ============================================
+
+// Feature Card
 .feature-card {
-  background: $gray-50;
-  padding: $spacing-xl;
-  border-radius: $radius-xl;
+  background: $bg-light;
+  padding: $space-xl;
+  border-radius: $radius-lg;
   text-align: center;
   @include card-hover;
-  
-  .feature-icon i {
-    font-size: $font-size-4xl;
-    color: $primary;
-    margin-bottom: $spacing-md;
-  }
 }
 
-.testimonial-card {
-  background: $white;
-  padding: $spacing-xl;
-  border-radius: $radius-xl;
-  @include card-hover;
+// Pricing Card
+.pricing-card {
+  background: $bg-light;
+  border-radius: $radius-lg;
+  padding: $space-xl;
+  display: flex;
+  flex-direction: column;
+  transition: $transition-normal;
+  position: relative;
   
-  .quote-icon i {
-    font-size: $font-size-3xl;
-    color: $primary;
-    opacity: 0.5;
-    margin-bottom: $spacing-md;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-2xl;
   }
   
-  .testimonial-text {
-    font-style: italic;
-    margin-bottom: $spacing-md;
-  }
-  
-  .stars {
-    color: #FBBF24;
-    margin-bottom: $spacing-md;
-  }
-  
-  .customer-info {
-    display: flex;
-    align-items: center;
-    gap: $spacing-md;
+  &.featured {
+    @include gradient-bg;
+    color: $bg-white;
+    transform: scale(1.05);
     
-    .avatar {
-      width: 50px;
-      height: 50px;
-      background: $primary-gradient;
-      border-radius: 50%;
-      @include flex-center;
-      color: $white;
-      font-weight: 700;
+    .price,
+    .plan-name {
+      color: $bg-white;
+    }
+    
+    .features-list i {
+      color: #a5f3fc;
+    }
+    
+    button {
+      background: $bg-white;
+      color: $primary;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-lg;
+      }
     }
   }
 }
 
-.feature-card {
-  .feature-icon {
-    img {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto $spacing-md;
-    }
-  }
+// Testimonial Card
+.testimonial-card {
+  background: $bg-white;
+  padding: $space-xl;
+  border-radius: $radius-lg;
+  @include card-hover;
+}
+
+// Quote Icon
+.quote-icon i {
+  font-size: $font-size-xl;
+  color: $secondary;
+  opacity: 0.5;
+  margin-bottom: $space-base;
+}
+
+// Stars Rating
+.stars {
+  color: $accent;
+  margin-bottom: $space-base;
+  font-size: $font-size-md;
+}
+
+// Popular Badge
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $accent;
+  color: $bg-white;
+  padding: $space-xs $space-base;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+}
+
+// Demo Box
+.demo-box {
+  width: 100%;
+  overflow: hidden;
   
-  @include respond(mobile) {
-    padding: $spacing-lg;
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
   }
 }
