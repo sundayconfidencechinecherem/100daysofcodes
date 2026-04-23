@@ -1,0 +1,76 @@
+// ============================================================
+// CREATIONS / GALLERY
+// ============================================================
+
+.creations {
+  padding: $spacing-16 0;
+  background: $color-bg-off;
+  
+  @media (min-width: $breakpoint-lg) {
+    padding: $spacing-24 0;
+  }
+}
+
+.gallery-grid {
+  display: grid;
+  gap: $spacing-4;
+  grid-template-columns: 1fr;
+  
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition;
+  }
+  
+  &:hover img {
+    transform: scale(1.05);
+  }
+  
+  &-large {
+    @media (min-width: $breakpoint-md) {
+      grid-column: span 2;
+      aspect-ratio: 16 / 9;
+    }
+  }
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: $spacing-4;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  transform: translateY(100%);
+  transition: transform $transition;
+  
+  .gallery-item:hover & {
+    transform: translateY(0);
+  }
+  
+  h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: $spacing-1;
+  }
+  
+  p {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}

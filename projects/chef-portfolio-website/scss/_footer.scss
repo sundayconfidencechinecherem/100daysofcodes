@@ -1,0 +1,76 @@
+// ============================================================
+// FOOTER
+// ============================================================
+
+.footer {
+  background: $color-bg-off;
+  padding: $spacing-16 0 $spacing-8;
+  border-top: 1px solid $color-border;
+}
+
+.footer-grid {
+  display: grid;
+  gap: $spacing-8;
+  text-align: center;
+  
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(3, 1fr);
+    text-align: left;
+    gap: $spacing-12;
+  }
+}
+
+.footer-brand {
+  .logo {
+    margin-bottom: $spacing-4;
+  }
+  
+  p {
+    font-size: 0.875rem;
+    color: $color-text-muted;
+  }
+}
+
+.footer-links {
+  h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: $spacing-4;
+    color: $color-text-muted;
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2;
+  }
+  
+  a {
+    font-size: 0.875rem;
+    color: $color-text-muted;
+    transition: color $transition;
+    
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
+
+.footer-bottom {
+  margin-top: $spacing-12;
+  padding-top: $spacing-6;
+  border-top: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-2;
+  font-size: 0.75rem;
+  color: $color-text-muted;
+  text-align: center;
+  
+  @media (min-width: $breakpoint-md) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
