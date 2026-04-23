@@ -1,0 +1,86 @@
+// ============================================================
+// PHILOSOPHY SECTION
+// ============================================================
+
+.philosophy {
+  padding: $spacing-16 0;
+  
+  @media (min-width: $breakpoint-lg) {
+    padding: $spacing-24 0;
+  }
+}
+
+.philosophy-grid {
+  display: grid;
+  gap: $spacing-8;
+  
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-16;
+    align-items: center;
+  }
+}
+
+.philosophy-image {
+  position: relative;
+  
+  img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(0.15);
+    box-shadow: $shadow-md;
+  }
+}
+
+.image-badge {
+  position: absolute;
+  bottom: -$spacing-4;
+  right: $spacing-4;
+  background: $color-accent;
+  padding: $spacing-4 $spacing-6;
+  text-align: center;
+  
+  span {
+    font-family: $font-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color-bg;
+    display: block;
+  }
+  
+  small {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color-bg;
+  }
+}
+
+.philosophy-text {
+  color: $color-text-muted;
+  line-height: 1.7;
+  margin-bottom: $spacing-4;
+}
+
+.signature {
+  margin-top: $spacing-8;
+  padding-top: $spacing-6;
+  border-top: 1px solid $color-border;
+  
+  span {
+    display: block;
+  }
+  
+  span:first-child {
+    font-family: $font-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .signature-title {
+    font-size: 0.75rem;
+    color: $color-text-muted;
+    margin-top: $spacing-1;
+  }
+}

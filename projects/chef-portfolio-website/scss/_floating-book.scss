@@ -1,0 +1,22 @@
+// ============================================================
+// FLOATING BOOK BUTTON
+// ============================================================
+
+.float-book {
+  position: fixed;
+  bottom: $spacing-6;
+  right: $spacing-6;
+  background: $color-accent;
+  color: $color-bg;
+  padding: $spacing-3 $spacing-6;
+  font-weight: 600;
+  font-size: 0.875rem;
+  z-index: 99;
+  transition: $transition;
+  box-shadow: $shadow-md;
+  
+  &:hover {
+    transform: translateY(-3px);
+    background: $color-accent-dark;
+  }
+}

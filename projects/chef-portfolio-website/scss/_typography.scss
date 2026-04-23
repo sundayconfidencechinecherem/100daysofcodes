@@ -1,0 +1,53 @@
+// ============================================================
+// TYPOGRAPHY
+// ============================================================
+
+.overline {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: $color-accent;
+  margin-bottom: $spacing-4;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.section-title {
+  font-family: $font-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: $spacing-4;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: 3rem;
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    font-size: 3.75rem;
+  }
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: $color-accent;
+  margin: $spacing-6 0;
+}
+
+.divider-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto $spacing-16;
+}
+
+.section-subtitle {
+  color: $color-text-muted;
+  margin-top: $spacing-4;
+}

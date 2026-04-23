@@ -1,0 +1,15 @@
+// ============================================================
+// RESPONSIVE UTILITIES
+// ============================================================
+
+@media (max-width: ($breakpoint-lg - 1px)) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .hide-desktop {
+    display: none;
+  }
+}

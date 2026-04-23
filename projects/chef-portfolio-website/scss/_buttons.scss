@@ -1,0 +1,42 @@
+// ============================================================
+// BUTTONS
+// ============================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  transition: $transition;
+  cursor: pointer;
+  border-radius: 0;
+  
+  &-primary {
+    background: $color-accent;
+    color: $color-bg;
+    
+    &:hover {
+      background: $color-accent-dark;
+      transform: translateY(-2px);
+    }
+  }
+  
+  &-outline {
+    border: 1px solid $color-accent;
+    color: $color-accent;
+    background: transparent;
+    
+    &:hover {
+      background: $color-accent;
+      color: $color-bg;
+      transform: translateY(-2px);
+    }
+  }
+  
+  &-full {
+    width: 100%;
+  }
+}

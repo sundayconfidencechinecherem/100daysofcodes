@@ -1,0 +1,323 @@
+// ============================================================
+// HERO SECTION
+// ============================================================
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a120b 100%);
+  padding-top: $header-height;
+  
+  .container {
+    display: grid;
+    gap: $spacing-8;
+    
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: $spacing-16;
+    }
+  }
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  background-image: url('../assets/images/10.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(0.3);
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(212, 165, 116, 0.15);
+  backdrop-filter: blur(4px);
+  padding: $spacing-2 $spacing-4;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-bottom: $spacing-6;
+  border: 1px solid rgba(212, 165, 116, 0.3);
+}
+
+.hero-title {
+  font-family: $font-serif;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: $spacing-6;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: 4rem;
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    font-size: 5rem;
+  }
+  
+  em {
+    font-style: italic;
+    color: $color-accent;
+  }
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: $color-text-muted;
+  margin-bottom: $spacing-8;
+  max-width: 550px;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: 1.125rem;
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: $spacing-4;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-12;
+}
+
+.hero-stats {
+  display: flex;
+  gap: $spacing-8;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+  
+  &-number {
+    font-family: $font-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: $color-accent;
+    display: block;
+  }
+  
+  &-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color-text-muted;
+  }
+}
+
+// ============================================================
+// HERO IMAGE - CIRCLE STYLE
+// ============================================================
+
+.hero-image {
+  position: relative;
+  display: none;
+  
+  @media (min-width: $breakpoint-lg) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: $shadow-md;
+    transition: transform $transition, box-shadow $transition;
+    border: 3px solid $color-accent;
+    
+    &:hover {
+      transform: scale(1.02);
+      border-color: $color-accent-dark;
+    }
+  }
+  
+  // Decorative ring around circle
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    max-width: calc(450px + 30px);
+    border: 1px solid rgba($color-accent, 0.3);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  // Decorative dots around circle
+  &::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: 10%;
+    width: 8px;
+    height: 8px;
+    background: $color-accent;
+    border-radius: 50%;
+    opacity: 0.6;
+    
+    @media (min-width: $breakpoint-xl) {
+      width: 10px;
+      height: 10px;
+      top: -20px;
+    }
+  }
+}
+
+// ============================================================
+// HERO IMAGE - ALTERNATIVE ROUNDED SQUARE (SOFT MODERN)
+// ============================================================
+
+.hero-image-rounded {
+  position: relative;
+  display: none;
+  
+  @media (min-width: $breakpoint-lg) {
+    display: block;
+  }
+  
+  img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: $shadow-md;
+    transition: transform $transition, box-shadow $transition;
+    margin: 0 auto;
+    display: block;
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: -20px;
+    bottom: -20px;
+    background: rgba($color-accent, 0.05);
+    border-radius: 30px;
+    z-index: -1;
+  }
+}
+
+// ============================================================
+// HERO IMAGE - CIRCLE WITH BADGE OVERLAY
+// ============================================================
+
+.hero-image-badge {
+  position: relative;
+  display: none;
+  
+  @media (min-width: $breakpoint-lg) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: $shadow-md;
+    border: 2px solid rgba($color-accent, 0.5);
+  }
+  
+  .image-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: $color-accent;
+    color: $color-bg;
+    padding: $spacing-2 $spacing-4;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: $shadow-sm;
+  }
+}
+
+// ============================================================
+// HERO IMAGE - PORTRAIT STYLE (RECTANGLE WITH SOFT CORNERS)
+// ============================================================
+
+.hero-image-portrait {
+  position: relative;
+  display: none;
+  
+  @media (min-width: $breakpoint-lg) {
+    display: block;
+  }
+  
+  img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: $shadow-md;
+    transition: transform $transition;
+    margin: 0 auto;
+    display: block;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    width: 100px;
+    height: 100px;
+    border-left: 2px solid $color-accent;
+    border-bottom: 2px solid $color-accent;
+    opacity: 0.5;
+  }
+}
+
+// ============================================================
+// ANIMATION FOR CIRCLE IMAGE
+// ============================================================
+
+@keyframes subtlePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($color-accent, 0.2);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba($color-accent, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba($color-accent, 0);
+  }
+}
+
+.hero-image {
+  img {
+    animation: subtlePulse 3s ease-in-out infinite;
+  }
+}

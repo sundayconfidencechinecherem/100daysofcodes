@@ -1,0 +1,135 @@
+// ============================================================
+// HEADER & NAVIGATION
+// ============================================================
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+}
+
+.navbar {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: $spacing-4 $spacing-6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-5 $spacing-8;
+  }
+}
+
+.logo {
+  font-family: $font-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  
+  span {
+    color: $color-accent;
+  }
+}
+
+.nav-links {
+  display: none;
+  gap: $spacing-8;
+  align-items: center;
+  
+  @media (min-width: $breakpoint-lg) {
+    display: flex;
+  }
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color $transition;
+  position: relative;
+  
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.nav-actions {
+  display: none;
+  
+  @media (min-width: $breakpoint-lg) {
+    display: block;
+  }
+}
+
+.mobile-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  color: $color-text;
+  
+  @media (min-width: $breakpoint-lg) {
+    display: none;
+  }
+}
+
+// Mobile Menu
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 320px;
+  background: $color-surface;
+  z-index: 1100;
+  padding: $spacing-8 $spacing-6;
+  transform: translateX(100%);
+  transition: transform $transition;
+  box-shadow: $shadow-md;
+  
+  &.open {
+    transform: translateX(0);
+  }
+}
+
+.mobile-close {
+  position: absolute;
+  top: $spacing-6;
+  right: $spacing-6;
+  color: $color-text;
+}
+
+.mobile-links {
+  margin-top: $spacing-16;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+  
+  a {
+    font-size: 1.25rem;
+    font-weight: 500;
+    transition: color $transition;
+    
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
+
+.mobile-cta {
+  background: $color-accent;
+  color: $color-bg;
+  padding: $spacing-3 $spacing-6;
+  text-align: center;
+  border-radius: 0;
+  margin-top: $spacing-4;
+}

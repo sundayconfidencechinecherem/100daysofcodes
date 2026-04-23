@@ -1,0 +1,37 @@
+// ============================================================
+// MAIN.SCSS - Chef Portfolio Website
+// ============================================================
+// This file imports all partials in the correct order
+// Compile command: sass scss/main.scss css/style.css --watch
+
+// 1. VARIABLES (Customize everything here)
+@import 'variables';
+
+// 2. RESET (Reset default browser styles)
+@import 'reset';
+
+// 3. UTILITIES (Helper classes)
+@import 'utilities';
+
+// 4. TYPOGRAPHY (Font styles and text utilities)
+@import 'typography';
+
+// 5. BUTTONS (Button components)
+@import 'buttons';
+
+// 6. COMPONENTS & SECTIONS
+@import 'header';
+@import 'hero';
+@import 'philosophy';      
+@import 'gallery';
+@import 'services';
+@import 'testimonials';
+@import 'press';
+@import 'contact';
+@import 'footer';
+@import 'floating-book';
+
+
+//booking page scss
+
+@import 'booking';  
