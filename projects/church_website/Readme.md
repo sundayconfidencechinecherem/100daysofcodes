@@ -16,6 +16,8 @@ This project is currently for demo purposes and showcases my skills as a full-st
 | CSS Grid/Flexbox | Responsive layouts |
 | Google Maps API | Location integration |
 
+-**live link** [Grace Abound Ministry](https://graceaboundministry.netlify.app/)
+
 ## Project Structure
 
 ```
