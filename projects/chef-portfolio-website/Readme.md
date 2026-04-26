@@ -14,6 +14,8 @@ A modern, responsive portfolio website for Chef Bio Michael, an Intercontinental
 | Iconify | SVG icon library |
 | Google Fonts | Typography (Inter + Cormorant Garamond) |
 
+-**live link** [ChefBio Portfolio](https://chefbio.netlify.app/)
+
 ## Project Structure
 
 ```
