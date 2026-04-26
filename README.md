@@ -128,9 +128,9 @@ Here is your corrected Progress Log with **Milestone 1: SaaS Website, Milestone 
 
 | Milestone | Project | Days | Status |
 |-----------|---------|------|--------|
-| Milestone 1 | School Website (EduSmart Academy) | Days 31-40 | 🔄 In Progress |
+| Milestone 1 | School Website (EdBridge) | Days 31-40 | 🔄 In Progress |
 | Milestone 2 | E-commerce Website | Days 41-50 | 📋 Planned |
-| Milestone 3 | Portfolio/Blog Platform | Days 51-60 | 📋 Planned |
+| Milestone 3 | Bloging Platform | Days 51-60 | 📋 Planned |
 
 ---
 
